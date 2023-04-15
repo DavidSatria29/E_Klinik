@@ -31,7 +31,12 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-
+                        <li class="nav-item"><a class="nav-link scroll" aria-current="page" href="#section2">Beranda</a></li>
+                  <li class="nav-item"><a class="nav-link scroll" href="#tentang">About Us</a></li>
+                  <li class="nav-item"><a class="nav-link scroll" href="#berita">Artikel</a></li>
+                  <li class="nav-item"><a class="nav-link scroll" href="#contact">Contact</a></li>
+                  <li class="nav-item"><a class="nav-link scroll" href="#fitur">Feature</a></li>
+                  <li class="nav-item"><a type="button" class="btn btn-primary" href="" style="border-radius: 23px; margin-left: 20px">Cek penyakit</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
