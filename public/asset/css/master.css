@@ -1,0 +1,12 @@
+.nav-link:hover {
+    color: #54b3d6;
+}
+.navbar {
+    height: 100 px;
+}
+.navbar-brand {
+    color: #23408e;
+    font-weight: 900;
+    font-size: 28px;
+    font-family: "Josefin Sans", sans-serif;
+}

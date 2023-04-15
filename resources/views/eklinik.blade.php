@@ -187,7 +187,7 @@
       </div>
     </div>
   </div>
- </section>
+</section>
 
   <section id="berita">
     <div class="container" style="margin-bottom: 100px">
@@ -202,7 +202,7 @@
           <div class="card-body">
               <p class="card-text">Olahraga Cuma 11 Menit per Hari Bisa Turunkan Risiko Kematian Dini.</p>
               <a href="#" class="btn btn-primary btn-sm">Read More</a>
-           </div>
+          </div>
         </div>
       </div>
       <div class="tahu col-lg-4 justify-content-center">
@@ -262,22 +262,24 @@
     <div class="container">
       <div class="row mx-auto mt-5">
         <div class="col-lg-12">
-          <div class="mt-5 mb-3">
-            <label for="exampleFormControlInput1" class="form-label">Name</label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Tulis nama lengkap anda">
-          </div>
-          <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">E-mail Address</label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Alamat E-mail Anda">
-          </div>
-          <div class="mb-3">
-            <label for="exampleFormControlTextarea1" class="form-label">Message</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="10" placeholder="Tulis pesan anda"></textarea>
-          </div>
-          <center>
-            <div class="mb-5 ">
-              <a type="button" class="btn bt-lg btn-primary">Send Message</a>
+          <form action="">
+            <div class="mt-5 mb-3">
+              <label for="exampleFormControlInput1" class="form-label">Name</label>
+              <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Tulis nama lengkap anda">
             </div>
+            <div class="mb-3">
+              <label for="exampleFormControlInput1" class="form-label">E-mail Address</label>
+              <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Alamat E-mail Anda">
+            </div>
+            <div class="mb-3">
+              <label for="exampleFormControlTextarea1" class="form-label">Message</label>
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="10" placeholder="Tulis pesan anda"></textarea>
+            </div>
+            <center>
+              <div class="mb-5 ">
+                <a type="button" class="btn bt-lg btn-primary">Send Message</a>
+              </div>
+          </form>
           </center>
         </div>
       </div>
