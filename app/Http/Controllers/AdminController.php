@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Chat;
@@ -8,12 +9,13 @@ use App\Models\Article;
 
 class AdminController extends Controller
 {
-    public function admin(){
+    public function admin()
+    {
         $users = User::all();
         $chats = Chat::all();
         $article = Article::all();
 
-        return view('admin',compact ('users', 'chats', 'article'));
+        return view('admin', compact('users', 'chats', 'article'));
     }
 
     public function edit($user)
@@ -29,18 +31,19 @@ class AdminController extends Controller
             'nomor' => 'required',
             'alamat' => 'required',
         ]);
-    
+
         // Ambil data user yang ingin diedit berdasarkan $user
         $user = User::where('name', $user)->first();
-    
+
         // Update data user
         $user->update([
             'name' => $validatedData['name'],
             'email' => $validatedData['email'],
             'nomor' => $validatedData['nomor'],
             'alamat' => $validatedData['alamat'],
+            'alamat' => ['role'],
         ]);
-    
+
         return redirect()->route('admin');
     }
     public function deleteuser($user)
@@ -48,13 +51,14 @@ class AdminController extends Controller
         $user = user::where('name', $user)->first();
         return view('edit_create.userdelete', compact('user'));
     }
-    public function destroyuser(user $user){
+    public function destroyuser(user $user)
+    {
         $user->delete();
         return redirect()->route('admin');
-        }
+    }
 
 
-// CHAT
+    // CHAT
     public function editchat($chat)
     {
         $chat = Chat::where('name', $chat)->first();
@@ -84,20 +88,23 @@ class AdminController extends Controller
         $chat = chat::where('name', $chat)->first();
         return view('edit_create.chatdelete', compact('chat'));
     }
-    public function destroychat(chat $chat){
+    public function destroychat(chat $chat)
+    {
         $chat->delete();
         return redirect()->route('admin');
-        }
+    }
 
 
 
 
-// ARTICLE
-    public function createarticle(){
+    // ARTICLE
+    public function createarticle()
+    {
         return view('edit_create.articlecreate');
     }
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
         $validateData = $request->validate([
             'image_path' => 'required',
             'title' => 'required',
@@ -121,17 +128,17 @@ class AdminController extends Controller
             'title' => 'required',
             'content' => 'required',
         ]);
-    
+
         // Ambil data article yang ingin diedit berdasarkan $article
         $article = Article::where('id', $article)->first();
-    
+
         // Update data article
         $article->update([
             'image_path' => $validatedData['image_path'],
             'title' => $validatedData['title'],
             'content' => $validatedData['content'],
         ]);
-    
+
         return redirect()->route('admin');
     }
 
@@ -142,10 +149,9 @@ class AdminController extends Controller
     }
 
 
-    public function destroyarticle(Article $article){
+    public function destroyarticle(Article $article)
+    {
         $article->delete();
         return redirect()->route('admin');
-        }
-
-
+    }
 }

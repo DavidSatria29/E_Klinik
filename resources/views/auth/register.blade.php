@@ -74,7 +74,6 @@
         </div>
     </div>
 </div> --}}
-@endsection
 <link rel="stylesheet" href="{{ asset('asset/css/login.css') }}">
 <!----------------------- Main Container -------------------------->
 
@@ -143,6 +142,17 @@
                         <small id="PesanPass2" class="d-inline-block mt-0"></small>
                     </div>
                     <div class="input-group mb-2">
+                        <input type="number" class="form-control form-control-lg bg-light fs-6 @error('nomor') is-invalid @enderror" placeholder="No Telepon" id="RegTelepon" name="nomor" >
+                        @error('nomor')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                    <div>
+                        <small id="PesanTelepon" class="d-inline-block mt-0"></small>
+                    </div>
+                    <div class="input-group mb-2">
                         <input type="teks" class="form-control form-control-lg bg-light fs-6 @error('alamat') is-invalid @enderror" placeholder="Alamat" id="RegAlamat" name="alamat" >
                         @error('alamat')
                             <span class="invalid-feedback" role="alert">
@@ -167,3 +177,4 @@
     </div>
     <script src="asset/js/Query.js"></script>
     <script src="asset/js/register.js"></script>
+@endsection

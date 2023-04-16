@@ -22,8 +22,8 @@
                   <th>email</th>
                   <th>No Telepon</th>
                   <th>Alamat</th>
+                  <th>Role</th>
                   <th>Aksi</th>
-                  <th>Status</th>
               </tr>
           </thead>
           <tbody>
@@ -33,13 +33,13 @@
                   <td>{{$user->email}}</td>
                   <td>{{$user->nomor}}</td>
                   <td>{{$user->alamat}}</td>
+                  <td>{{$user->role}}</td>
                   <td>
                     <div class="justify-content-between">
                       <a href="{{ route('user.delete',['user' => $user->name]) }}" class="btn btn-danger">Delete</a>
                       <a href="{{ route('edit_create.useredit',['user' => $user->name]) }}" class="btn btn-warning">Edit</a>
                     </div>
                   </td>
-                  <td>Active</td>
               </tr>
               @empty
           <td colspan="6" class="text-center">Tidak ada data...</td>
