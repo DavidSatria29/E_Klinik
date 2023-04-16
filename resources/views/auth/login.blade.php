@@ -29,7 +29,7 @@
                 </div>
                 <form method="POST" action="{{ route('login') }}">
                     @csrf 
-                    <div class="input-group mb-3">
+                    <div class="input-group mb-1">
                         <input type="text" class="form-control form-control-lg bg-light fs-6 @error('email') is-invalid @enderror" value="{{ old('email') }}" id="LoginEmail" placeholder="Email address" name="email" required autocomplete="email" autofocus>
                         @error('email')
                             <span class="invalid-feedback" role="alert">
@@ -37,6 +37,9 @@
                             </span>
                         @enderror
                     </div>
+                        <div class="d-inline-block mt-0">
+                            <small id="pesanEmail"></small>
+                        </div>
                     <div class="input-group mb-1">
                         <input type="password" class="form-control form-control-lg bg-light fs-6 @error('password') is-invalid @enderror" placeholder="Password" id="LogPass" name="password" required autocomplete="current-password" >
                         @error('password')
@@ -45,10 +48,13 @@
                             </span>
                         @enderror
                     </div>
+                        <div>
+                            <small id="PesanPassword" class="d-inline-block mt-0"></small>
+                        </div>
                     <div class="input-group mb-2 d-flex justify-content-between ms-1">
                         <div class="form-check">
                             <input type="checkbox" class="form-check-input" id="remember" name="remember" {{ old('remember') ? 'checked' : '' }}>
-                            <label for="remember" class="form-check-label text-secondary"><small>Remember Me</small></label>
+                            <label for="remember" class="form-check-label text-secondary"><small>{{ __('Remember Me') }}</small></label>
                         </div>
                     </div>
                     <div class=" input-group mb-3 d-flex justify-content-between">
@@ -69,7 +75,7 @@
                     </div>
                 </form>
                 <div class="row">
-                    <small>Don't have account? <a href="{{ route('register') }}">Sign Up</a></small>
+                    <small>{{ __('Dont have Account ?') }}<a href="{{ route('register') }}">{{ __('Sign Up') }}</a></small>
                 </div>
           </div>
         </div>
@@ -79,7 +85,7 @@
     <script src="asset/js/login.js"></script>
 @endsection
 
-// {{-- <div class="container">
+{{-- <div class="container">
 //     <div class="row justify-content-center">
 //         <div class="col-md-8">
 //             <div class="card">
