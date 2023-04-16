@@ -27,23 +27,30 @@
               </tr>
           </thead>
           <tbody>
+            @forelse ($users as $user)
               <tr>
-                  <td>Donna Snider</td>
-                  <td>Aldy@gmail.com</td>
-                  <td>081232414194</td>
-                  <td>Singosari</td>
+                  <td>{{$user->name}}</td>
+                  <td>{{$user->email}}</td>
+                  <td>{{$user->nomor}}</td>
+                  <td>{{$user->alamat}}</td>
                   <td>
                     <div class="justify-content-between">
                       <form action=""> 
                         <button type="submit" class="btn btn-danger me-1">Delete</button>
                       </form>
-                      <form action="">
+                      {{-- <form action="{{ route('edit_create.useredit',['user' => $user->name]) }}" method="POST">
+                        @method('PATCH')
+                        @csrf
                         <button type="submit" class="btn btn-warning">Update</button>
-                      </form>
+                      </form> --}}
+                      <a href="{{ route('edit_create.useredit',['user' => $user->name]) }}" class="btn btn-warning">Edit</a>
                     </div>
                   </td>
                   <td>Active</td>
               </tr>
+              @empty
+          <td colspan="6" class="text-center">Tidak ada data...</td>
+        @endforelse
           </tbody>
       </table>
       </div>
@@ -94,7 +101,7 @@
   <div class="container mt-5">
     <div class="card">
       <div class="card-header">
-        Chat Docter
+        Article
       </div>
       <div class="card-body">
           <table id="example" class="table table-striped" style="width:100%">

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,6 +22,12 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/admin', function () {
-    return view('admin');
-});
+// Route::patch('/admin/{user}', [AdminController::class, 'edit'])
+// ->name('edit_create.useredit');
+
+
+
+Route::get('/admin', [AdminController::class, 'admin'])->name('admin');
+
+Route::get('/admin/{user}/edit', [AdminController::class, 'edit'])->name('edit_create.useredit');
+Route::patch('/admin/{user}', [AdminController::class, 'update'])->name('user.update');
