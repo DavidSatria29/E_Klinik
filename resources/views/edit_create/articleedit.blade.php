@@ -33,7 +33,7 @@
             name="content">{{ old('content') ?? $article->content}}</textarea>
           </div>
 
-          <button type="submit" class="btn btn-primary mb-2">Update</button>
+          <button type="submit" class="btn btn-primary mb-2 mt-1">Update</button>
         </form>
   
       </div>

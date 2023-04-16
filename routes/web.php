@@ -25,6 +25,12 @@ Route::patch('/admin/user/{user}', [AdminController::class, 'update'])->name('us
 Route::get('/admin/{user}/deleteuser', [AdminController::class, 'deleteuser'])->name('user.delete');
 Route::delete('/admin/{user}/deleteuser', [AdminController::class, 'destroyuser'])->name('user.destroy');
 
+// contact
+Route::get('/admin/{contact}/editcontact', [AdminController::class, 'editcontact'])->name('edit_create.contactedit');
+Route::patch('/admin/contact/{contact}', [AdminController::class, 'updatecontact'])->name('contact.update');
+Route::get('/admin/{contact}/deletecontact', [AdminController::class, 'deletecontact'])->name('contact.delete');
+Route::delete('/admin/{contact}/deletecontact', [AdminController::class, 'destroycontact'])->name('contact.destroy');
+
 // chat
 Route::get('/admin/{chat}/editchat', [AdminController::class, 'editchat'])->name('edit_create.chatedit');
 Route::patch('/admin/chat/{chat}', [AdminController::class, 'updatechat'])->name('chat.update');
