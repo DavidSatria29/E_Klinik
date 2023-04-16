@@ -1,4 +1,4 @@
-@extends('master')
+@extends('layouts.master')
 <style>
   .container-user{
     margin-top: 3cm;
