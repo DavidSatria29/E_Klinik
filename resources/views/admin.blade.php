@@ -90,6 +90,7 @@
   </div>
 </div>
 </section>
+
 <section>
   <div class="container mt-5">
     <div class="card">
@@ -103,7 +104,7 @@
           <table id="example" class="table table-striped" style="width:100%">
               <thead>
                   <tr>
-                      <th>ID Gambar</th>
+                      <th>ID</th>
                       <th>Gambar</th>
                       <th>Judul</th>
                       <th>Isi</th>
@@ -121,6 +122,46 @@
                       <div class="justify-content-between">
                       <a href="{{ route('article.delete',['article' => $article->id]) }}" class="btn btn-danger">Delete</a>
                       <a href="{{ route('edit_create.articleedit',['article' => $article->id]) }}" class="btn btn-warning">Update</a>
+                    </div>
+                  </td>
+                </tr>
+                @empty
+        <td colspan="6" class="text-center">Tidak ada data...</td>
+      @endforelse
+              </tbody>
+          </table>
+      </div>
+  </div>
+</div>
+</section>
+
+<section>
+  <div class="container mt-5">
+    <div class="card">
+      <div class="card-header">
+        Hubungi
+      </div>
+      <div class="card-body">
+          <table id="example" class="table table-striped" style="width:100%">
+              <thead>
+                  <tr>
+                      <th>name</th>
+                      <th>email</th>
+                      <th>message</th>
+                      <th>aksi</th>
+
+                  </tr>
+              </thead>
+              <tbody>
+                @forelse ($contact as $contact)
+                <tr>
+                    <td>{{$contact->name}}</td>
+                    <td>{{$contact->email}}</td>
+                    <td>{{$contact->message}}</td>
+                    <td>
+                      <div class="justify-content-between">
+                      <a href="{{ route('contact.delete',['contact' => $contact->name]) }}" class="btn btn-danger">Delete</a>
+                      <a href="{{ route('edit_create.contactedit',['contact' => $contact->name]) }}" class="btn btn-warning">Update</a>
                     </div>
                   </td>
                 </tr>

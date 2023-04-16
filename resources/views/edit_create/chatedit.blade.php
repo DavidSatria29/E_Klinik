@@ -40,7 +40,7 @@
             id="name_doctor" name="name_doctor" value="{{ old('name_doctor') ?? $chat->name_doctor }}">
           </div>
 
-          <button type="submit" class="btn btn-primary mb-2">Update</button>
+          <button type="submit" class="btn btn-primary mb-2 mt-1">Update</button>
         </form>
   
       </div>

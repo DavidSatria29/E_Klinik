@@ -5,6 +5,8 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Chat;
 use App\Models\Article;
+use App\Models\Contact;
+
 
 class AdminController extends Controller
 {
@@ -12,10 +14,13 @@ class AdminController extends Controller
         $users = User::all();
         $chats = Chat::all();
         $article = Article::all();
+        $contact = contact::all();
 
-        return view('admin',compact ('users', 'chats', 'article'));
+        return view('admin',compact ('users', 'chats', 'article', 'contact'));
     }
 
+
+    // USER
     public function edit($user)
     {
         $user = User::where('name', $user)->first();
@@ -140,12 +145,46 @@ class AdminController extends Controller
         $article = Article::where('id', $article)->first();
         return view('edit_create.articledelete', compact('article'));
     }
-
-
     public function destroyarticle(Article $article){
         $article->delete();
         return redirect()->route('admin');
         }
 
+
+// CONTACT
+    public function editcontact($contact)
+    {
+        $contact = contact::where('name', $contact)->first();
+        return view('edit_create.contactedit', compact('contact'));
+    }
+    public function updatecontact(Request $request, $contact)
+    {
+        $validatedData = $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'message' => 'required',
+        ]);
+    
+        // Ambil data contact yang ingin diedit berdasarkan $contact
+        $contact = contact::where('name', $contact)->first();
+    
+        // Update data contact
+        $contact->update([
+            'name' => $validatedData['name'],
+            'email' => $validatedData['email'],
+            'message' => $validatedData['message'],
+        ]);
+    
+        return redirect()->route('admin');
+    }
+    public function deletecontact($contact)
+    {
+        $contact = contact::where('name', $contact)->first();
+        return view('edit_create.contactdelete', compact('contact'));
+    }
+    public function destroycontact(contact $contact){
+        $contact->delete();
+        return redirect()->route('admin');
+        }
 
 }
