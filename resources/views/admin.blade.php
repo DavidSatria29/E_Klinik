@@ -1,4 +1,4 @@
-@extends('master')
+@extends('layouts.master')
 <style>
   .container-user{
     margin-top: 3cm;
@@ -35,14 +35,7 @@
                   <td>{{$user->alamat}}</td>
                   <td>
                     <div class="justify-content-between">
-                      <form action=""> 
-                        <button type="submit" class="btn btn-danger me-1">Delete</button>
-                      </form>
-                      {{-- <form action="{{ route('edit_create.useredit',['user' => $user->name]) }}" method="POST">
-                        @method('PATCH')
-                        @csrf
-                        <button type="submit" class="btn btn-warning">Update</button>
-                      </form> --}}
+                      <a href="{{ route('user.delete',['user' => $user->name]) }}" class="btn btn-danger">Delete</a>
                       <a href="{{ route('edit_create.useredit',['user' => $user->name]) }}" class="btn btn-warning">Edit</a>
                     </div>
                   </td>
@@ -83,9 +76,7 @@
                       <td>{{$chat->name_doctor}}</td>
                       <td>
                         <div class="justify-content-between">
-                        <form action=""> 
-                          <button type="submit" class="btn btn-danger me-1">Delete</button>
-                        </form>
+                        <a href="{{ route('chat.delete',['chat' => $chat->name]) }}" class="btn btn-danger">Delete</a>
                         <a href="{{ route('edit_create.chatedit',['chat' => $chat->name]) }}" class="btn btn-warning">Update</a>
                       </div>
                     </td>
@@ -104,11 +95,15 @@
     <div class="card">
       <div class="card-header">
         Article
+        <div class="d-flex justify-content-end align-items-center">
+          <a href="{{ route('edit_create.articlecreate') }}" class="btn btn-primary">Tambah Artikel</a>
+        </div>
       </div>
       <div class="card-body">
           <table id="example" class="table table-striped" style="width:100%">
               <thead>
                   <tr>
+                      <th>ID Gambar</th>
                       <th>Gambar</th>
                       <th>Judul</th>
                       <th>Isi</th>
@@ -116,21 +111,22 @@
                   </tr>
               </thead>
               <tbody>
-                  <tr>
-                      <td>Jantungr</td>
-                      <td>Bahaya Penyakit Jantung</td>
-                      <td>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam eius odit libero culpa. Porro corporis iure, repellendus repudiandae aut beatae. A, repellat ex odit fugiat molestiae vitae laborum! Fugiat, dicta!</td>
-                      <td>
-                        <div class="justify-content-between">
-                        <form action=""> 
-                          <button type="submit" class="btn btn-danger">Delete</button>
-                        </form>
-                        <form action="" class="d-inline-block">
-                          <button type="submit" class="btn btn-warning">Update</button>
-                        </form>
-                      </div>
-                    </td>
-                  </tr>
+                @forelse ($article as $article)
+                <tr>
+                    <td>{{$article->id}}</td>
+                    <td>{{$article->image_path}}</td>
+                    <td>{{$article->title}}</td>
+                    <td>{{$article->content}}</td>
+                    <td>
+                      <div class="justify-content-between">
+                      <a href="{{ route('article.delete',['article' => $article->id]) }}" class="btn btn-danger">Delete</a>
+                      <a href="{{ route('edit_create.articleedit',['article' => $article->id]) }}" class="btn btn-warning">Update</a>
+                    </div>
+                  </td>
+                </tr>
+                @empty
+        <td colspan="6" class="text-center">Tidak ada data...</td>
+      @endforelse
               </tbody>
           </table>
       </div>

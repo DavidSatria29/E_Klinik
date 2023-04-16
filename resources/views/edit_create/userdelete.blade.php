@@ -10,7 +10,7 @@
       <div class="col-md-8 col-xl-6">
         <h1>Edit User</h1>
         <hr>
-        <form action="{{ route('user.update',['user' => $user->name]) }}" method="POST">
+        <form action="{{ route('user.delete',['user' => $user->name]) }}" method="POST">
           @method('PATCH')
           @csrf
           <div class="form-group">
@@ -39,7 +39,9 @@
             <textarea class="form-control" id="alamat" rows="3"
             name="alamat">{{ old('alamat') ?? $user->alamat}}</textarea>
           </div>
-          <button type="submit" class="btn btn-primary mb-2">Update</button>
+          
+          <button type="submit" class="btn btn-danger mb-2 mt-1">Delete</button>
+          <a href="{{ route('admin') }}" class="btn btn-warning">Kembali</a>
         </form>
   
       </div>

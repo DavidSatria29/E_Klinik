@@ -10,8 +10,8 @@
       <div class="col-md-8 col-xl-6">
         <h1>Edit User</h1>
         <hr>
-        <form action="{{ route('chat.update',['chat' => $chat->name]) }}" method="POST">
-          @method('PATCH')
+        <form action="{{ route('chat.destroy',['chat' => $chat->name]) }}" method="POST">
+          @method('DELETE')
           @csrf
           <div class="form-group">
             <label for="name">Name</label>
@@ -40,7 +40,8 @@
             id="name_doctor" name="name_doctor" value="{{ old('name_doctor') ?? $chat->name_doctor }}">
           </div>
 
-          <button type="submit" class="btn btn-primary mb-2">Update</button>
+          <button type="submit" class="btn btn-danger mb-2 mt-1">Delete</button>
+          <a href="{{ route('admin') }}" class="btn btn-warning">Kembali</a>
         </form>
   
       </div>

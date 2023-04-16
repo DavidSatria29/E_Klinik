@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Article;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('eklinik');
+        $article = Article::all();
+        return view('eklinik', ['article' => $article]);
+    }
+
+    public function show($article)
+    {
+        $value = Article::findOrFail($article);
+        return view('article', ['article' => $value]);
     }
 }

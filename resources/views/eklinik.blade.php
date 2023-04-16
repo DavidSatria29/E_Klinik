@@ -1,4 +1,4 @@
-@extends('master')
+@extends('layouts.master')
 
 @section('content')
 {{-- <section class="navigasi">
@@ -187,8 +187,8 @@
       </div>
     </div>
   </div>
-</section>
 
+</section>
   <section id="berita">
     <div class="container" style="margin-bottom: 100px">
       <div class="kami row mt-3 justify-content-center">
@@ -196,34 +196,25 @@
         <hr color="blue" size="6px"  align="center">
       </div>
     <div class="row mt-5">
+      @forelse ($article as $value)
       <div class="tahu col-lg-4 justify-content-center">
         <div class="card" style="width: 22rem;">
-          <img src="{{ asset('asset\img\article1.jpeg') }}" class="card-img-top" alt="...">
+          <img src="{{ $value->image_path }}" class="card-img-top" alt="...">
           <div class="card-body">
-              <p class="card-text">Olahraga Cuma 11 Menit per Hari Bisa Turunkan Risiko Kematian Dini.</p>
-              <a href="#" class="btn btn-primary btn-sm">Read More</a>
+              <p class="card-text">{{ $value->title }}</p>
+              <a href="{{ route('article.show', ['article'=>$value->id]) }}" class="btn btn-primary btn-sm">Read More</a>
           </div>
         </div>
       </div>
-      <div class="tahu col-lg-4 justify-content-center">
+      @empty
+        <div class="tahu col-lg-4 justify-content-center">
         <div class="card" style="width: 22rem;">
-          <img src="{{ asset('asset\img\article2.jpeg') }}" class="card-img-top" alt="...">
           <div class="card-body">
-              <p class="card-text">Benarkah Susu Kedelai Bisa Picu Endometriosis ?</p>
-              <a href="#" class="btn btn-primary btn-sm">Read More</a>
-           </div>
+              <p class="card-text">Tidak ada data</p>
+          </div>
         </div>
       </div>
-      <div class="tahu col-lg-4 justify-content-center">
-        <div class="card" style="width: 22rem;">
-          <img src="{{ asset('asset\img\article3.jpeg') }}" class="card-img-top" alt="...">
-          <div class="card-body">
-              <p class="card-text">Disebut Jadi 'Superfood', Apakah Kelor Aman dari Efek Samping ? </p>
-              <a href="#" class="btn btn-primary btn-sm">Read More</a>
-           </div>
-        </div>
-      </div>
-    </div>
+      @endforelse
     <div class="row mt-5 justify-content-center">
   </div>
   <div class="row mt-3">
