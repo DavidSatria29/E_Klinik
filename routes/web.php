@@ -22,12 +22,12 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-// Route::patch('/admin/{user}', [AdminController::class, 'edit'])
-// ->name('edit_create.useredit');
-
-
-
 Route::get('/admin', [AdminController::class, 'admin'])->name('admin');
 
+// user
 Route::get('/admin/{user}/edit', [AdminController::class, 'edit'])->name('edit_create.useredit');
-Route::patch('/admin/{user}', [AdminController::class, 'update'])->name('user.update');
+Route::patch('/admin/user/{user}', [AdminController::class, 'update'])->name('user.update');
+
+// chat
+Route::get('/admin/{chat}/editchat', [AdminController::class, 'editchat'])->name('edit_create.chatedit');
+Route::patch('/admin/chat/{chat}', [AdminController::class, 'updatechat'])->name('chat.update');

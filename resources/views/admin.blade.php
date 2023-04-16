@@ -75,22 +75,24 @@
                   </tr>
               </thead>
               <tbody>
+                @forelse ($chats as $chat)
                   <tr>
-                      <td>Donna Snider</td>
-                      <td>Dok apakah saya akan mati?</td>
-                      <td>mungkin saja</td>
-                      <td>Dr. Aldy</td>
+                      <td>{{$chat->name}}</td>
+                      <td>{{$chat->question}}</td>
+                      <td>{{$chat->answer}}</td>
+                      <td>{{$chat->name_doctor}}</td>
                       <td>
                         <div class="justify-content-between">
                         <form action=""> 
                           <button type="submit" class="btn btn-danger me-1">Delete</button>
                         </form>
-                        <form action="">
-                          <button type="submit" class="btn btn-warning">Update</button>
-                        </form>
+                        <a href="{{ route('edit_create.chatedit',['chat' => $chat->name]) }}" class="btn btn-warning">Update</a>
                       </div>
                     </td>
                   </tr>
+                  @empty
+          <td colspan="6" class="text-center">Tidak ada data...</td>
+        @endforelse
               </tbody>
           </table>
       </div>

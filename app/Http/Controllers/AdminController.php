@@ -3,35 +3,19 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Chat;
+
 
 
 
 class AdminController extends Controller
 {
     public function admin(){
-        $users = user::all();
-        return view('admin',['users'=>$users]);
+        $users = User::all();
+        $chats = Chat::all();
+        return view('admin',compact ('users', 'chats'));
     }
 
-    // public function edit(Request $request, $user){
-    //     $request->validate([
-    //         'name' => 'required|string|max:255',
-    //         'email' => 'required|email|max:255',
-    //         'nomor' => 'required|numeric',
-    //         'alamat' => 'required|string|max:255',
-    //     ]);
-        
-    //     // Ambil data user yang ingin diedit berdasarkan $user    
-    //     $user = User::find($user);
-    //     $user->name = $request->name;
-    //     $user->email = $request->email;
-    //     $user->nomor = $request->nomor;
-    //     $user->alamat = $request->alamat;
-    //     $user->save();
-    
-    //     // Return halaman edituser.blade.php dengan data user yang ingin diedit
-    //     return redirect()->route('admin')->with('success', 'User data updated successfully');
-    // }
     public function edit($user)
     {
         $user = User::where('name', $user)->first();
@@ -59,29 +43,35 @@ class AdminController extends Controller
     
         return redirect()->route('admin');
     }
-    
-    
 
-    // public function edit(Request $request, $user) {
-    //     $validatedData = $request->validate([
-    //         'name' => 'required|string|max:255',
-    //         'email' => 'required|email|max:255',
-    //         'nomor' => 'required|numeric',
-    //         'alamat' => 'required|string|max:255',
-    //     ]);
+    public function editchat($chat)
+    {
+        $chat = Chat::where('name', $chat)->first();
+        return view('edit_create.chatedit', compact('chat'));
+    }
+
+    public function updatechat(Request $request, $chat)
+    {
+        $validatedData = $request->validate([
+            'name' => 'required',
+            'question' => 'required',
+            'answer' => 'required',
+            'name_doctor' => 'required',
+        ]);
     
-    //     // Update data user
-    //     $user->update([
-    //         'name' => $validatedData['name'],
-    //         'email' => $validatedData['email'],
-    //         'nomor' => $validatedData['nomor'],
-    //         'alamat' => $validatedData['alamat'],
-    //     ]);
-       
+        // Ambil data chat yang ingin diedit berdasarkan $chat
+        $chat = Chat::where('name', $chat)->first();
     
-    //     // Return halaman edituser.blade.php dengan data user yang ingin diedit
-    //     return redirect()->route('admin')->with('success', 'User data updated successfully');
-    // }
+        // Update data chat
+        $chat->update([
+            'name' => $validatedData['name'],
+            'question' => $validatedData['question'],
+            'answer' => $validatedData['answer'],
+            'name_doctor' => $validatedData['name_doctor'],
+        ]);
+    
+        return redirect()->route('admin');
+    }
 
 
 }
