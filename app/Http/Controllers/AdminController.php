@@ -46,7 +46,6 @@ class AdminController extends Controller
             'email' => $validatedData['email'],
             'nomor' => $validatedData['nomor'],
             'alamat' => $validatedData['alamat'],
-            'alamat' => ['role'],
         ]);
 
         return redirect()->route('admin');

@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\DoctorController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,6 +21,7 @@ Route::get('/', function () {
 });
 Route::get('/admin', [AdminController::class, 'admin'])->name('admin');
 
+// -- ADMIN --
 // user
 Route::get('/admin/{user}/edit', [AdminController::class, 'edit'])->name('edit_create.useredit');
 Route::patch('/admin/user/{user}', [AdminController::class, 'update'])->name('user.update');
@@ -44,6 +47,12 @@ Route::get('/admin/create', [AdminController::class, 'createarticle'])->name('ed
 Route::get('/admin/{article}/deletearticle', [AdminController::class, 'deletearticle'])->name('article.delete');
 Route::delete('/admin/{article}/deletearticle', [AdminController::class, 'destroyarticle'])->name('article.destroy');
 Route::post('/admin', [AdminController::class, 'store'])->name('article.store');
+
+//  == DOCTOR --
+Route::get('/doctor', [DoctorController::class, 'doctor'])->name('doctor');
+
+Route::get('/doctor/{chat}/editchat', [DoctorController::class, 'editchat'])->name('edit_create.chateditdoctor');
+Route::patch('/doctor/chat/{chat}', [DoctorController::class, 'updatechat'])->name('chat.updatedoctor');
 
 
 Auth::routes();
