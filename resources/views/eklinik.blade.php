@@ -200,9 +200,7 @@
         </div>
       </div>
       @endforelse
-    <div class="row mt-5 justify-content-center">
-  </div>
-  <div class="row mt-3">
+  {{-- <div class="row mt-3">
     <div class="tahu col-lg-4 justify-content-center">
       <div class="card" style="width: 22rem;">
         <img src="{{ asset('asset\img\article4.jpeg') }}" class="card-img-top" alt="...">
@@ -230,14 +228,15 @@
          </div>
       </div>
     </div>
+  </div> --}}
   </div>
-    </div>
-  </section>
+</section>
   
   <section class="ending mt-5" id="contact">
-
+    <hr color="blue" size="6px"  align="center">
+    <h1 class="text-center">Hubungi Kami</h1>
     <div class="container">
-      <div class="row mx-auto mt-5">
+      <div class="row mx-auto mt-2">
         <div class="col-lg-12">
           <form action="{{ route('contact.store') }}" method="POST">
             @csrf
