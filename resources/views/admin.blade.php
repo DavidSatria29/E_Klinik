@@ -61,6 +61,7 @@
               <thead>
                   <tr>
                       <th>Name</th>
+                      <th>Email</th>
                       <th>pertanyaan</th>
                       <th>Jawaban</th>
                       <th>Nama Dokter</th>
@@ -71,6 +72,7 @@
                 @forelse ($chats as $chat)
                   <tr>
                       <td>{{$chat->name}}</td>
+                      <td>{{$chat->email}}</td>
                       <td>{{$chat->question}}</td>
                       <td>{{$chat->answer}}</td>
                       <td>{{$chat->name_doctor}}</td>

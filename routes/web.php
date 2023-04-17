@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ChatController;
+use App\Http\Controllers\HomeController;
+use App\Models\Chat;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,6 +20,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+//admin
 Route::get('/admin', [AdminController::class, 'admin'])->name('admin');
 
 // user
@@ -45,10 +49,13 @@ Route::get('/admin/{article}/deletearticle', [AdminController::class, 'deleteart
 Route::delete('/admin/{article}/deletearticle', [AdminController::class, 'destroyarticle'])->name('article.destroy');
 Route::post('/admin', [AdminController::class, 'store'])->name('article.store');
 
-
+//Authentication
 Auth::routes();
+//home
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/home/{article}', [HomeController::class, 'show'])->name('article.show');
+Route::post('/home', [HomeController::class, 'store'])->name('contact.store');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/home/{article}', [App\Http\Controllers\HomeController::class, 'show'])->name('article.show');
-
-Route::get('/admin', [AdminController::class, 'admin'])->name('admin');
+//chat user
+Route::get('/chat', [ChatController::class, 'index'])->name('chat');
+Route::post('/chat', [ChatController::class, 'store'])->name('chat.store');

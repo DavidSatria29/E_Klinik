@@ -19,6 +19,12 @@
             class="form-control @error('name') is-invalid @enderror"
             id="name" name="name" value="{{ old('name') ?? $chat->name }}">
           </div>
+          <div class="form-group">
+            <label for="name">Email</label>
+            <input type="email"
+            class="form-control @error('name') is-invalid @enderror"
+            id="name" name="email" value="{{ old('email') ?? $chat->email }}">
+          </div>
 
           <div class="form-group">
             <label for="question">question</label>
