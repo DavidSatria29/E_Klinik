@@ -72,6 +72,7 @@ class AdminController extends Controller
     {
         $validatedData = $request->validate([
             'name' => 'required',
+            'email' => 'required|email',
             'question' => 'required',
             'answer' => 'required',
             'name_doctor' => 'required',
@@ -81,6 +82,7 @@ class AdminController extends Controller
         // Update data chat
         $chat->update([
             'name' => $validatedData['name'],
+            'email' => $validatedData['email'],
             'question' => $validatedData['question'],
             'answer' => $validatedData['answer'],
             'name_doctor' => $validatedData['name_doctor'],

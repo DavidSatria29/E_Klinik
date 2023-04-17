@@ -36,6 +36,7 @@
                 <li class="nav-item"><a class="nav-link scroll" href="#contact">Contact</a></li>
                 <li class="nav-item"><a class="nav-link scroll" href="#fitur">Feature</a></li>
                 <li class="nav-item"><a type="button" class="btn btn-primary" href="" style="border-radius: 23px; margin-left: 20px">Cek penyakit</a></li>
+                <li class="nav-item"><a type="button" class="btn btn-primary" href="{{ route('chat') }}" style="border-radius: 23px; margin-left: 20px">Chat Dokter</a></li>
                   </ul>
 
                   <!-- Right Side Of Navbar -->

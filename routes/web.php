@@ -3,6 +3,9 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DoctorController;
 
+use App\Http\Controllers\ChatController;
+use App\Http\Controllers\HomeController;
+use App\Models\Chat;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,6 +22,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+//admin
 Route::get('/admin', [AdminController::class, 'admin'])->name('admin');
 
 // -- ADMIN --
@@ -55,9 +59,13 @@ Route::get('/doctor/{chat}/editchat', [DoctorController::class, 'editchat'])->na
 Route::patch('/doctor/chat/{chat}', [DoctorController::class, 'updatechat'])->name('chat.updatedoctor');
 
 
+//Authentication
 Auth::routes();
+//home
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/home/{article}', [HomeController::class, 'show'])->name('article.show');
+Route::post('/home', [HomeController::class, 'store'])->name('contact.store');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/home/{article}', [App\Http\Controllers\HomeController::class, 'show'])->name('article.show');
-
-Route::get('/admin', [AdminController::class, 'admin'])->name('admin');
+//chat user
+Route::get('/chat', [ChatController::class, 'index'])->name('chat');
+Route::post('/chat', [ChatController::class, 'store'])->name('chat.store');

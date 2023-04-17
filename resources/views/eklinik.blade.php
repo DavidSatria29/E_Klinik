@@ -1,31 +1,16 @@
 @extends('layouts.master')
 
 @section('content')
-{{-- <section class="navigasi">
-    <nav class="navbar fixed-top shadow navbar-expand-lg " style="background-color: #ffffff">
-      <div class="container-fluid justify-content-center">
-        <a class="navbar-brand rounded mr-auto" href="#">E-KLINIK</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent " aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse flex-grow-0" id="navbarSupportedContent">
-          <ul class="navbar-nav mb-3 mb-lg-0 text-center">
-            <li class="nav-item"><a class="nav-link scroll" aria-current="page" href="#section2">Beranda</a></li>
-            <li class="nav-item"><a class="nav-link scroll" href="#tentang">About Us</a></li>
-            <li class="nav-item"><a class="nav-link scroll" href="#berita">Artikel</a></li>
-            <li class="nav-item"><a class="nav-link scroll" href="#contact">Contact</a></li>
-            <li class="nav-item"><a class="nav-link scroll" href="#fitur">Feature</a></li>
-            <li class="nav-item"><a type="button" class="btn btn-primary me-auto" href="" style="border-radius: 23px; margin-left: 20px">Cek penyakit</a></li>
-          </ul>
-       </div>
-      </div>
-   </nav>
-</section> --}}
 
 <section class="beranda d-flex align-items-center" id="section2">
     <div class="container">
       <div class="row justify-content-center d-flex py-5">
         <div class="isi col-8 col-sm-6 mt-5 ms-5 ">
+      @if (session()->has('pesan'))
+        <div class="alert alert-success">
+          {{ session()->get('pesan') }}
+        </div>
+      @endif
         <br><br><br><h3 class="mt-5">Welcome To E-Klinik</h3>
           <h6>Website Pelayanan Kesehatan yang terkini dengan berbagai fitur menarik dan tenaga kesehatan yang terpercaya</h6>
           <a type="button" class="btn btn-primary btn-lg mt-2 col-3" href="Login">Login</a><br><br>
@@ -250,28 +235,30 @@
   </section>
   
   <section class="ending mt-5" id="contact">
+
     <div class="container">
       <div class="row mx-auto mt-5">
         <div class="col-lg-12">
-          <form action="">
+          <form action="{{ route('contact.store') }}" method="POST">
+            @csrf
             <div class="mt-5 mb-3">
               <label for="exampleFormControlInput1" class="form-label">Name</label>
-              <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Tulis nama lengkap anda">
+              <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Tulis nama lengkap anda" name="name">
             </div>
             <div class="mb-3">
               <label for="exampleFormControlInput1" class="form-label">E-mail Address</label>
-              <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Alamat E-mail Anda">
+              <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Alamat E-mail Anda" name="email">
             </div>
             <div class="mb-3">
               <label for="exampleFormControlTextarea1" class="form-label">Message</label>
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="10" placeholder="Tulis pesan anda"></textarea>
+              <textarea type="text" class="form-control" name="message" id="exampleFormControlTextarea1" rows="10" placeholder="Tulis pesan anda"></textarea>
             </div>
             <center>
               <div class="mb-5 ">
-                <a type="button" class="btn bt-lg btn-primary">Send Message</a>
+                <button type="submit" class="btn btn-primary">Submit</button>
               </div>
+            </center>
           </form>
-          </center>
         </div>
       </div>
     </div>
