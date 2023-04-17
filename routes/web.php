@@ -1,11 +1,11 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CertaintyFactorController;
 use App\Http\Controllers\DoctorController;
 
 use App\Http\Controllers\ChatController;
 use App\Http\Controllers\HomeController;
-use App\Models\Chat;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -54,7 +54,6 @@ Route::post('/admin', [AdminController::class, 'store'])->name('article.store');
 
 //  == DOCTOR --
 Route::get('/doctor', [DoctorController::class, 'doctor'])->name('doctor');
-
 Route::get('/doctor/{chat}/editchat', [DoctorController::class, 'editchat'])->name('edit_create.chateditdoctor');
 Route::patch('/doctor/chat/{chat}', [DoctorController::class, 'updatechat'])->name('chat.updatedoctor');
 
@@ -69,3 +68,6 @@ Route::post('/home', [HomeController::class, 'store'])->name('contact.store');
 //chat user
 Route::get('/chat', [ChatController::class, 'index'])->name('chat');
 Route::post('/chat', [ChatController::class, 'store'])->name('chat.store');
+
+//penyakit
+Route::get('/cek', [CertaintyFactorController::class, 'index'])->name('check');

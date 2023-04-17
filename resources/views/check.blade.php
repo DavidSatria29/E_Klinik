@@ -1,7 +1,16 @@
 @extends('layouts.master')
-
+<style>
+  .container-user{
+    margin-top: 3cm;
+  }
+  footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+  </style>
 @section('content')
-<div class="container">
+<div class="container container-user">
     <div class="card">
         <div class="card-header text-center">
             Pilih Gejala Yang Sesuai!

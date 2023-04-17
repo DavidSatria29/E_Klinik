@@ -3,15 +3,16 @@
   .container-doctor{
     margin-top: 3cm;
   }
-  </style>
+</style>
 @section('content')
 <div class="container container-doctor">
+  <h1 class="text-center">Chat Dokter</h1>
     @if (session()->has('pesan'))
       <div class="alert alert-success">
         {{ session()->get('pesan') }}
       </div>
     @endif
-    <div class="row mx-auto mt-5">
+    <div class="row mx-auto mt-2">
         <div class="col-lg-12">
           <form action="{{ route('chat.store') }}" method="POST">
             @csrf
