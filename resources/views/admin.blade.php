@@ -53,8 +53,8 @@
 <section>
   <div class="container mt-5">
     <div class="card">
-      <div class="card-header">
-        Chat Docter
+      <div class="card-header text-center">
+        Chat Doctor
       </div>
       <div class="card-body">
           <table id="example" class="table table-striped" style="width:100%">
@@ -96,12 +96,10 @@
 <section>
   <div class="container mt-5">
     <div class="card">
-      <div class="card-header">
-        Article
-        <div class="d-flex justify-content-end align-items-center">
-          <a href="{{ route('edit_create.articlecreate') }}" class="btn btn-primary">Tambah Artikel</a>
+      <div class="card-header text-center">
+        Artikel
+          <a href="{{ route('edit_create.articlecreate') }}" class="btn btn-primary float-end">Tambah Artikel</a>
         </div>
-      </div>
       <div class="card-body">
           <table id="example" class="table table-striped" style="width:100%">
               <thead>
@@ -140,8 +138,8 @@
 <section>
   <div class="container mt-5">
     <div class="card">
-      <div class="card-header">
-        Hubungi
+      <div class="card-header text-center">
+        Hubungi Kami
       </div>
       <div class="card-body">
           <table id="example" class="table table-striped" style="width:100%">
