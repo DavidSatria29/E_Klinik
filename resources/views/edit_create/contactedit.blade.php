@@ -1,13 +1,18 @@
 @extends('layouts.master')
-<style>
-    .container-contact{
-      margin-top: 3cm;
-    }
-    </style>
 @section('content')
-<div class="container pt-4 bg-white">
+<style>
+  #container-artikel{
+    margin-top: 3cm;
+  }
+  footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+  </style>
+<div class="container pt-4 bg-white" id="container-artikel">
     <div class="row">
-      <div class="col-md-8 col-xl-6">
+      <div class="col-12">
         <h1>Edit Contact</h1>
         <hr>
         <form action="{{ route('contact.update',['contact' => $contact->name]) }}" method="POST">
@@ -33,6 +38,8 @@
             name="message">{{ old('message') ?? $contact->message}}</textarea>
           </div>
           <button type="submit" class="btn btn-primary mb-2 mt-1">Update</button>
+          <a href="{{ route('admin') }}" class="btn btn-warning">Kembali</a>
+
         </form>
   
       </div>

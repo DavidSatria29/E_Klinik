@@ -1,13 +1,18 @@
 @extends('layouts.master')
-<style>
-    .container-contact{
-      margin-top: 3cm;
-    }
-    </style>
 @section('content')
-<div class="container pt-4 bg-white">
+<style>
+  #container-artikel{
+    margin-top: 3cm;
+  }
+  footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+  </style>
+<div class="container pt-4 bg-white" id="container-artikel">
     <div class="row">
-      <div class="col-md-8 col-xl-6">
+      <div class="col-12">
         <h1>Edit contact</h1>
         <hr>
         <form action="{{ route('contact.delete',['contact' => $contact->name]) }}" method="POST">

@@ -1,13 +1,18 @@
 @extends('layouts.master')
-<style>
-    .container-user{
-      margin-top: 3cm;
-    }
-    </style>
 @section('content')
-<div class="container pt-4 bg-white">
+<style>
+  #container-artikel{
+    margin-top: 3cm;
+  }
+  footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+  </style>
+<div class="container pt-4 bg-white" id="container-artikel">
     <div class="row">
-      <div class="col-md-8 col-xl-6">
+      <div class="col-12">
         <h1>Edit User</h1>
         <hr>
         <form action="{{ route('user.update',['user' => $user->name]) }}" method="POST">
@@ -35,11 +40,20 @@
           </div>
 
           <div class="form-group">
+            <label for="role">Role</label>
+            <input type="text"
+            class="form-control @error('role') is-invalid @enderror"
+            id="role" name="role" value="{{ old('role') ?? $user->role }}">
+          </div>
+
+          <div class="form-group">
             <label for="alamat">Alamat</label>
             <textarea class="form-control" id="alamat" rows="3"
             name="alamat">{{ old('alamat') ?? $user->alamat}}</textarea>
           </div>
           <button type="submit" class="btn btn-primary mb-2 mt-1">Update</button>
+          <a href="{{ route('admin') }}" class="btn btn-warning">Kembali</a>
+
         </form>
   
       </div>
