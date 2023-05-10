@@ -1,8 +1,18 @@
 @extends('layouts.master')
 @section('content')
-<div class="container pt-4 bg-white">
+<style>
+    #container-artikel{
+      margin-top: 3cm;
+    }
+    footer{
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+    </style>
+<div class="container pt-4 bg-white" id="container-artikel">
     <div class="row">
-        <div class="col-md-8 col-xl-6">
+        <div class="col-12">
             <h1>Tambah Artikel</h1>
             <hr>
             @if($errors->any())
@@ -37,7 +47,9 @@
                 <div class="text-danger mt-1">{{ $message }}</div>
                 @enderror
             </div>
-            <button type="submit" class="btn btn-primary mt-2 mb-2">Daftar</button>
+            <button type="submit" class="btn btn-primary mt-2 mb-2">Tambah</button>
+            <a href="{{ route('admin') }}" class="btn btn-warning">Kembali</a>
+
             </form>
         </div>
     </div>

@@ -15,10 +15,10 @@ class AdminController extends Controller
     {
         $users = User::all();
         $chats = Chat::all();
-        $article = Article::all();
-        $contact = contact::all();
+        $articles = Article::all();
+        $contacts = contact::all();
 
-        return view('admin', compact('users', 'chats', 'article', 'contact'));
+        return view('admin', compact('users', 'chats', 'articles', 'contacts'));
     }
 
 
@@ -34,6 +34,7 @@ class AdminController extends Controller
             'name' => 'required',
             'email' => 'required',
             'nomor' => 'required',
+            'role' => 'required',
             'alamat' => 'required',
         ]);
 
@@ -45,6 +46,7 @@ class AdminController extends Controller
             'name' => $validatedData['name'],
             'email' => $validatedData['email'],
             'nomor' => $validatedData['nomor'],
+            'role' => $validatedData['role'],
             'alamat' => $validatedData['alamat'],
         ]);
 
