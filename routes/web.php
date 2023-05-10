@@ -71,3 +71,5 @@ Route::post('/chat', [ChatController::class, 'store'])->name('chat.store');
 
 //penyakit
 Route::get('/cek', [CertaintyFactorController::class, 'index'])->name('check');
+Route::post('/cf-user', [CertaintyFactorController::class, 'cfUser'])->name('CF.user');
+Route::post('/hasil', [CertaintyFactorController::class, 'hasilCF'])->name('CF.hasil');

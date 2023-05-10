@@ -3,7 +3,13 @@
     .container-user{
       margin-top: 3cm;
     }
-    </style>
+      footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+</style>
+
 @section('content')
 <div class="container pt-4 bg-white">
     <div class="row">
