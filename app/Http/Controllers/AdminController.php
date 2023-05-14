@@ -21,6 +21,38 @@ class AdminController extends Controller
         return view('admin', compact('users', 'chats', 'articles', 'contacts'));
     }
 
+    public function adminuser()
+    {
+        $users = User::all();
+
+
+        return view('adminuser', compact('users'));
+    }
+
+    public function adminchat()
+    {
+        $chats = Chat::all();
+
+
+        return view('adminchat', compact('Chats'));
+    }
+
+    public function adminarticle()
+    {
+        $articles = Article::all();
+
+
+        return view('adminarticle', compact('articles'));
+    }
+
+    public function admincontact()
+    {
+        $contacts = Contact::all();
+
+
+        return view('admincontact', compact('contacts'));
+    }
+
 
     // USER
     public function edit($user)
