@@ -13,4 +13,6 @@ class Contact extends Model
         'email',
         'message',
     ];
+
+    protected $table = "contacts";
 }
