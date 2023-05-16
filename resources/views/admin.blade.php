@@ -1,12 +1,11 @@
 @extends('layouts.adminmaster')
 @section('content')
+@section('title', 'Halaman Admin')
+@section('Dashboard', 'active')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
   </head>
   <style>
-    #container-artikel{
-      margin-top: 3cm;
-    }
     footer{
       position:static;
       bottom: 0;
@@ -345,6 +344,7 @@
       </div>
     </div>
   </div>
+  <br>
 
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>

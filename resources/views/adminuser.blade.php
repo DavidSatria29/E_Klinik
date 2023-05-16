@@ -1,12 +1,14 @@
 @extends('layouts.adminmaster')
 @section('content')
+@section('title', 'Data User')
+@section('User', 'active')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
 </head>
 
 <div class="container" id="container-artikel">
 <div class="row">
-  <div class="col-md-5 mt-4">
+  <div class="col-md-12 mt-4">
     <div class="card">
       <div class="card-header">
         <h6 class="mb-0">User</h6>

@@ -34,7 +34,7 @@ class AdminController extends Controller
         $chats = Chat::all();
 
 
-        return view('adminchat', compact('Chats'));
+        return view('adminchat', compact('chats'));
     }
 
     public function adminarticle()
@@ -52,7 +52,6 @@ class AdminController extends Controller
 
         return view('admincontact', compact('contacts'));
     }
-
 
     // USER
     public function edit($user)
