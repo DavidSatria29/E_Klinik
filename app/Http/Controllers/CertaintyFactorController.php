@@ -273,7 +273,7 @@ class CertaintyFactorController extends Controller
                     return explode(", ", $item);
                 })
                 ->toArray();
-            return view('hasilCF', compact('hasil', 'nama_penyakit', 'saran_pencegahan', 'saran_obat'));
+            return view('cek_kesehatan.hasilCF', compact('hasil', 'nama_penyakit', 'saran_pencegahan', 'saran_obat'));
         }
     }
 }
