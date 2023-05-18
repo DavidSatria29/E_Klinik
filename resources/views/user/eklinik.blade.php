@@ -344,132 +344,29 @@
                 <h1>What Say Our Patients!</h1>
             </div>
             <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
-                <div class="testimonial-item text-center">
-                    <img class="img-fluid bg-light rounded-circle p-2 mx-auto mb-4" src="{{ asset('asset/img/sholum.jpg') }}" style="width: 100px; height: 100px;">
+                @forelse ($article as $value)
+                    <div class="testimonial-item text-center">
+                    <img class="img-fluid bg-lighte p-2 mx-auto mb-4" src="{{ asset('asset/img/team-4.jpg') }}" style="width: 200px; height: 200px;">
                     <div class="testimonial-text rounded text-center p-4">
-                        <p>E-klinik sangat memudahkan saya untuk berkonsultasi dengan doktor mengenai penyakit-penyakit yang pernah alami tanpa perlu mendatangi mereka langsung. Sayapun dapat melakukan
-                            konsultasi sembari melakukan aktivitas rutin saya
-                        </p>
-                        <h5 class="mb-1">Abdullah Sholum</h5>
-                        <span class="fst-italic">Penggaccha Handal</span>
+                        <h5 class="mb-1">{{ $value->title }}</h5>
+                        <a href="{{ route('article.show', ['article'=>$value->id]) }}" class="btn btn-success btn-sm">Read More</a>
+                    </div>
+                    </div>
+                @empty
+                <div class="tahu col-lg-4 justify-content-center">
+                    <div class="card" style="width: 22rem;">
+                    <div class="card-body">
+                        <p class="card-text">Tidak ada data</p>
+                    </div>
                     </div>
                 </div>
-                <div class="testimonial-item text-center">
-                    <img class="img-fluid bg-light rounded-circle p-2 mx-auto mb-4" src="{{ asset('asset/img/Enanto.jpg') }}" style="width: 100px; height: 100px;">
-                    <div class="testimonial-text rounded text-center p-4">
-                        <p>Para dokter yang melayani sangat ramah dan kompeten. Penjelasan mereka pun sangat mudah dipahami</p>
-                        <h5 class="mb-1">Enanto Harun Satrio</h5>
-                        <span class="fst-italic">Pembuat Stiker</span>
-                    </div>
-                </div>
-                <div class="testimonial-item text-center">
-                    <img class="img-fluid bg-light rounded-circle p-2 mx-auto mb-4" src="{{ asset('asset/img/Ardha.jpg') }}" style="width: 100px; height: 100px;">
-                    <div class="testimonial-text rounded text-center p-4">
-                        <p>Aplikasi E-Klinik ini sangat praktis, dan mudah untuk digunakan</p>
-                        <h5 class="mb-1">Ardha</h5>
-                        <span class="fst-italic">Gamer</span>
-                    </div>
-                </div>
+                @endforelse
             </div>
         </div>
     </div>
     <!-- Testimonial End -->
 
     <!-- Article Start -->
-    <div class="container mt-5 mb-5">
-        <div class="row">
-            <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                <p class="d-inline-block border rounded-pill py-1 px-4">Article</p>
-            </div>
-            <h1 class="mb-5 font-weight-bold text-center">News Today</h1>
-            <div class="col-12">
-                  <!--image slider start-->
-                    <div class="slider">
-                        <div class="slides">
-                        <!--radio buttons start-->
-                        <input type="radio" name="radio-btn" id="radio1">
-                        <input type="radio" name="radio-btn" id="radio2">
-                        <input type="radio" name="radio-btn" id="radio3">
-                        <input type="radio" name="radio-btn" id="radio4">
-                        <!--radio buttons end-->
-                        <!--slide images start-->
-                        <div class="slide first">
-                            <div class="card border-1 py-3 px-4">
-                                <div class="row justify-content-center">
-                                    <img src="{{ asset('asset/img/article1.jpeg') }}" class="img-fluid profile-pic mt-3">
-                                </div>
-                                <p class="content mb-5 mx-2">Olahraga Cuma 11 Menit per Hari Bisa Turunkan Risiko Kematian Dini.</p>
-                                <center><a href="#" class="btn btn-primary btn-sm" style="width: 30%;">Read More</a></center>
-                            </div>
-                        </div>
-                        <div class="slide first">
-                            <div class="card border-1 py-3 px-4">
-                                <div class="row justify-content-center">
-                                    <img src="{{ asset('asset/img/article2.jpeg') }}" class="img-fluid profile-pic mt-3">
-                                </div>
-                                <p class="content mb-5 mx-2">Benarkah Susu Kedelai Bisa Picu Endometriosis ?.</p>
-                                <center><a href="#" class="btn btn-primary btn-sm" style="width: 30%;">Read More</a></center>
-                            </div>
-                        </div>
-                        <div class="slide">
-                            <div class="card border-1 py-3 px-4">
-                                <div class="row justify-content-center">
-                                    <img src="{{ asset('asset/img/article3.jpeg') }}" class="img-fluid profile-pic mt-3">
-                                </div>
-                                <p class="content mb-5 mx-2">Disebut Jadi 'Superfood', Apakah Kelor Aman dari Efek Samping ?</p>
-                                <center><a href="#" class="btn btn-primary btn-sm" style="width: 30%;">Read More</a></center>
-                            </div>
-                        </div>
-                        <div class="slide">
-                            <div class="card border-1 py-3 px-4">
-                                <div class="row justify-content-center">
-                                    <img src="{{ asset('asset/img/article4.jpeg') }}" class="img-fluid profile-pic mt-3">
-                                </div>
-                                <p class="content mb-5 mx-2">8 Gejala Batu Ginjal yang Tak Boleh Disepelekan</p>
-                                <center><a href="#" class="btn btn-primary btn-sm" style="width: 30%;">Read More</a></center>
-                            </div>
-                        </div>
-                        <div class="slide">
-                            <div class="card border-1 py-3 px-4">
-                                <div class="row justify-content-center">
-                                    <img src="{{ asset('asset/img/article5.jpeg') }}" class="img-fluid profile-pic mt-3">
-                                </div>
-                                <p class="content mb-5 mx-2">Cara Terapi Uap untuk Mengencerkan Lendir di Paru-paru</p>
-                                <center><a href="#" class="btn btn-primary btn-sm" style="width: 30%;">Read More</a></center>
-                            </div>
-                        </div>
-                        <div class="slide">
-                            <div class="card border-1 py-3 px-4">
-                                <div class="row justify-content-center">
-                                    <img src="{{ asset('asset/img/article6.jpeg') }}" class="img-fluid profile-pic mt-3">
-                                </div>
-                                <p class="content mb-5 mx-2">Studi Temukan Gula Nol Kalori Tak Selalu Sehat, Bisa Picu Stroke</p>
-                                <center><a href="#" class="btn btn-primary btn-sm" style="width: 30%;">Read More</a></center>
-                            </div>
-                        </div>
-                        <!--slide images end-->
-                        <!--automatic navigation start-->
-                        <div class="navigation-auto">
-                            <div class="auto-btn1"></div>
-                            <div class="auto-btn2"></div>
-                            <div class="auto-btn3"></div>
-                            <div class="auto-btn4"></div>
-                        </div>
-                        <!--automatic navigation end-->
-                        </div>
-                        <!--manual navigation start-->
-                        <div class="navigation-manual">
-                        <label for="radio1" class="manual-btn"></label>
-                        <label for="radio2" class="manual-btn"></label>
-                        <label for="radio3" class="manual-btn"></label>
-                        <label for="radio4" class="manual-btn"></label>
-                        </div>
-                        <!--manual navigation end-->
-                    </div>
-                    <!--image slider end-->
-            </div>
-        </div>
-    </div>
     <!-- Article End -->
 
   {{-- <section id="berita">
