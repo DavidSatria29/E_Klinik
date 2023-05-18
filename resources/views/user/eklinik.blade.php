@@ -54,7 +54,7 @@
                     <div class="owl-carousel-item position-relative">
                         <img class="img-fluid" src="{{ asset('asset/img/carousel-1.jpg') }}" alt="">
                         <div class="owl-carousel-text">
-                            <img class="img-fluid" src="{{ asset('asset/img/logo4.png') }}" alt="">
+                            <img class="img-fluid" src="{{ asset('asset/img/logo6.png') }}" alt="">
                         </div>
                     </div>
                     <div class="owl-carousel-item position-relative">

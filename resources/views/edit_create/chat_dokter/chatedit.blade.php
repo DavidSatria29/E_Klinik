@@ -50,7 +50,14 @@
           </div>
 
           <button type="submit" class="btn btn-primary mb-2 mt-1">Update</button>
-          <a href="{{ route('admin') }}" class="btn btn-warning mb-2 mt-1 ms-1">Kembali</a>
+          @if(auth()->check())
+          @if(auth()->user()->role == 'admin')
+            <a href="{{ route('admin') }}" class="btn btn-warning mb-2 mt-1 ms-1">Kembali</a>
+          @elseif(auth()->user()->role == 'doctor')
+            <a href="{{ route('doctor') }}" class="btn btn-warning mb-2 mt-1 ms-1">Kembali</a>
+          @endif
+        @endif
+        
 
         </form>
   
