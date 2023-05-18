@@ -1,7 +1,9 @@
-@extends('layouts.master')
+@extends('layouts.navbarbaru')
 <style>
-  .container-user{
+  .container-dokter{
     margin-top: 3cm;
+    padding: 0;
+    min-height: 100vh;
   }
   footer{
     position: fixed;
@@ -18,7 +20,7 @@
       {{ session()->get('pesan') }}
     </div>
   @endif
-  <div class="container mt-5">
+  <div class="container container-dokter mt-5">
     <div class="card">
       <div class="card-header">
         Chat Doctor

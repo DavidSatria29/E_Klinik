@@ -17,8 +17,18 @@
             <div class="col-lg-6 p-5 wow fadeIn" data-wow-delay="0.1s">
                 <h1 class="display-4 text-white mb-5">Welcome to E-Klinik</h1>
                 <h4 class="display-8 text-white mb-5">Website Pelayanan Kesehatan yang terkini dengan berbagai fitur menarik dan tenaga kesehatan yang terpercaya</h4>
-                <a type="button" class="btn btn-light btn-lg col-3 mb-5" href="" style="border-radius: 50px;"><span style="color: blue;"><b>Login</b></span></a>
-                <div class="row g-4">
+                @guest
+                  @if (Route::has('login'))
+                    <a type="button" class="btn btn-light btn-lg col-3 mb-5" href="{{ route('login') }}" style="border-radius: 50px;"><span style="color: blue;"><b>Login</b></span></a>
+                  @endif
+                  @if (Route::has('register'))
+                    <a type="button" class="btn btn-light btn-lg col-3 mb-5" href="{{ route('register') }}" style="border-radius: 50px;"><span style="color: blue;"><b>Register</b></span></a>
+                  @endif
+                  @else
+                    <a type="button" class="btn btn-light btn-lg col-3 mb-5" href="" style="border-radius: 50px;"><span style="color: blue;"><b>HI, {{ Auth::user()->name }}</b></span></a>
+                @endguest
+
+                    <div class="row g-4">
                     <div class="col-sm-4">
                         <div class="border-start border-light ps-4">
                             <h2 class="text-white mb-1" data-toggle="counter-up">123</h2>
@@ -398,22 +408,23 @@
   --}}
 
     <!-- Contact us Start -->
-    <div class="container-xxl bg-dark py-5" style="margin-bottom: -5%;">
+    <div class="container-fluid bg-dark py-5" style="margin-bottom:-3%;">
       <div class="container">
         <div class="row g-5">
           <div class="col-lg-12 wow fadeInUp" data-wow-delay="0.5s">
             <center><p class="d-inline-block border rounded-pill py-1 px-4 text-light">Contact Us</p></center>
               <div class="bg-light rounded h-100 d-flex align-items-center p-5 mb-3">
-                  <form style="width: 100%;">
+                  <form action="{{ route('contact.store') }}" method="POST" style="width: 100%;">
+                    @csrf
                     <div class="row g-3 justify-content-center">
                       <div class="col-12 col-sm-6">
-                        <input type="text" class="form-control border-0" placeholder="Your Name" style="height: 55px;">
+                        <input type="text" class="form-control border-0" placeholder="Your Name" name="name" style="height: 55px;">
                       </div>
                       <div class="col-12 col-sm-6">
-                        <input type="email" class="form-control border-0" placeholder="Your Email" style="height: 55px;">
+                        <input type="email" class="form-control border-0" placeholder="Your Email" name="email" style="height: 55px;">
                       </div>
                       <div class="col-12">
-                        <textarea class="form-control border-0" rows="15" placeholder="Write Your Message"></textarea>
+                        <textarea class="form-control border-0" rows="15" placeholder="Write Your Message" name="message"></textarea>
                       </div>
                       <div class="col-12">
                         <center><button class="btn btn-primary w-50 py-3" type="submit">Send Message</button></center>

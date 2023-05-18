@@ -65,18 +65,6 @@
                 <a href="/chat" class="nav-item nav-link @yield('chat')">Chat Dokter</a>
                 <a href="/home/hubungi" class="nav-item nav-link @yield('hubungi')">Hubungi Kami</a>
                 <a href="/home/team" class="nav-item nav-link @yield('team')">Team</a>
-
-
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                    <div class="dropdown-menu rounded-0 rounded-bottom m-0">
-                        <a href="feature.html" class="dropdown-item">Feature</a>
-                        <a href="team.html" class="dropdown-item">Our Developer</a>
-                        <a href="appointment.html" class="dropdown-item">Contact Us</a>
-                        <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                        <a href="404.html" class="dropdown-item">404 Page</a>
-                    </div>
-                </div>
             </div>
             <a href="/cek" class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block">Health Check<i class="fa fa-arrow-right ms-3"></i></a>
         </div>

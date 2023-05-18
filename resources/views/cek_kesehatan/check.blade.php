@@ -1,8 +1,9 @@
-@extends('layouts.master')
+@extends('layouts.navbarbaru')
 <style>
   .container-user{
-    margin-top: 2cm;
-    margin-bottom: 2cm;
+    margin-top: 3cm;
+    padding: 0;
+    min-height: 100vh;
   }
   .check{
     font-size: 12px;
@@ -27,6 +28,8 @@
             </div>
           </div>
         </div>
+        {{-- @empty
+        <td colspan="6" class="text-center">Tidak ada data...</td> --}}
         @endforeach
       </div>
       <div class="text-center mb-3">

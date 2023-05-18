@@ -1,15 +1,12 @@
-@extends('layouts.master')
+@extends('layouts.adminmaster')
 @section('content')
 <style>
   #container-artikel{
     margin-top: 3cm;
   }
-  footer{
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-  }
   </style>
+@section('title', 'Data User')
+@section('User', 'active')
 <div class="container pt-4 bg-white" id="container-artikel">
     <div class="row">
       <div class="col-12">
@@ -46,7 +43,7 @@
           </div>
           
           <button type="submit" class="btn btn-danger mb-2 mt-1">Delete</button>
-          <a href="{{ route('admin') }}" class="btn btn-warning">Kembali</a>
+          <a href="{{ route('admin') }}" class="btn btn-warning mb-2 mt-1 ms-1">Kembali</a>
         </form>
   
       </div>

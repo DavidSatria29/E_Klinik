@@ -23,14 +23,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// -- USER --
-Route::middleware(['auth', 'multiple-login:user'])->group(function () {
-    //penyakit
-    Route::get('/cek', [CertaintyFactorController::class, 'index'])->name('check');
-    Route::post('/cf-user', [CertaintyFactorController::class, 'cfUser'])->name('CF.user');
-    Route::post('/hasil', [CertaintyFactorController::class, 'hasilCF'])->name('CF.hasil');
-});
-
 // -- ADMIN --
 Route::middleware(['auth', 'multiple-login:admin'])->group(function () {
     Route::get('/admin', [AdminController::class, 'admin'])->name('admin');
@@ -63,16 +55,18 @@ Route::middleware(['auth', 'multiple-login:admin'])->group(function () {
     Route::get('/admin/{article}/deletearticle', [AdminController::class, 'deletearticle'])->name('article.delete');
     Route::delete('/admin/{article}/deletearticle', [AdminController::class, 'destroyarticle'])->name('article.destroy');
     Route::post('/admin', [AdminController::class, 'store'])->name('article.store');
+});
 
+// -- USER --
+Route::middleware(['auth', 'multiple-login:user;admin'])->group(function () {
     //penyakit
     Route::get('/cek', [CertaintyFactorController::class, 'index'])->name('check');
     Route::post('/cf-user', [CertaintyFactorController::class, 'cfUser'])->name('CF.user');
     Route::post('/hasil', [CertaintyFactorController::class, 'hasilCF'])->name('CF.hasil');
 });
-    
 
 // -- DOCTOR
-Route::middleware(['auth', 'multiple-login:doctor'])->group(function () {
+Route::middleware(['auth', 'multiple-login:doctor;admin'])->group(function () {
     Route::get('/doctor', [DoctorController::class, 'doctor'])->name('doctor');
     Route::get('/doctor/{chat}/editchat', [DoctorController::class, 'editchat'])->name('edit_create.chateditdoctor');
     Route::patch('/doctor/chat/{chat}', [DoctorController::class, 'updatechat'])->name('chat.updatedoctor');

@@ -1,7 +1,9 @@
-@extends('layouts.master')
+@extends('layouts.navbarbaru')
 <style>
   .container-hasil{
     margin-top: 3cm;
+    padding: 0;
+    min-height: 100vh;
   }
   .font{
     font-size: 12px;
@@ -12,7 +14,7 @@
   <div class="card">
     <div class="card-header text-center"> Hasil Diagnosa</div>
     <div class="row mt-3">
-      @foreach ($nama_penyakit as $index => $nama)
+      @forelse ($nama_penyakit as $index => $nama)
       <div class="col-6 col-sm-4 ">
         <div class="card mb-3 mx-auto justify-content-center" style="width: 20rem;">
           <p class="text-center">{{ $nama }}</p>
@@ -42,7 +44,9 @@
           </div>
         </div>
       </div>
-      @endforeach
+      @empty
+      <p class="text-center">Anda Tidak Bergejala, Silahkan periksakan diri anda segera</p>
+      @endforelse
     </div>
   </div>
 </div>
