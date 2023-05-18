@@ -1,10 +1,14 @@
-@extends('layouts.master')
+@extends('layouts.navbarbaru')
 <style>
   .container-doctor{
-    margin-top: 3cm;
+  margin-top: 3cm;
+  padding: 0;
+  min-height: 100vh;
   }
 </style>
 @section('content')
+@section('title', 'Chat Dokter')
+@section('chat', 'active')
 <div class="container container-doctor">
   <h1 class="text-center">Chat Dokter</h1>
     @if (session()->has('pesan'))

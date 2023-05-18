@@ -18,7 +18,7 @@ class AdminController extends Controller
         $articles = Article::all();
         $contacts = contact::all();
 
-        return view('admin', compact('users', 'chats', 'articles', 'contacts'));
+        return view('admin.admin', compact('users', 'chats', 'articles', 'contacts'));
     }
 
     public function adminuser()
@@ -26,7 +26,7 @@ class AdminController extends Controller
         $users = User::all();
 
 
-        return view('adminuser', compact('users'));
+        return view('admin.adminuser', compact('users'));
     }
 
     public function adminchat()

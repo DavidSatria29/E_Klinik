@@ -22,7 +22,37 @@ class HomeController extends Controller
     public function index()
     {
         $article = Article::all();
-        return view('eklinik', ['article' => $article]);
+        return view('user.eklinik', ['article' => $article]);
+    }
+
+    public function about()
+    {
+        $article = Article::all();
+        return view('user.about', ['article' => $article]);
+    }
+
+    public function team()
+    {
+        $article = Article::all();
+        return view('user.team', ['article' => $article]);
+    }
+
+    public function service()
+    {
+        $article = Article::all();
+        return view('user.service', ['article' => $article]);
+    }
+
+    public function hubungi()
+    {
+        $article = Article::all();
+        return view('user.hubungi', ['article' => $article]);
+    }
+
+    public function testimoni()
+    {
+        $article = Article::all();
+        return view('user.testimonial', ['article' => $article]);
     }
 
     public function show($article)

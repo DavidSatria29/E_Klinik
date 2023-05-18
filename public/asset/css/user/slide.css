@@ -1,0 +1,340 @@
+@keyframes slidein {
+    0% {
+        top: -400px;
+        opacity: 0;
+   }
+    100% {
+        opacity: 1;
+        top: 0px;
+   }
+}
+@keyframes slideout {
+    0% {
+        top: 0;
+        opacity: 1;
+   }
+    100% {
+        top: -400px;
+        opacity: 0;
+   }
+}
+/* body {
+    background: #eee;
+    font-family: "Tahoma";
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+} */
+body #scene {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    width: 100%;
+    height: 400px;
+    position: relative;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background-color: #fff;
+    overflow: hidden;
+}
+body #scene #left-zone {
+    background: #fff;
+    height: 75%;
+    flex-grow: 0;
+    display: flex;
+    width: 350px;
+    align-items: center;
+    justify-content: left;
+}
+body #scene #left-zone .list {
+    display: flex;
+    list-style: none;
+    align-content: stretch;
+    flex-direction: column;
+    flex-grow: 1;
+    margin: 0;
+    padding: 0;
+}
+body #scene #left-zone .list li.item input[type="radio"] {
+    display: none;
+}
+body #scene #left-zone .list li.item input[type="radio"] ~ label {
+    display: block;
+    opacity: 0.5;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+}
+body #scene #left-zone .list li.item input[type="radio"] ~ label:first-letter {
+    text-transform: uppercase;
+}
+body #scene #left-zone .list li.item input[type="radio"] ~ label:hover {
+    opacity: 0.75;
+    cursor: pointer;
+}
+body #scene #left-zone .list li.item input[type="radio"] ~ label.label_chat:before {
+    content: " ";
+    display: block;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    margin-left: 15px;
+    background-image: url('/icon/live-chat.png');
+    background-position: center;
+    background-size: 75% 75%;
+    background-repeat: no-repeat;
+}
+body #scene #left-zone .list li.item input[type="radio"] ~ label.label_pharmacy:before {
+    content: " ";
+    display: block;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    margin-left: 15px;
+    background-image: url('/icon/pharmacy.png');
+    background-position: center;
+    background-size: 75% 75%;
+    background-repeat: no-repeat;
+}
+body #scene #left-zone .list li.item input[type="radio"] ~ label.label_check:before {
+    content: " ";
+    display: block;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    margin-left: 15px;
+    background-image: url('/icon/graph.png');
+    background-position: center;
+    background-size: 75% 75%;
+    background-repeat: no-repeat;
+}
+body #scene #left-zone .list li.item input[type="radio"] ~ label.label_deliv:before {
+    content: " ";
+    display: block;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    margin-left: 15px;
+    background-image: url('/icon/scooter.png');
+    background-position: center;
+    background-size: 75% 75%;
+    background-repeat: no-repeat;
+}
+body #scene #left-zone .list li.item input[type="radio"] ~ .content {
+    position: absolute;
+    left: 350px;
+    top: -400px;
+    width: 650px;
+    height: 400px;
+    animation-duration: 0.75s;
+    animation-name: slideout;
+    animation-timing-function: ease-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+body #scene #left-zone .list li.item input[type="radio"] ~ .content.content_chat .picto {
+    height: 80px;
+    width: 80px;
+    background-image: url('/icon/live-chat.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+body #scene #left-zone .list li.item input[type="radio"] ~ .content.content_chat h1 {
+    color: #54b3d6;
+}
+body #scene #left-zone .list li.item input[type="radio"] ~ .content.content_drug .picto {
+    height: 80px;
+    width: 80px;
+    background-image: url('/icon/pharmacy.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+body #scene #left-zone .list li.item input[type="radio"] ~ .content.content_drug h1 {
+    color: #54b3d6;
+}
+body #scene #left-zone .list li.item input[type="radio"] ~ .content.content_check .picto {
+    height: 80px;
+    width: 80px;
+    background-image: url('/icon/graph.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+body #scene #left-zone .list li.item input[type="radio"] ~ .content.content_check h1 {
+    color: #54b3d6;
+}
+body #scene #left-zone .list li.item input[type="radio"] ~ .content.content_deliv .picto {
+    height: 80px;
+    width: 80px;
+    background-image: url('/icon/scooter.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+body #scene #left-zone .list li.item input[type="radio"] ~ .content.content_deliv h1 {
+    color: #54b3d6;
+}
+body #scene #left-zone .list li.item input[type="radio"] ~ .content h1:first-letter {
+    text-transform: uppercase;
+}
+body #scene #left-zone .list li.item input[type="radio"] ~ .content p {
+    max-width: 80%;
+    text-align: start;
+}
+body #scene #left-zone .list li.item input[type="radio"]:checked ~ label {
+    opacity: 1;
+    animation: all 1s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+body #scene #left-zone .list li.item input[type="radio"]:checked ~ label.label_chat {
+    color: #54b3d6;
+    border-right: solid 4px #54b3d6;
+}
+body #scene #left-zone .list li.item input[type="radio"]:checked ~ label.label_pharmacy {
+    color: #54b3d6;
+    border-right: solid 4px #54b3d6;
+}
+body #scene #left-zone .list li.item input[type="radio"]:checked ~ label.label_check {
+    color: #54b3d6;
+    border-right: solid 4px #54b3d6;
+}
+body #scene #left-zone .list li.item input[type="radio"]:checked ~ label.label_deliv {
+    color: #54b3d6;
+    border-right: solid 4px #54b3d6;
+}
+body #scene #left-zone .list li.item input[type="radio"]:checked ~ .content {
+    animation-duration: 0.75s;
+    animation-name: slidein;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+body #scene #middle-border {
+    background-color: #eee;
+    height: 75%;
+    flex-grow: 1;
+    max-width: 2px;
+    z-index: 0;
+}
+body #scene #right-zone {
+    background: #fff;
+    height: 100%;
+    flex-grow: 2;
+}
+
+@media (max-width: 992px){
+    body #scene {
+        display: flex;
+        align-items: center;
+        justify-content: left;
+        width: 100%;
+        height: 400px;
+        position: relative;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        background-color: #fff;
+        overflow: hidden;
+    }
+    body #scene #left-zone .list li.item input[type="radio"] ~ label {
+    display: block;
+    opacity: 0.5;
+    font-size: 0px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+
+}
+body #scene #left-zone {
+    background: #fff;
+    height: 75%;
+    flex-grow: 0;
+    display: flex;
+    width: 100px;
+    align-items: center;
+    justify-content: left;
+}
+body #scene #left-zone .list li.item input[type="radio"] ~ .content p {
+    max-width: 80%;
+    font-size: 15px;
+    text-align: start;
+}
+body #scene #right-zone {
+    background: #fff;
+    height: 100%;
+    flex-grow: 2;
+}
+body #scene #left-zone .list li.item input[type="radio"] ~ .content {
+    position: absolute;
+    left: 120px;
+    top: -400px;
+    width: 300px;
+    height: 400px;
+    animation-duration: 0.75s;
+    animation-name: slideout;
+    animation-timing-function: ease-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+body #scene #left-zone .list li.item input[type="radio"] ~ .content.content_chat .picto {
+    height: 70px;
+    width: 70px;
+    background-image: url('/icon/live-chat.png');
+    background-position: start;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+body #scene #left-zone .list li.item input[type="radio"] ~ .content.content_chat h1 {
+    color: #54b3d6;
+    font-size: 30px;
+}
+body #scene #left-zone .list li.item input[type="radio"] ~ .content.content_drug .picto {
+    height: 70px;
+    width: 70px;
+    background-image: url('/icon/pharmacy.png');
+    background-position: start;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+body #scene #left-zone .list li.item input[type="radio"] ~ .content.content_drug h1 {
+    color: #54b3d6;
+    font-size: 30px;
+}
+body #scene #left-zone .list li.item input[type="radio"] ~ .content.content_check .picto {
+    height: 70px;
+    width: 70px;
+    background-image: url('/icon/graph.png');
+    background-position: start;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+body #scene #left-zone .list li.item input[type="radio"] ~ .content.content_check h1 {
+    color: #54b3d6;
+    font-size: 30px;
+}
+body #scene #left-zone .list li.item input[type="radio"] ~ .content.content_deliv .picto {
+    height: 70px;
+    width: 70px;
+    background-image: url('/icon/scooter.png');
+    background-position: start;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+body #scene #right-zone {
+    background: #fff;
+    height: 100%;
+    flex-grow: 2;
+}
+
+}

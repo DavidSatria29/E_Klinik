@@ -63,6 +63,11 @@ Route::middleware(['auth', 'multiple-login:admin'])->group(function () {
     Route::get('/admin/{article}/deletearticle', [AdminController::class, 'deletearticle'])->name('article.delete');
     Route::delete('/admin/{article}/deletearticle', [AdminController::class, 'destroyarticle'])->name('article.destroy');
     Route::post('/admin', [AdminController::class, 'store'])->name('article.store');
+
+    //penyakit
+    Route::get('/cek', [CertaintyFactorController::class, 'index'])->name('check');
+    Route::post('/cf-user', [CertaintyFactorController::class, 'cfUser'])->name('CF.user');
+    Route::post('/hasil', [CertaintyFactorController::class, 'hasilCF'])->name('CF.hasil');
 });
     
 
@@ -77,6 +82,14 @@ Route::middleware(['auth', 'multiple-login:doctor'])->group(function () {
 //Home
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::post('/home', [HomeController::class, 'store'])->name('contact.store');
+
+Route::get('/home/about', [HomeController::class, 'about'])->name('about');
+Route::get('/home/team', [HomeController::class, 'team'])->name('team');
+Route::get('/home/service', [HomeController::class, 'service'])->name('service');
+Route::get('/home/hubungi', [HomeController::class, 'hubungi'])->name('hubungi');
+Route::get('/home/testimoni', [HomeController::class, 'testimoni'])->name('testimoni');
+
+
 // Article
 Route::get('/home/{article}', [HomeController::class, 'show'])->name('article.show');
 //chat user
