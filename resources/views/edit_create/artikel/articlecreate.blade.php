@@ -21,11 +21,11 @@
                 </ul>
             </div>
             @endif
-            <form action="{{ route('article.store') }}" method="POST">
+            <form action="{{ route('article.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
             <div class="form-group mt-2">
                 <label for="image_path">image_path</label>
-                <input type="text" class="form-control @error('image_path') is-invalid @enderror" id="image_path" name="image_path" value="{{ old('image_path') }}">
+                <input type="file" class="form-control @error('image_path') is-invalid @enderror" id="image_path" name="image_path" value="{{ old('image_path') }}">
                 @error('image_path')
                 <div class="text-danger mt-1">{{ $message }}</div>
                 @enderror

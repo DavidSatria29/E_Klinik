@@ -12,12 +12,12 @@
       <div class="col-12">
         <h1>Edit Artikel</h1>
         <hr>
-        <form action="{{ route('article.update',['article' => $article->id]) }}" method="POST">
+        <form action="{{ route('article.update',['article' => $article->id]) }}" method="POST" enctype="multipart/form-data">
           @method('PATCH')
           @csrf
           <div class="form-group">
             <label for="image_path">Image_path</label>
-            <input type="text"
+            <input type="file"
             class="form-control @error('image') is-invalid @enderror"
             id="image_path" name="image_path" value="{{ old('image_path') ?? $article->image_path }}">
           </div>

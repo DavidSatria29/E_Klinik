@@ -142,13 +142,22 @@ class AdminController extends Controller
 
     public function store(Request $request)
     {
-        $validateData = $request->validate([
-            'image_path' => 'required',
+        $request->validate([
+            'image_path' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:5000',
             'title' => 'required',
             'content' => 'required',
         ]);
 
-        Article::create($validateData);
+        $input = $request->all();
+        if ($request->hasFile('image_path')) {
+            $image = $request->file('image_path')->getClientOriginalExtension();
+            $nama_image = 'artikel-' . time() . '.' . $image;
+            $path = $request->file('image_path')->move(public_path('asset/img/artikel'), $nama_image);
+
+            $input['image_path'] = $nama_image;
+        }
+
+        Article::create($input);
 
         return redirect()->route('admin');
     }
@@ -160,22 +169,21 @@ class AdminController extends Controller
 
     public function updatearticle(Request $request, $article)
     {
-        $validatedData = $request->validate([
-            'image_path' => 'required',
+        $request->validate([
             'title' => 'required',
             'content' => 'required',
         ]);
 
-        // Ambil data article yang ingin diedit berdasarkan $article
-        $article = Article::where('id', $article)->first();
+        $input = $request->all();
+        if ($request->hasFile('image_path')) {
+            $image = $request->file('image_path')->getClientOriginalExtension();
+            $nama_image = 'artikel-' . time() . '.' . $image;
+            $path = $request->file('image_path')->move(public_path('asset/img/artikel'), $nama_image);
 
-        // Update data article
-        $article->update([
-            'image_path' => $validatedData['image_path'],
-            'title' => $validatedData['title'],
-            'content' => $validatedData['content'],
-        ]);
+            $input['image_path'] = $nama_image;
+        }
 
+        Article::findOrFail($article)->update($input);
         return redirect()->route('admin');
     }
 
