@@ -9,7 +9,7 @@
     <meta content="" name="description">
 
     <!-- Favicon -->
-    <link href="{{ asset('asset/img/enanto.jpg') }}" rel="icon">
+    <link href="{{ asset('asset/img/logo4.png') }}" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -84,7 +84,7 @@
                         <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
                         Designed By <a class="border-bottom" href="">Kelompok 3</a>
                         <br>
-                        <a class="border-bottom" href="" target="_blank">May 6, 2023</a>
+                        <a class="border-bottom">{{ date("l, d M Y") }}</a>
                     </div>
                 </div>
             </div>

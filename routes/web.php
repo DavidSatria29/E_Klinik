@@ -3,7 +3,6 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CertaintyFactorController;
 use App\Http\Controllers\DoctorController;
-
 use App\Http\Controllers\ChatController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
