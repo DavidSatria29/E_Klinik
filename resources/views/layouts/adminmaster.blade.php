@@ -32,14 +32,14 @@
       <div class="sidenav-header">
         <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
         <a class="navbar-brand m-0" href="https://demos.creative-tim.com/soft-ui-dashboard/pages/dashboard.html" target="_blank">
-          <span class="ms-1 font-weight-bold">Admin</span>
+          <span class="ms-1 font-weight-bold">Halaman Admin</span>
         </a>
       </div>
       <hr class="horizontal dark mt-0">
       <div class="collapse navbar-collapse  w-auto  max-height-vh-100 h-100" id="sidenav-collapse-main">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link @yield('Dashboard')" href="../admin">
+            <a class="nav-link @yield('Dashboard')" href="/admin">
               <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
                     <title>Dashboard Admin</title>
@@ -49,7 +49,7 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link @yield('User')" href="../admin/user">
+            <a class="nav-link @yield('User')" href="/admin/user">
               <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                     <title>User</title>
@@ -60,7 +60,7 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link @yield('Chat')" href="../admin/chat">
+            <a class="nav-link @yield('Chat')" href="/admin/chat">
               <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                     <title>Chat Dokter</title>
@@ -71,7 +71,7 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link @yield('Article')" href="../admin/article">
+            <a class="nav-link @yield('Article')" href="/admin/article">
               <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                     <title>Artikel</title>
@@ -82,13 +82,13 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link @yield('Contact')" href="../admin/contact">
+            <a class="nav-link @yield('Contact')" href="/admin/contact">
               <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                     <title>Contact</title>
                         <path d="M96 0C60.7 0 32 28.7 32 64V448c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H96zM208 288h64c44.2 0 80 35.8 80 80c0 8.8-7.2 16-16 16H144c-8.8 0-16-7.2-16-16c0-44.2 35.8-80 80-80zm-32-96a64 64 0 1 1 128 0 64 64 0 1 1 -128 0zM512 80c0-8.8-7.2-16-16-16s-16 7.2-16 16v64c0 8.8 7.2 16 16 16s16-7.2 16-16V80zM496 192c-8.8 0-16 7.2-16 16v64c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm16 144c0-8.8-7.2-16-16-16s-16 7.2-16 16v64c0 8.8 7.2 16 16 16s16-7.2 16-16V336z"/></svg>
               </div>
-              <span class="nav-link-text ms-1">Contact Data</span>
+              <span class="nav-link-text ms-1">Contact Us Data</span>
             </a>
           </li>
         </ul>
@@ -97,7 +97,7 @@
         <div class="card card-background shadow-none card-background-mask-secondary" id="sidenavCard">
           <div class="full-background" style="background-image: url('../assets/img/curved-images/white-curved.jpeg')"></div>
         </div>
-        <a class="btn bg-gradient-danger mt-4 w-100" href="https://www.creative-tim.com/product/soft-ui-dashboard-pro?ref=sidebarfree" type="button">Logout</a>
+        <a class="btn bg-gradient-danger mt-4 w-100" href="/home" type="button">kembali ke home</a>
       </div>
     </aside>
     <main class="main-content position-relative max-height-vh-100 h-100 mt-1 border-radius-lg ">

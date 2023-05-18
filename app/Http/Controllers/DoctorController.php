@@ -12,13 +12,13 @@ class DoctorController extends Controller
     {
         $chats = Chat::all();
 
-        return view('doctor', compact('chats'));
+        return view('dokter.doctor', compact('chats'));
     }
 
     public function editchat($chat)
     {
         $chat = Chat::where('name', $chat)->first();
-        return view('edit_create.chateditdoctor', compact('chat'));
+        return view('edit_create.chat_dokter.chateditdoctor', compact('chat'));
     }
     public function updatechat(Request $request, $chat)
     {

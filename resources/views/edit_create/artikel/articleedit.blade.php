@@ -1,19 +1,16 @@
-@extends('layouts.master')
+@extends('layouts.adminmaster')
 @section('content')
 <style>
   #container-artikel{
     margin-top: 3cm;
   }
-  footer{
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-  }
   </style>
+  @section('title', 'Data Artikel')
+  @section('Article', 'active')
 <div class="container pt-4 bg-white" id="container-artikel">
     <div class="row">
       <div class="col-12">
-        <h1>Edit User</h1>
+        <h1>Edit Artikel</h1>
         <hr>
         <form action="{{ route('article.update',['article' => $article->id]) }}" method="POST">
           @method('PATCH')
@@ -39,7 +36,7 @@
           </div>
 
           <button type="submit" class="btn btn-primary mb-2 mt-1">Update</button>
-          <a href="{{ route('admin') }}" class="btn btn-warning">Kembali</a>
+          <a href="{{ route('admin') }}" class="btn btn-warning mb-2 mt-1 ms-1">Kembali</a>
 
         </form>
   

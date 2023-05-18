@@ -24,40 +24,32 @@ class AdminController extends Controller
     public function adminuser()
     {
         $users = User::all();
-
-
         return view('admin.adminuser', compact('users'));
     }
 
     public function adminchat()
     {
         $chats = Chat::all();
-
-
-        return view('adminchat', compact('chats'));
+        return view('admin.adminchat', compact('chats'));
     }
 
     public function adminarticle()
     {
         $articles = Article::all();
-
-
-        return view('adminarticle', compact('articles'));
+        return view('admin.adminarticle', compact('articles'));
     }
 
     public function admincontact()
     {
         $contacts = Contact::all();
-
-
-        return view('admincontact', compact('contacts'));
+        return view('admin.admincontact', compact('contacts'));
     }
 
     // USER
     public function edit($user)
     {
         $user = User::where('name', $user)->first();
-        return view('edit_create.useredit', compact('user'));
+        return view('edit_create.user.useredit', compact('user'));
     }
     public function update(Request $request, $user)
     {
@@ -86,7 +78,7 @@ class AdminController extends Controller
     public function deleteuser($user)
     {
         $user = user::where('name', $user)->first();
-        return view('edit_create.userdelete', compact('user'));
+        return view('edit_create.user.userdelete', compact('user'));
     }
     public function destroyuser(user $user)
     {
@@ -99,7 +91,7 @@ class AdminController extends Controller
     public function editchat($chat)
     {
         $chat = Chat::where('name', $chat)->first();
-        return view('edit_create.chatedit', compact('chat'));
+        return view('edit_create.chat_dokter.chatedit', compact('chat'));
     }
     public function updatechat(Request $request, $chat)
     {
@@ -125,7 +117,7 @@ class AdminController extends Controller
     public function deletechat($chat)
     {
         $chat = chat::where('name', $chat)->first();
-        return view('edit_create.chatdelete', compact('chat'));
+        return view('edit_create.chat_dokter.chatdelete', compact('chat'));
     }
     public function destroychat(chat $chat)
     {
@@ -139,7 +131,7 @@ class AdminController extends Controller
     // ARTICLE
     public function createarticle()
     {
-        return view('edit_create.articlecreate');
+        return view('edit_create.artikel.articlecreate');
     }
 
     public function store(Request $request)
@@ -157,7 +149,7 @@ class AdminController extends Controller
     public function editarticle($article)
     {
         $article = Article::where('id', $article)->first();
-        return view('edit_create.articleedit', compact('article'));
+        return view('edit_create.artikel.articleedit', compact('article'));
     }
 
     public function updatearticle(Request $request, $article)
@@ -184,7 +176,7 @@ class AdminController extends Controller
     public function deletearticle($article)
     {
         $article = Article::where('id', $article)->first();
-        return view('edit_create.articledelete', compact('article'));
+        return view('edit_create.artikel.articledelete', compact('article'));
     }
     public function destroyarticle(Article $article)
     {
@@ -197,7 +189,7 @@ class AdminController extends Controller
     public function editcontact($contact)
     {
         $contact = contact::where('name', $contact)->first();
-        return view('edit_create.contactedit', compact('contact'));
+        return view('edit_create.contactus.contactedit', compact('contact'));
     }
     public function updatecontact(Request $request, $contact)
     {
@@ -222,7 +214,7 @@ class AdminController extends Controller
     public function deletecontact($contact)
     {
         $contact = contact::where('name', $contact)->first();
-        return view('edit_create.contactdelete', compact('contact'));
+        return view('edit_create.contactus.contactdelete', compact('contact'));
     }
     public function destroycontact(contact $contact)
     {

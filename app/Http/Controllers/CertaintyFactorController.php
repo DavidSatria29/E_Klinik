@@ -12,14 +12,14 @@ class CertaintyFactorController extends Controller
     public function index()
     {
         $gejala = Gejala_Penyakit::all();
-        return view('check', ['gejala' => $gejala]);
+        return view('cek_kesehatan.check', ['gejala' => $gejala]);
     }
     public function cfUser(Request $request)
     {
         $pilihan = $request->except('_token');
         $kode_gejala = array_keys($pilihan);
         $nama_gejala = DB::table('gejala_penyakit')->whereIn('kode_gejala', $kode_gejala)->pluck('nama_gejala')->toArray();
-        return view('cf_user', compact('kode_gejala', 'nama_gejala'));
+        return view('cek_kesehatan.cf_user', compact('kode_gejala', 'nama_gejala'));
     }
     public function hasilCF(Request $request)
     {

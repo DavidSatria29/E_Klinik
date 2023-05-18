@@ -1,25 +1,23 @@
-@extends('layouts.master')
+@extends('layouts.navbarbaru')
 <style>
   .container-user{
     margin-top: 3cm;
-  }
-  footer{
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+    padding: 0;
+    min-height: 100vh;
   }
 </style>
 @section('content')
-<div class="container container-user">
-    <table class="table table-striped-columns">
-      <thead>
-        <tr>
-          <th scope="col">No</th>
-          <th scope="col">Nama Gejala</th>
-          <th scope="col">Jawaban</th>
-        </tr>
-      </thead>
-      <tbody>
+<div class="container container-user ">
+    <table class="table table-striped-columns bg-light">
+
+        <thead>
+          <tr>
+            <th scope="col">No</th>
+            <th scope="col">Nama Gejala</th>
+            <th scope="col">Jawaban</th>
+          </tr>
+        </thead>
+    <tbody>
         <form action="{{ route('CF.hasil') }}" method="POST">
             @csrf
             @foreach ($nama_gejala as $index => $nama)
@@ -40,9 +38,9 @@
               </tr>
             @endforeach                     
       </tbody>
+      </div>
     </table>
-    <div>
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="btn btn-primary ">Submit</button>
     </div>
     </form>
 
