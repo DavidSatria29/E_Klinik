@@ -114,6 +114,96 @@ class CertaintyFactorController extends Controller
                 return $value;
             }
         }
+        function kolesterol($cf_values, $gejala)
+        {
+            $hasil = null;
+            $count = count($cf_values);
+            $calculate = [];
+            if ($count > 0) {
+                $calculate[0] = $cf_values[0] * $gejala[0];
+                for ($i = 1; $i < $count; ++$i) {
+                    $result = $cf_values[$i] * $gejala[$i];
+                    $calculate[$i] = $calculate[$i - 1] + $result * (1 - $calculate[$i - 1]);
+                }
+                $hasil = ($count == 1) ? $calculate[0] : (($count == 2) ? $calculate[1] : end($calculate));
+            }
+            if ($hasil !== null && $hasil >= 0.50) {
+                $value = number_format($hasil * 100, 2) . "%";
+                return $value;
+            }
+        }
+        function asamUrat($cf_values, $gejala)
+        {
+            $hasil = null;
+            $count = count($cf_values);
+            $calculate = [];
+            if ($count > 0) {
+                $calculate[0] = $cf_values[0] * $gejala[0];
+                for ($i = 1; $i < $count; ++$i) {
+                    $result = $cf_values[$i] * $gejala[$i];
+                    $calculate[$i] = $calculate[$i - 1] + $result * (1 - $calculate[$i - 1]);
+                }
+                $hasil = ($count == 1) ? $calculate[0] : (($count == 2) ? $calculate[1] : end($calculate));
+            }
+            if ($hasil !== null && $hasil >= 0.50) {
+                $value = number_format($hasil * 100, 2) . "%";
+                return $value;
+            }
+        }
+        function campakRubella($cf_values, $gejala)
+        {
+            $hasil = null;
+            $count = count($cf_values);
+            $calculate = [];
+            if ($count > 0) {
+                $calculate[0] = $cf_values[0] * $gejala[0];
+                for ($i = 1; $i < $count; ++$i) {
+                    $result = $cf_values[$i] * $gejala[$i];
+                    $calculate[$i] = $calculate[$i - 1] + $result * (1 - $calculate[$i - 1]);
+                }
+                $hasil = ($count == 1) ? $calculate[0] : (($count == 2) ? $calculate[1] : end($calculate));
+            }
+            if ($hasil !== null && $hasil >= 0.50) {
+                $value = number_format($hasil * 100, 2) . "%";
+                return $value;
+            }
+        }
+        function pneumonia($cf_values, $gejala)
+        {
+            $hasil = null;
+            $count = count($cf_values);
+            $calculate = [];
+            if ($count > 0) {
+                $calculate[0] = $cf_values[0] * $gejala[0];
+                for ($i = 1; $i < $count; ++$i) {
+                    $result = $cf_values[$i] * $gejala[$i];
+                    $calculate[$i] = $calculate[$i - 1] + $result * (1 - $calculate[$i - 1]);
+                }
+                $hasil = ($count == 1) ? $calculate[0] : (($count == 2) ? $calculate[1] : end($calculate));
+            }
+            if ($hasil !== null && $hasil >= 0.50) {
+                $value = number_format($hasil * 100, 2) . "%";
+                return $value;
+            }
+        }
+        function bronkitis($cf_values, $gejala)
+        {
+            $hasil = null;
+            $count = count($cf_values);
+            $calculate = [];
+            if ($count > 0) {
+                $calculate[0] = $cf_values[0] * $gejala[0];
+                for ($i = 1; $i < $count; ++$i) {
+                    $result = $cf_values[$i] * $gejala[$i];
+                    $calculate[$i] = $calculate[$i - 1] + $result * (1 - $calculate[$i - 1]);
+                }
+                $hasil = ($count == 1) ? $calculate[0] : (($count == 2) ? $calculate[1] : end($calculate));
+            }
+            if ($hasil !== null && $hasil >= 0.50) {
+                $value = number_format($hasil * 100, 2) . "%";
+                return $value;
+            }
+        }
 
         $test = $request->except('_token');
         $count = count($test);
@@ -122,7 +212,7 @@ class CertaintyFactorController extends Controller
             $gejala = array_map('floatval', array_values($test));
             $kode_gejala = array_keys($test);
 
-            $tableNames = ['demam_berdarah', 'malaria', 'tipes', 'gastritis', 'diare'];
+            $tableNames = ['demam_berdarah', 'malaria', 'tipes', 'gastritis', 'diare', 'kolesterol', 'asam_urat', 'campak_rubella', 'pneumonia', 'bronchitis'];
             $cfValues = [];
 
             foreach ($tableNames as $tableName) {
@@ -137,7 +227,12 @@ class CertaintyFactorController extends Controller
                 "malaria" => malaria($cfValues['malaria'], $gejala),
                 "tipes" => tipes($cfValues['tipes'], $gejala),
                 "gastritis" => gastritis($cfValues['gastritis'], $gejala),
-                "diare" => diare($cfValues['diare'], $gejala)
+                "diare" => diare($cfValues['diare'], $gejala),
+                "kolesterol" => demamBerdarah($cfValues['kolesterol'], $gejala),
+                "asamUrat" => malaria($cfValues['asam_urat'], $gejala),
+                "campakRubella" => tipes($cfValues['campak_rubella'], $gejala),
+                "pneumonia" => gastritis($cfValues['pneumonia'], $gejala),
+                "bronkitis" => diare($cfValues['bronchitis'], $gejala)
             ]);
 
             $filteredResults = $results->reject(function ($value) {
@@ -150,7 +245,12 @@ class CertaintyFactorController extends Controller
                 'malaria' => 'P002',
                 'tipes' => 'P003',
                 'diare' => 'P004',
-                'gastritis' => 'P005'
+                'gastritis' => 'P005',
+                'kolesterol' => 'P006',
+                'asamUrat' => 'P007',
+                'campakRubella' => 'P008',
+                'pneumonia' => 'P009',
+                'bronkitis' => 'P010'
             ];
             $matchingDiseases = array_intersect_key($diseases, array_flip($keys));
 

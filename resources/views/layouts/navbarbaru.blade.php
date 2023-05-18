@@ -16,7 +16,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700;900&display=swap" rel="stylesheet"> 
 
-    <!-- Icon Font Stylesheet -->
+    <!-- ssszxasssssssIcon Font Stylesheet -->
     <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
@@ -27,12 +27,13 @@
     <link href="{{ asset('asset/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css') }}" rel="stylesheet" />
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="{{ asset('asset/css/user/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('asset/css/user/bootstrapV5_0.min.css') }}" rel="stylesheet">
 
     <!-- Template Stylesheet -->
     <link href="{{ asset('asset/css/user/style.css') }}" rel="stylesheet">
     <link href="{{ asset('asset/css/user/article.css') }}" rel="stylesheet">
     <link href="{{ asset('asset/css/user/slide.css') }}" rel="stylesheet">
+
 
     
 </head>
@@ -108,9 +109,10 @@
     <script src="{{ asset('asset/lib/tempusdominus/js/moment-timezone.min.js') }}"></script>
     <script src="{{ asset('asset/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js') }}"></script>
 
+
     <!-- Template Javascript -->
-    <script src="{{ asset('asset/css/user/main.js') }}"></script>
-    <script src="{{ asset('asset/css/user/article.js') }}"></script>
+    <script src="{{ asset('asset/js/user/main.js') }}"></script>
+    <script src="{{ asset('asset/js/user/article.js') }}"></script>
 </body>
 
 </html>
