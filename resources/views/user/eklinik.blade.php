@@ -408,7 +408,7 @@
   --}}
 
     <!-- Contact us Start -->
-    <div class="container-fluid bg-dark py-5" style="margin-bottom:-3%;">
+    <div class="container-fluid bg-primary py-5" style="margin-bottom:-3%;">
       <div class="container">
         <div class="row g-5">
           <div class="col-lg-12 wow fadeInUp" data-wow-delay="0.5s">

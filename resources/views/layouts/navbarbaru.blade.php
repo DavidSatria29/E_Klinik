@@ -28,6 +28,7 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="{{ asset('asset/css/user/bootstrapV5_0.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('asset/css/bootstrap/bootstrap.min.css') }}" rel="stylesheet">
 
     <!-- Template Stylesheet -->
     <link href="{{ asset('asset/css/user/style.css') }}" rel="stylesheet">
@@ -74,7 +75,7 @@
 @yield('content')
 
     <!-- Footer Start -->
-    <div class="container-fluid bg-dark text-light footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s">
+    <div class="container-fluid bg-primary text-light footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s">
         <div class="container d-flex flex-column">
             <div class="copyright">
                 <div class="row">
@@ -98,8 +99,9 @@
 
 
     <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ asset('asset/js/user/JqueryV4_1.min.js') }}"></script>
+    <script src="{{ asset('asset/js/bootstrap/bootstrap.V5_0.min.js') }}"></script>
+    <script src="{{ asset('asset/js/bootstrap/bootstrap.min.js') }}"></script>
     <script src="{{ asset('asset/lib/wow/wow.min.js') }}"></script>
     <script src="{{ asset('asset/lib/easing/easing.min.js') }}"></script>
     <script src="{{ asset('asset/lib/waypoints/waypoints.min.js') }}"></script>
