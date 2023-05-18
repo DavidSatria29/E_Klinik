@@ -17,7 +17,7 @@
       @foreach ($gejala as $hasil)
       <div class="col-6 col-sm-3 ">
         <div class="card mb-3 mx-auto justify-content-between" style="width: 10rem;">
-          <img src="..." class="card-img-top" alt="...">
+          <h5 class="text-center">{{ $hasil->nama_gejala }}</h5>
           <div class="card-body">
             <div class="form-check">
               <form action="{{ route('CF.user') }}" method="POST">
