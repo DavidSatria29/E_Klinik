@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Article;
 use App\Models\Contact;
+use App\Models\Deskrisi_Penyakit;
 
 class HomeController extends Controller
 {
@@ -19,34 +20,33 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+
+    // View untuk Home 
     public function index()
     {
+        $deskripsiPenyakit = Deskrisi_Penyakit::all();
         $article = Article::all();
-        return view('user.eklinik', ['article' => $article]);
+        return view('user.eklinik', ['article' => $article, 'deskripsiPenyakit' => $deskripsiPenyakit]);
     }
 
     public function about()
     {
-        $article = Article::all();
-        return view('user.about', ['article' => $article]);
+        return view('user.about');
     }
 
     public function team()
     {
-        $article = Article::all();
-        return view('user.team', ['article' => $article]);
+        return view('user.team');
     }
 
     public function service()
     {
-        $article = Article::all();
-        return view('user.service', ['article' => $article]);
+        return view('user.service');
     }
 
     public function hubungi()
     {
-        $article = Article::all();
-        return view('user.hubungi', ['article' => $article]);
+        return view('user.hubungi');
     }
 
     public function testimoni()
@@ -55,12 +55,21 @@ class HomeController extends Controller
         return view('user.testimonial', ['article' => $article]);
     }
 
+    // Article Home
     public function show($article)
     {
         $value = Article::findOrFail($article);
         return view('article', ['article' => $value]);
     }
 
+    // Deskripsi pemyakit  Home
+    public function showDeskripsi($deskripsi)
+    {
+        $value = Deskrisi_Penyakit::findOrFail($deskripsi);
+        return view('user.deskripsiPenyakit', ['deskripsi' => $value]);
+    }
+
+    // Contact Home
     public function store(Request $request)
     {
         $validateData = $request->validate([
@@ -71,6 +80,6 @@ class HomeController extends Controller
 
         Contact::create($validateData);
         return redirect()->route('home')
-            ->with('pesan', "pesan anda telah terkirim");
+            ->with('success', "Data {$request->name} berhasil di kirim");
     }
 }

@@ -37,6 +37,6 @@ class DoctorController extends Controller
             'answer' => $validatedData['answer'],
             'name_doctor' => $validatedData['name_doctor'],
         ]);
-        return redirect()->route('doctor')->with('pesan', 'data berhasil di update');
+        return redirect()->route('doctor')->with('success', "Data $chat berhasil di ubah");
     }
 }

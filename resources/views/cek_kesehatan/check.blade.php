@@ -1,7 +1,7 @@
 @extends('layouts.navbarbaru')
 <style>
   .container-user{
-    margin-top: 3cm;
+    margin-top: 1cm;
     padding: 0;
     min-height: 100vh;
   }
@@ -10,14 +10,13 @@
   }
   </style>
 @section('content')
-<div class="container container-user">
+<div class="container container-user ">
   <div class="card">
     <div class="card-header text-center"> PILIH GEJALA YANG SESUAI</div>
     <div class="row px-2 mt-3">
       @foreach ($gejala as $hasil)
       <div class="col-6 col-sm-3 ">
         <div class="card mb-3 mx-auto justify-content-between" style="width: 10rem;">
-          <h5 class="text-center">{{ $hasil->nama_gejala }}</h5>
           <div class="card-body">
             <div class="form-check">
               <form action="{{ route('CF.user') }}" method="POST">

@@ -106,6 +106,6 @@
 
       <script src="{{ asset('asset/js/Query.js') }}"></script>
       <script src="{{ asset('asset/js/bootsrap/bootstrap.js') }}"></script>
-
+      @include('sweetalert::alert')
     </body>
 </html>

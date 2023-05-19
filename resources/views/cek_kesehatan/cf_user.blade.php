@@ -1,7 +1,7 @@
 @extends('layouts.navbarbaru')
 <style>
   .container-user{
-    margin-top: 3cm;
+    margin-top: 1cm;
     padding: 0;
     min-height: 100vh;
   }

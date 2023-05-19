@@ -1,7 +1,7 @@
 @extends('layouts.navbarbaru')
 <style>
   .container-hasil{
-    margin-top: 3cm;
+    margin-top: 1cm;
     padding: 0;
     min-height: 100vh;
   }
@@ -10,7 +10,7 @@
   }
 </style>
 @section('content')
-<div class="container container-hasil">
+<div class="container container-hasil ">
   <div class="card">
     <div class="card-header text-center"> Hasil Diagnosa</div>
     <div class="row mt-3">

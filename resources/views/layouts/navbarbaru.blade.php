@@ -75,7 +75,7 @@
 @yield('content')
 
     <!-- Footer Start -->
-    <div class="container-fluid bg-primary text-light footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s">
+    <div class="container-fluid bg-primary text-light footer mt-5 pt-5 wow fadeIn footer" data-wow-delay="0.1s">
         <div class="container d-flex flex-column">
             <div class="copyright">
                 <div class="row">
@@ -106,7 +106,7 @@
     <script src="{{ asset('asset/lib/easing/easing.min.js') }}"></script>
     <script src="{{ asset('asset/lib/waypoints/waypoints.min.js') }}"></script>
     <script src="{{ asset('asset/lib/counterup/counterup.min.js') }}"></script>
-    <script src="{{ asset('asset/lib/owlcarousel/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('asset/lib/owlcarousel/owl.carousel.js') }}"></script>
     <script src="{{ asset('asset/lib/tempusdominus/js/moment.min.js') }}"></script>
     <script src="{{ asset('asset/lib/tempusdominus/js/moment-timezone.min.js') }}"></script>
     <script src="{{ asset('asset/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js') }}"></script>
@@ -115,6 +115,9 @@
     <!-- Template Javascript -->
     <script src="{{ asset('asset/js/user/main.js') }}"></script>
     <script src="{{ asset('asset/js/user/article.js') }}"></script>
+
+
+    @include('sweetalert::alert')
 </body>
 
 </html>

@@ -59,27 +59,16 @@ class AdminController extends Controller
     }
     public function update(Request $request, $user)
     {
-        $validatedData = $request->validate([
+        // Update data user
+        User::where('name', $user)->firstOrFail()->update($request->validate([
             'name' => 'required',
             'email' => 'required',
             'nomor' => 'required',
             'role' => 'required',
             'alamat' => 'required',
-        ]);
+        ]));
 
-        // Ambil data user yang ingin diedit berdasarkan $user
-        $user = User::where('name', $user)->first();
-
-        // Update data user
-        $user->update([
-            'name' => $validatedData['name'],
-            'email' => $validatedData['email'],
-            'nomor' => $validatedData['nomor'],
-            'role' => $validatedData['role'],
-            'alamat' => $validatedData['alamat'],
-        ]);
-
-        return redirect()->route('admin');
+        return redirect()->route('admin')->with('success', "Data $user berhasil di ubah");
     }
     public function deleteuser($user)
     {
@@ -89,7 +78,7 @@ class AdminController extends Controller
     public function destroyuser(user $user)
     {
         $user->delete();
-        return redirect()->route('admin');
+        return redirect()->route('admin')->with('success', "Data $user berhasil di hapus");
     }
 
 
@@ -118,7 +107,7 @@ class AdminController extends Controller
             'answer' => $validatedData['answer'],
             'name_doctor' => $validatedData['name_doctor'],
         ]);
-        return redirect()->route('admin');
+        return redirect()->route('admin')->with('success', "Chat $chat berhasil di ubah");
     }
     public function deletechat($chat)
     {
@@ -128,7 +117,7 @@ class AdminController extends Controller
     public function destroychat(chat $chat)
     {
         $chat->delete();
-        return redirect()->route('admin');
+        return redirect()->route('admin')->with('success', "Data {$chat->name} berhasil di hapus");
     }
 
 
@@ -159,7 +148,7 @@ class AdminController extends Controller
 
         Article::create($input);
 
-        return redirect()->route('admin');
+        return redirect()->route('admin')->with('success', "Data {$request->title} berhasil di buat");
     }
     public function editarticle($article)
     {
@@ -184,7 +173,7 @@ class AdminController extends Controller
         }
 
         Article::findOrFail($article)->update($input);
-        return redirect()->route('admin');
+        return redirect()->route('admin')->with('success', "Data {$request->title} berhasil di ubah");
     }
 
     public function deletearticle($article)
@@ -195,7 +184,7 @@ class AdminController extends Controller
     public function destroyarticle(Article $article)
     {
         $article->delete();
-        return redirect()->route('admin');
+        return redirect()->route('admin')->with('success', "Data {$article->title} berhasil di hapus");
     }
 
 
@@ -207,23 +196,13 @@ class AdminController extends Controller
     }
     public function updatecontact(Request $request, $contact)
     {
-        $validatedData = $request->validate([
+        contact::where('name', $contact)->firstOrFail()->update($request->validate([
             'name' => 'required',
             'email' => 'required',
             'message' => 'required',
-        ]);
+        ]));
 
-        // Ambil data contact yang ingin diedit berdasarkan $contact
-        $contact = contact::where('name', $contact)->first();
-
-        // Update data contact
-        $contact->update([
-            'name' => $validatedData['name'],
-            'email' => $validatedData['email'],
-            'message' => $validatedData['message'],
-        ]);
-
-        return redirect()->route('admin');
+        return redirect()->route('admin')->with('success', "Data $contact berhasil di ubah");
     }
     public function deletecontact($contact)
     {
@@ -232,7 +211,8 @@ class AdminController extends Controller
     }
     public function destroycontact(contact $contact)
     {
+
         $contact->delete();
-        return redirect()->route('admin');
+        return redirect()->route('admin')->with('success', "Data {$contact->name} berhasil di hapus");
     }
 }

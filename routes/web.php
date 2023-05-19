@@ -88,5 +88,7 @@ Route::get('/home/{article}', [HomeController::class, 'show'])->name('article.sh
 //chat user
 Route::get('/chat', [ChatController::class, 'index'])->name('chat');
 Route::post('/chat', [ChatController::class, 'store'])->name('chat.store');
+
+Route::get('/home/penyakit/{deskripsi}', [HomeController::class, 'showDeskripsi'])->name('penyakit.show');
 // AUTH route
 Auth::routes();

@@ -36,7 +36,7 @@
                     @forelse ($articles as $article)
                     <tr>
                       <td>
-                        <p class="text-xs font-weight-bold text-center mb-0">{{$article->id}}</p>
+                        <p class="text-xs font-weight-bold text-center mb-0">{{$loop->iteration}}</p>
                       </td>
                       <td>
                         <p class="text-xs font-weight-bold mb-0">{{$article->image_path}}</p>

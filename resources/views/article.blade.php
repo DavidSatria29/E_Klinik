@@ -1,8 +1,5 @@
-@extends('layouts.master')
+@extends('layouts.navbarbaru')
 <style>
-  .container-user{
-    margin-top: 3cm;
-  }
   footer{
     position: fixed;
     bottom: 0;
@@ -10,11 +7,11 @@
   }
 </style>
 @section('content')
-<div class="container container-user">
-    <div class="card" style="">
-    <img src="{{ asset($article->image_path )}}" class="card-img-top" alt="...">
+<div class="container container-user mt-3">
+    <div class="card">
+    <img  src="{{ asset('asset/img/artikel/'.$article->image_path) }}"width="300px" height="300px" alt="tidak ada foto" class="mx-auto">
     <div class="card-body">
-        <h5 class="card-title">{{ $article->title }}</h5>
+        <h5 class="card-title text-center">{{ $article->title }}</h5>
         <p class="card-text">{{ $article->content }}</p>
     </div>
     </div>
