@@ -11,11 +11,6 @@
 @section('chat', 'active')
 <div class="container container-doctor">
   <h1 class="text-center">Chat Dokter</h1>
-    @if (session()->has('pesan'))
-      <div class="alert alert-success">
-        {{ session()->get('pesan') }}
-      </div>
-    @endif
     <div class="row mx-auto mt-2">
         <div class="col-12 bg-light rounded align-items-center">
           <form action="{{ route('chat.store') }}" method="POST">

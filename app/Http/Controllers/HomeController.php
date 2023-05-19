@@ -41,7 +41,8 @@ class HomeController extends Controller
 
     public function service()
     {
-        return view('user.service');
+        $deskripsiPenyakit = Deskrisi_Penyakit::all();
+        return view('user.service', ['deskripsiPenyakit' => $deskripsiPenyakit]);
     }
 
     public function hubungi()
