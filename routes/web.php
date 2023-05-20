@@ -53,7 +53,17 @@ Route::middleware(['auth', 'multiple-login:admin'])->group(function () {
     Route::get('/admin/create', [AdminController::class, 'createarticle'])->name('edit_create.articlecreate');
     Route::get('/admin/{article}/deletearticle', [AdminController::class, 'deletearticle'])->name('article.delete');
     Route::delete('/admin/{article}/deletearticle', [AdminController::class, 'destroyarticle'])->name('article.destroy');
-    Route::post('/admin', [AdminController::class, 'store'])->name('article.store');
+    Route::post('/admin/create', [AdminController::class, 'store'])->name('article.store');
+    
+
+    // penyakit
+    Route::get('/admin/penyakit', [AdminController::class, 'adminpenyakit'])->name('adminpenyakit');
+    Route::get('/admin/{penyakit}/editpenyakit', [AdminController::class, 'editpenyakit'])->name('edit_create.penyakitedit');
+    Route::patch('/admin/penyakit/{penyakit}', [AdminController::class, 'updatepenyakit'])->name('penyakit.update');
+    Route::get('/admin/createpenyakit', [AdminController::class, 'createpenyakit'])->name('edit_create.penyakitcreate');
+    Route::get('/admin/{penyakit}/deletepenyakit', [AdminController::class, 'deletepenyakit'])->name('penyakit.delete');
+    Route::delete('/admin/{penyakit}/deletepenyakit', [AdminController::class, 'destroypenyakit'])->name('penyakit.destroy');
+    Route::post('/admin/createpenyakit', [AdminController::class, 'storepenyakit'])->name('penyakit.store');
 });
 
 // -- USER --
@@ -69,6 +79,15 @@ Route::middleware(['auth', 'multiple-login:doctor;admin'])->group(function () {
     Route::get('/doctor', [DoctorController::class, 'doctor'])->name('doctor');
     Route::get('/doctor/{chat}/editchat', [DoctorController::class, 'editchat'])->name('edit_create.chateditdoctor');
     Route::patch('/doctor/chat/{chat}', [DoctorController::class, 'updatechat'])->name('chat.updatedoctor');
+
+    // penyakit
+    Route::get('/doctor/penyakit', [DoctorController::class, 'doctorpenyakit'])->name('doctorpenyakit');
+    Route::get('/doctor/{penyakit}/editpenyakit', [DoctorController::class, 'editpenyakit'])->name('doctoredit_create.penyakitedit');
+    Route::patch('/doctor/penyakit/{penyakit}', [DoctorController::class, 'updatepenyakit'])->name('penyakit.update');
+    Route::get('/doctor/createpenyakit', [DoctorController::class, 'createpenyakit'])->name('doctoredit_create.penyakitcreate');
+    Route::get('/doctor/{penyakit}/deletepenyakit', [DoctorController::class, 'deletepenyakit'])->name('doctorpenyakit.delete');
+    Route::delete('/doctor/{penyakit}/deletepenyakit', [DoctorController::class, 'destroypenyakit'])->name('penyakit.destroy');
+    Route::post('/doctor/createpenyakit', [DoctorController::class, 'storepenyakit'])->name('penyakit.store');
 });
 
 

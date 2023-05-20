@@ -12,7 +12,7 @@
       <div class="col-12">
         <h1>Delete Chat Dokter</h1>
         <hr>
-        <form action="{{ route('chat.destroy',['chat' => $chat->name]) }}" method="POST">
+        <form action="{{ route('chat.destroy',['chat' => $chat]) }}" method="POST">
           @method('DELETE')
           @csrf
           <div class="form-group">

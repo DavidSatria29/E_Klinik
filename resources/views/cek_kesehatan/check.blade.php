@@ -10,6 +10,8 @@
   }
   </style>
 @section('content')
+@section('title', 'Cek Kesehatan')
+@section('cek', 'active')
 <div class="container container-user ">
   <div class="card">
     <div class="card-header text-center"> PILIH GEJALA YANG SESUAI</div>

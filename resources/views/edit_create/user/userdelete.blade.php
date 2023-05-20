@@ -12,8 +12,8 @@
       <div class="col-12">
         <h1>Edit User</h1>
         <hr>
-        <form action="{{ route('user.delete',['user' => $user->name]) }}" method="POST">
-          @method('PATCH')
+        <form action="{{ route('user.delete',['user' => $user]) }}" method="POST">
+          @method('DELETE')
           @csrf
           <div class="form-group">
             <label for="name">Name</label>

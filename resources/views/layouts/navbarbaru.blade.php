@@ -34,6 +34,8 @@
     <link href="{{ asset('asset/css/user/style.css') }}" rel="stylesheet">
     <link href="{{ asset('asset/css/user/article.css') }}" rel="stylesheet">
     <link href="{{ asset('asset/css/user/slide.css') }}" rel="stylesheet">
+    <link href="{{ asset('asset/css/master.css') }}" rel="stylesheet" >
+
 
 
     
@@ -58,22 +60,61 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
-            <div class="navbar-nav ms-auto p-4 p-lg-0">
-                <div class="nav-item dropdown">
-                    <a href="/home" class="nav-link dropdown-toggle @yield('home')" data-bs-toggle="dropdown">Home</a>
-                    <div class="dropdown-menu rounded-0 rounded-bottom m-0">
-                        <a href="/home" class="dropdown-item @yield('home')">Home</a>
-                        <a href="/home/about" class="dropdown-item @yield('about')">About Us</a>
-                        <a href="/home/service" class="dropdown-item @yield('service')">Service</a>
-                        <a href="/home/testimoni" class="dropdown-item @yield('testimoni')">Testimonial</a>
-                        <a href="/home/hubungi" class="dropdown-item @yield('hubungi')">Hubungi Kami</a>
-                        <a href="/home/team" class="dropdown-item @yield('team')">Teams</a>
-                    </div>
-                </div>
-                <a href="/chat" class="nav-item nav-link @yield('chat')">Chat Dokter</a>
-            </div>
-            <a href="/cek" class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block">Health Check<i class="fa fa-arrow-right ms-3"></i></a>
-        </div>
+            {{-- <div class="navbar-nav ms-auto p-4 p-lg-0">
+                <div class="nav-item dropdown"> --}}
+                  <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link @yield('home')" aria-current="page" href="/home">Home</a></li>
+                    <li class="nav-item dropdown">
+                      <a href="/home/about" class="nav-link dropdown-toggle @yield('about')" data-bs-toggle="dropdown">About Us</a>
+                        <div class="dropdown-menu rounded-0 rounded-bottom m-0">
+                          <a href="/home/about" class="dropdown-item @yield('about')">About Us</a>
+                          <a href="/home/service" class="dropdown-item @yield('service')">Macam Penyakit Yang Kami Deteksi</a>
+                          <a href="/home/testimoni" class="dropdown-item @yield('testimoni')">Artikel</a>
+                          <a href="/home/hubungi" class="dropdown-item @yield('hubungi')">Hubungi Kami</a>
+                          <a href="/home/team" class="dropdown-item @yield('team')">Teams</a>
+                        </div>
+                    </li>
+                {{-- </div> --}}
+                    <li class="nav-item"><a class="nav-link @yield('chat')" aria-current="page" href="/chat">Chat Dokter</a></li>
+                    <li class="nav-item"><a class="nav-link @yield('cek')" aria-current="page" href="/cek">Periksa Kesehatan</a></li>
+                  </ul>
+                {{-- <a href="/chat" class="nav-item nav-link @yield('chat')">Chat Dokter</a> --}}
+                <ul class="navbar-nav ms-auto">
+                  <!-- Authentication Links -->
+                  @guest
+                      @if (Route::has('login'))
+                          <li class="nav-item">
+                              <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                          </li>
+                      @endif
+
+                      @if (Route::has('register'))
+                          <li class="nav-item">
+                              <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                          </li>
+                      @endif
+                  @else
+                      <li class="nav-item dropdown">
+                          <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                              Selamat Datang, {{ Auth::user()->name }}
+                          </a>
+
+                          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                              <a class="dropdown-item" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                              document.getElementById('logout-form').submit();">
+                                  {{ __('Logout') }}
+                              </a>
+
+                              <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                  @csrf
+                              </form>
+                          </div>
+                      </li>
+                  @endguest
+              </ul>
+          </div>
+              </div>
     </nav>
     <!-- Navbar End -->
 
