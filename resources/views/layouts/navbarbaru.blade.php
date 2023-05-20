@@ -65,8 +65,9 @@
                   <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link @yield('home')" aria-current="page" href="{{ route('home') }}">Home</a></li>
                     <li class="nav-item dropdown">
-                      <a href="{{ route('about') }}" class="nav-link dropdown-toggle @yield('tentang kami')" data-bs-toggle="dropdown">About Us</a>
-                        <div class="dropdown-menu rounded-0 rounded-bottom m-0">
+                      <a href="{{ route('home') }}" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Halaman Lain</a>
+                      <div class="dropdown-menu rounded-0 rounded-bottom m-0">
+                            <a href="{{ route('about') }}" class="dropdown-item @yield('tentang kami')">Tentang Kami</a>
                             <a href="{{ route('service') }}" class="dropdown-item @yield('pelayanan')">Pelayanan</a>
                             <a href="{{ route('artikel') }}" class="dropdown-item @yield('artikel')">Artikel</a>
                             <a href="{{ route('hubungi') }}" class="dropdown-item @yield('hubungi')">Hubungi Kami</a>

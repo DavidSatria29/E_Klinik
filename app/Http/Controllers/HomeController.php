@@ -26,7 +26,7 @@ class HomeController extends Controller
     {
         $deskripsiPenyakit = Deskrisi_Penyakit::all();
         $article = Article::all();
-        return view('user.eklinik', ['article' => $article, 'deskripsiPenyakit' => $deskripsiPenyakit]);
+        return view('user.home', ['article' => $article, 'deskripsiPenyakit' => $deskripsiPenyakit]);
     }
 
     public function about()
@@ -53,14 +53,14 @@ class HomeController extends Controller
     public function artikel()
     {
         $article = Article::all();
-        return view('user.testimonial', ['article' => $article]);
+        return view('user.artikel', ['article' => $article]);
     }
 
     // Article Home
     public function show($article)
     {
         $value = Article::findOrFail($article);
-        return view('article', ['article' => $value]);
+        return view('user.infoArtikel', ['article' => $value]);
     }
 
     // Deskripsi pemyakit  Home
