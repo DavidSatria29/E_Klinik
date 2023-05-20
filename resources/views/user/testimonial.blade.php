@@ -8,8 +8,8 @@
     min-height: 100vh;
     }
   </style>
-@section('title', 'Testimonial')
-@section('testimoni', 'active')
+@section('title', 'artikel')
+@section('artikel', 'active')
 
     <!-- Testimonial Start -->
     <div class="container-xxl py-5 container_testi">

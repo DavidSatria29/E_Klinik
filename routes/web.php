@@ -18,9 +18,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 // -- ADMIN --
 Route::middleware(['auth', 'multiple-login:admin'])->group(function () {
@@ -73,22 +71,22 @@ Route::middleware(['auth', 'multiple-login:doctor;admin'])->group(function () {
 
 
 //Home
-Route::get('/home', [HomeController::class, 'index'])->name('home');
-Route::post('/home', [HomeController::class, 'store'])->name('contact.store');
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::post('/', [HomeController::class, 'store'])->name('contact.store');
 
-Route::get('/home/about', [HomeController::class, 'about'])->name('about');
-Route::get('/home/team', [HomeController::class, 'team'])->name('team');
-Route::get('/home/service', [HomeController::class, 'service'])->name('service');
-Route::get('/home/hubungi', [HomeController::class, 'hubungi'])->name('hubungi');
-Route::get('/home/testimoni', [HomeController::class, 'testimoni'])->name('testimoni');
+Route::get('/about', [HomeController::class, 'about'])->name('about');
+Route::get('/team', [HomeController::class, 'team'])->name('team');
+Route::get('/service', [HomeController::class, 'service'])->name('service');
+Route::get('/hubungi', [HomeController::class, 'hubungi'])->name('hubungi');
+Route::get('/artikel', [HomeController::class, 'artikel'])->name('artikel');
 
 
 // Article
-Route::get('/home/{article}', [HomeController::class, 'show'])->name('article.show');
+Route::get('/artikel/{article}', [HomeController::class, 'show'])->name('article.show');
 //chat user
 Route::get('/chat', [ChatController::class, 'index'])->name('chat');
 Route::post('/chat', [ChatController::class, 'store'])->name('chat.store');
 
-Route::get('/home/penyakit/{deskripsi}', [HomeController::class, 'showDeskripsi'])->name('penyakit.show');
+Route::get('/penyakit/{deskripsi}', [HomeController::class, 'showDeskripsi'])->name('penyakit.show');
 // AUTH route
 Auth::routes();

@@ -50,7 +50,7 @@ class HomeController extends Controller
         return view('user.hubungi');
     }
 
-    public function testimoni()
+    public function artikel()
     {
         $article = Article::all();
         return view('user.testimonial', ['article' => $article]);
@@ -81,6 +81,6 @@ class HomeController extends Controller
 
         Contact::create($validateData);
         return redirect()->route('home')
-            ->with('success', "Data {$request->name} berhasil di kirim");
+            ->with('success', "pesan anda berhasil di kirim");
     }
 }

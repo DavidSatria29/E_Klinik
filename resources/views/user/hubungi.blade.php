@@ -8,7 +8,7 @@
   min-height: 100vh;
   }
 </style>
-@section('title', 'Contact Us')
+@section('title', 'Hubungi Kami')
 @section('hubungi', 'active')
 
     <!-- Contact us Start -->

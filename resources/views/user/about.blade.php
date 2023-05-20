@@ -1,8 +1,8 @@
 @extends('layouts.navbarbaru')
 
 @section('content')
-@section('title', 'About Us')
-@section('about', 'active')
+@section('title', 'tentang kami')
+@section('tentang kami', 'active')
 
   <!-- About Start -->
   <div class="container-xxl py-5">

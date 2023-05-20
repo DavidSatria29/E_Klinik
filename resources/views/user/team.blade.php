@@ -8,7 +8,7 @@
     min-height: 100vh;
     }
 </style>
-@section('title', 'Our Developers')
+@section('title', 'Team')
 @section('team', 'active')
 
   <!-- Team Start -->
@@ -26,10 +26,10 @@
                       </div>
                       <div class="team-text bg-light text-center p-4">
                           <h5>David Satria Alamsyah</h5>
-                          <p class="text-primary">2205356</p>
+                          <p class="text-primary">220535610311</p>
                           <div class="team-social text-center">
-                              <a class="btn btn-square" href=""><i class="fab fa-facebook-f"></i></a>
-                              <a class="btn btn-square" href=""><i class="fab fa-twitter"></i></a>
+                              <a class="btn btn-square" href=""><i class="fab fa-discord"></i></a>
+                              <a class="btn btn-square" href=""><i class="fab fa-github"></i></a>
                               <a class="btn btn-square" href=""><i class="fab fa-instagram"></i></a>
                           </div>
                       </div>
@@ -44,8 +44,8 @@
                           <h5>Aldy Rahmat Yulianto</h5>
                           <p class="text-primary">220535610051</p>
                           <div class="team-social text-center">
-                              <a class="btn btn-square" href=""><i class="fab fa-facebook-f"></i></a>
-                              <a class="btn btn-square" href=""><i class="fab fa-twitter"></i></a>
+                              <a class="btn btn-square" href=""><i class="fab fa-discord"></i></a>
+                              <a class="btn btn-square" href=""><i class="fab fa-github"></i></a>
                               <a class="btn btn-square" href=""><i class="fab fa-instagram"></i></a>
                           </div>
                       </div>
@@ -60,8 +60,8 @@
                           <h5>Bima Ahmadani D H</h5>
                           <p class="text-primary">220535603999</p>
                           <div class="team-social text-center">
-                              <a class="btn btn-square" href=""><i class="fab fa-facebook-f"></i></a>
-                              <a class="btn btn-square" href=""><i class="fab fa-twitter"></i></a>
+                              <a class="btn btn-square" href=""><i class="fab fa-discord"></i></a>
+                              <a class="btn btn-square" href=""><i class="fab fa-github"></i></a>
                               <a class="btn btn-square" href=""><i class="fab fa-instagram"></i></a>
                           </div>
                       </div>
@@ -76,8 +76,8 @@
                           <h5>Adelia Wida</h5>
                           <p class="text-primary">2205356</p>
                           <div class="team-social text-center">
-                              <a class="btn btn-square" href=""><i class="fab fa-facebook-f"></i></a>
-                              <a class="btn btn-square" href=""><i class="fab fa-twitter"></i></a>
+                              <a class="btn btn-square" href=""><i class="fab fa-discord"></i></a>
+                              <a class="btn btn-square" href=""><i class="fab fa-github"></i></a>
                               <a class="btn btn-square" href=""><i class="fab fa-instagram"></i></a>
                           </div>
                       </div>
