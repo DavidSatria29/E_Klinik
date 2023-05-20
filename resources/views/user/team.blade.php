@@ -38,7 +38,7 @@
               <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                   <div class="team-item position-relative rounded overflow-hidden">
                       <div class="overflow-hidden">
-                          <img class="img-fluid" src="{{ asset('asset/img/team-2.jpg') }}" alt="">
+                          <img class="img-fluid" src="{{ asset('asset/img/aldy2.jpg') }}" alt="">
                       </div>
                       <div class="team-text bg-light text-center p-4">
                           <h5>Aldy Rahmat Yulianto</h5>
@@ -70,11 +70,11 @@
               <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
                   <div class="team-item position-relative rounded overflow-hidden">
                       <div class="overflow-hidden">
-                          <img class="img-fluid" src="{{ asset('asset/img/team-4.jpg') }}" alt="">
+                          <img class="img-fluid" src="{{ asset('asset/img/wida.jpg') }}" alt="">
                       </div>
                       <div class="team-text bg-light text-center p-4">
                           <h5>Adelia Wida</h5>
-                          <p class="text-primary">2205356</p>
+                          <p class="text-primary">220535608776</p>
                           <div class="team-social text-center">
                               <a class="btn btn-square" href=""><i class="fab fa-discord"></i></a>
                               <a class="btn btn-square" href=""><i class="fab fa-github"></i></a>

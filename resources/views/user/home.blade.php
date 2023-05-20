@@ -291,7 +291,7 @@
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="team-item position-relative rounded overflow-hidden">
                         <div class="overflow-hidden">
-                            <img class="img-fluid" src="{{ asset('asset/img/team-2.jpg') }}" alt="">
+                            <img class="img-fluid" src="{{ asset('asset/img/aldy2.jpg') }}" alt="">
                         </div>
                         <div class="team-text bg-light text-center p-4">
                             <h5>Aldy Rahmat Yulianto</h5>
@@ -323,7 +323,7 @@
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
                     <div class="team-item position-relative rounded overflow-hidden">
                         <div class="overflow-hidden">
-                            <img class="img-fluid" src="{{ asset('asset/img/team-4.jpg') }}" alt="">
+                            <img class="img-fluid" src="{{ asset('asset/img/wida.jpg') }}" alt="">
                         </div>
                         <div class="team-text bg-light text-center p-4">
                             <h5>Adhelia Wida Khaidir</h5>
