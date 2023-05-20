@@ -7,6 +7,8 @@
   }
 </style>
 @section('content')
+@section('title', 'Cek Kesehatan')
+@section('cek', 'active')
 <div class="container container-user ">
     <table class="table table-striped-columns bg-light">
 

@@ -7,6 +7,8 @@ use App\Models\User;
 use App\Models\Chat;
 use App\Models\Article;
 use App\Models\Contact;
+use App\Models\Deskrisi_Penyakit;
+
 
 
 class AdminController extends Controller
@@ -17,8 +19,9 @@ class AdminController extends Controller
         $chats = Chat::all();
         $articles = Article::all();
         $contacts = contact::all();
+        $penyakits = Deskrisi_Penyakit::all();
 
-        return view('admin.admin', compact('users', 'chats', 'articles', 'contacts'));
+        return view('admin.admin', compact('users', 'chats', 'articles', 'contacts', 'penyakits'));
     }
 
     public function doctor()
@@ -49,6 +52,12 @@ class AdminController extends Controller
     {
         $contacts = Contact::all();
         return view('admin.admincontact', compact('contacts'));
+    }
+
+    public function adminpenyakit()
+    {
+        $penyakits = Deskrisi_Penyakit::all();
+        return view('admin.penyakit', compact('penyakits'));
     }
 
     // USER
@@ -145,9 +154,7 @@ class AdminController extends Controller
 
             $input['image_path'] = $nama_image;
         }
-
         Article::create($input);
-
         return redirect()->route('admin')->with('success', "Data {$request->title} berhasil di buat");
     }
     public function editarticle($article)
@@ -188,6 +195,10 @@ class AdminController extends Controller
     }
 
 
+
+
+
+
     // CONTACT
     public function editcontact($contact)
     {
@@ -215,4 +226,63 @@ class AdminController extends Controller
         $contact->delete();
         return redirect()->route('admin')->with('success', "Data {$contact->name} berhasil di hapus");
     }
+
+
+
+    
+        // Penyakit
+        public function createpenyakit()
+        {
+            return view('edit_create.penyakit.penyakitcreate');
+        }
+    
+        public function storepenyakit(Request $request)
+        {
+            $validateData = $request->validate([
+                'nama_penyakit' => 'required',
+                'icon' => 'required',
+                'deskripsi' => 'required',
+                'jurnal_referensi' => 'required',
+
+            ]);
+            Deskrisi_Penyakit::create($validateData);
+            return redirect()->route('admin')->with('success', "Data {$request->nama_penyakit} berhasil di buat");
+        }
+        public function editpenyakit($penyakit)
+        {
+            $penyakit = Deskrisi_Penyakit::where('nama_penyakit', $penyakit)->first();
+            return view('edit_create.penyakit.penyakitedit', compact('penyakit'));
+        }
+    
+        public function updatepenyakit(Request $request, $penyakits)
+    {
+        $validatedData = $request->validate([
+            'nama_penyakit' => 'required',
+            'icon' => 'required',
+            'deskripsi' => 'required',
+            'jurnal_referensi' => 'required',
+        ]);
+        // Ambil data chat yang ingin diedit berdasarkan $chat
+        $penyakits = Deskrisi_Penyakit::where('nama_penyakit', $penyakits)->first();
+        // Update data chat
+        $penyakits->update([
+            'nama_penyakit' => $validatedData['nama_penyakit'],
+            'icon' => $validatedData['icon'],
+            'deskripsi' => $validatedData['deskripsi'],
+            'jurnal_referensi' => $validatedData['jurnal_referensi'],
+        ]);
+        return redirect()->route('admin')->with('success', "{$penyakits->nama_penyakit} berhasil di ubah");
+    }
+    
+        public function deletepenyakit($penyakit)
+        {
+            $penyakit = Deskrisi_Penyakit::where('nama_penyakit', $penyakit)->first();
+            return view('edit_create.penyakit.penyakitdelete', compact('penyakit'));
+        }
+        public function destroypenyakit(Deskrisi_Penyakit $penyakit)
+        {
+            $penyakit->delete();
+            return redirect()->route('admin')->with('success', "Data {$penyakit->nama_penyakit} berhasil di hapus");
+        }
+    
 }

@@ -13,8 +13,8 @@
       <div class="col-12">
         <h1>Delete contact Us</h1>
         <hr>
-        <form action="{{ route('contact.delete',['contact' => $contact->name]) }}" method="POST">
-          @method('PATCH')
+        <form action="{{ route('contact.delete',['contact' => $contact]) }}" method="POST">
+          @method('DELETE')
           @csrf
           <div class="form-group">
             <label for="name">Name</label>

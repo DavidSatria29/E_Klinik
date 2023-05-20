@@ -114,10 +114,10 @@
     }
 }
 
-.navbar .navbar-brand,
+/* .navbar .navbar-brand,
 .navbar a.btn {
     height: 75px;
-}
+} */
 
 .navbar .navbar-nav .nav-link {
     color: var(--dark);

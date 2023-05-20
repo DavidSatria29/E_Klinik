@@ -28,7 +28,7 @@
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                   <!-- Left Side Of Navbar -->
                   <ul class="navbar-nav ms-auto">
-                      <li class="nav-item"><a class="nav-link scroll" aria-current="page" href="#section2">Beranda</a></li>
+                <li class="nav-item"><a class="nav-link scroll" aria-current="page" href="#section2">Beranda</a></li>
                 <li class="nav-item"><a class="nav-link scroll" href="#tentang">About Us</a></li>
                 <li class="nav-item"><a class="nav-link scroll" href="#berita">Artikel</a></li>
                 <li class="nav-item"><a class="nav-link scroll" href="#contact">Contact</a></li>

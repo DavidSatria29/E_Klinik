@@ -12,7 +12,7 @@
       <div class="col-12">
         <h1>Delete Artikel</h1>
         <hr>
-        <form action="{{ route('article.destroy',['article' => $article->id]) }}" method="POST">
+        <form action="{{ route('article.destroy',['article' => $article]) }}" method="POST">
           @method('DELETE')
           @csrf
           <div class="form-group">
