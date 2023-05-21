@@ -14,10 +14,19 @@ class DoctorController extends Controller
     {
         $chats = Chat::all();
         $penyakits = Deskrisi_Penyakit::all();
-
-
         return view('dokter.doctor', compact('chats', 'penyakits'));
         
+    }
+
+    public function doctorchat()
+    {
+        $chats = Chat::all();
+        return view('dokter.chat', compact('chats'));
+    }
+    public function doctorpenyakit()
+    {
+        $penyakits = Deskrisi_Penyakit::all();
+        return view('dokter.penyakit', compact('penyakits'));
     }
 
     public function editchat($chat)
@@ -25,6 +34,7 @@ class DoctorController extends Controller
         $chat = Chat::where('name', $chat)->first();
         return view('edit_create.chat_dokter.chateditdoctor', compact('chat'));
     }
+    
     public function updatechat(Request $request, $chat)
     {
         $validatedData = $request->validate([
@@ -48,12 +58,12 @@ class DoctorController extends Controller
 
 
         // Penyakit
-        public function createpenyakit()
+        public function createpenyakitdokter()
         {
-            return view('edit_create.penyakit.penyakitcreate');
+            return view('edit_create.penyakitdokter.penyakitcreate');
         }
 
-        public function storepenyakit(Request $request)
+        public function storepenyakitdokter(Request $request)
         {
             $validateData = $request->validate([
                 'nama_penyakit' => 'required',
@@ -68,7 +78,7 @@ class DoctorController extends Controller
         public function editpenyakit($penyakit)
         {
             $penyakit = Deskrisi_Penyakit::where('nama_penyakit', $penyakit)->first();
-            return view('edit_create.penyakit.penyakitedit', compact('penyakit'));
+            return view('edit_create.penyakitdokter.penyakitedit', compact('penyakit'));
         }
 
         public function updatepenyakit(Request $request, $penyakits)
@@ -94,7 +104,7 @@ class DoctorController extends Controller
         public function deletepenyakit($penyakit)
         {
             $penyakit = Deskrisi_Penyakit::where('nama_penyakit', $penyakit)->first();
-            return view('edit_create.penyakit.penyakitdelete', compact('penyakit'));
+            return view('edit_create.penyakitdokter.penyakitdelete', compact('penyakit'));
         }
         public function destroypenyakit(Deskrisi_Penyakit $penyakit)
         {

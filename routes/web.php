@@ -75,17 +75,18 @@ Route::middleware(['auth', 'multiple-login:user;admin'])->group(function () {
 // -- DOCTOR
 Route::middleware(['auth', 'multiple-login:doctor;admin'])->group(function () {
     Route::get('/doctor', [DoctorController::class, 'doctor'])->name('doctor');
+    Route::get('/doctor/chat', [DoctorController::class, 'doctorchat'])->name('doctorchat');
     Route::get('/doctor/{chat}/editchat', [DoctorController::class, 'editchat'])->name('edit_create.chateditdoctor');
     Route::patch('/doctor/chat/{chat}', [DoctorController::class, 'updatechat'])->name('chat.updatedoctor');
 
     // penyakit
     Route::get('/doctor/penyakit', [DoctorController::class, 'doctorpenyakit'])->name('doctorpenyakit');
     Route::get('/doctor/{penyakit}/editpenyakit', [DoctorController::class, 'editpenyakit'])->name('doctoredit_create.penyakitedit');
-    Route::patch('/doctor/penyakit/{penyakit}', [DoctorController::class, 'updatepenyakit'])->name('penyakit.update');
-    Route::get('/doctor/createpenyakit', [DoctorController::class, 'createpenyakit'])->name('doctoredit_create.penyakitcreate');
+    Route::patch('/doctor/penyakit/{penyakit}', [DoctorController::class, 'updatepenyakit'])->name('penyakitdokter.update');
+    Route::get('/doctor/createpenyakit', [DoctorController::class, 'createpenyakitdokter'])->name('doctoredit_create.penyakitcreate');
     Route::get('/doctor/{penyakit}/deletepenyakit', [DoctorController::class, 'deletepenyakit'])->name('doctorpenyakit.delete');
-    Route::delete('/doctor/{penyakit}/deletepenyakit', [DoctorController::class, 'destroypenyakit'])->name('penyakit.destroy');
-    Route::post('/doctor/createpenyakit', [DoctorController::class, 'storepenyakit'])->name('penyakit.store');
+    Route::delete('/doctor/{penyakit}/deletepenyakit', [DoctorController::class, 'destroypenyakit'])->name('penyakitdokter.destroy');
+    Route::post('/doctor/createpenyakit', [DoctorController::class, 'storepenyakitdokter'])->name('penyakit.storedokter');
 });
 
 

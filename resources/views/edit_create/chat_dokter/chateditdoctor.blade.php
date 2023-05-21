@@ -1,4 +1,4 @@
-@extends('layouts.adminmaster')
+@extends('layouts.doctormaster')
 @section('content')
 <style>
   #container-artikel{

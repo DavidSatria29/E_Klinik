@@ -1,5 +1,11 @@
 @extends('layouts.navbarbaru')
-
+<style>
+    .container-xxl{
+    margin-top: 3cm;
+    padding: 0;
+    min-height: 100vh;
+    }
+  </style>
 @section('content')
      <!-- 404 Start -->
     <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">

@@ -283,7 +283,7 @@
                             <div class="team-social text-center">
                                 <a class="btn btn-square" href=""><i class="fab fa-discord" title="discord"></i></a>
                                 <a class="btn btn-square" href=""><i class="fab fa-github" title="github"></i></a>
-                                <a class="btn btn-square" href=""><i class="fab fa-instagram" title="instagram"></i></a>
+                                <a class="btn btn-square" href="https://instagram.com/david_alamsyahh/"><i class="fab fa-instagram" title="instagram"></i></a>
                             </div>
                         </div>
                     </div>
@@ -297,9 +297,9 @@
                             <h5>Aldy Rahmat Yulianto</h5>
                             <p class="text-primary">220535610051</p>
                             <div class="team-social text-center">
-                                <a class="btn btn-square" href=""><i class="fab fa-discord" title="discord"></i></a>
-                                <a class="btn btn-square" href=""><i class="fab fa-github" title="github"></i></a>
-                                <a class="btn btn-square" href=""><i class="fab fa-instagram" title="instagram"></i></a>
+                                <a class="btn btn-square" href="https://discord.com/users/310751897680216085"><i class="fab fa-discord" title="discord"></i></a>
+                                <a class="btn btn-square" href="https://github.com/AldyRahmatY"><i class="fab fa-github" title="github"></i></a>
+                                <a class="btn btn-square" href="https://www.instagram.com/aldyrahmat_/"><i class="fab fa-instagram" title="instagram"></i></a>
                             </div>
                         </div>
                     </div>
@@ -313,9 +313,9 @@
                             <h5>Bima Ahmadani D H</h5>
                             <p class="text-primary">220535603999</p>
                             <div class="team-social text-center">
-                                <a class="btn btn-square" href=""><i class="fab discord" title="discord"></i></a>
-                                <a class="btn btn-square" href=""><i class="fab github" title="github"></i></a>
-                                <a class="btn btn-square" href=""><i class="fab fa-instagram" title="instagram"></i></a>
+                                <a class="btn btn-square" href="http://discordapp.com/users/Noobman#3481"><i class="fab fa-discord" title="discord"></i></a>
+                                <a class="btn btn-square" href="https://github.com/Bimaahmadani"><i class="fab fa-github" title="github"></i></a>
+                                <a class="btn btn-square" href="https://www.instagram.com/bimajugamanusia/"><i class="fab fa-instagram" title="instagram"></i></a>
                             </div>
                         </div>
                     </div>
@@ -329,9 +329,9 @@
                             <h5>Adhelia Wida Khaidir</h5>
                             <p class="text-primary">220535608776</p>
                             <div class="team-social text-center">
-                                <a class="btn btn-square" href=""><i class="fab fa-discord" title="discord"></i></a>
-                                <a class="btn btn-square" href=""><i class="fab fa-github" title="github"></i></a>
-                                <a class="btn btn-square" href=""><i class="fab fa-instagram" title="instagram"></i></a>
+                                <a class="btn btn-square" href="http://discordapp.com/users/AdheliaWida#8727"><i class="fab fa-discord" title="discord"></i></a>
+                                <a class="btn btn-square" href="https://github.com/AdheliaWida"><i class="fab fa-github" title="github"></i></a>
+                                <a class="btn btn-square" href="https://www.instagram.com/adhelia_wida/"><i class="fab fa-instagram" title="instagram"></i></a>
                             </div>
                         </div>
                     </div>

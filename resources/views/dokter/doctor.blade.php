@@ -1,15 +1,8 @@
-@extends('layouts.navbarbaru')
-<style>
-  .container-dokter{
-    margin-top: 3cm;
-  }
-  footer{
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-  }
-</style>
+@extends('layouts.doctormaster')
+
 @section('content')
+@section('title', 'Halaman Dokter')
+@section('Dashboard', 'active')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
 <section>
@@ -21,7 +14,7 @@
   <div class="container container-dokter mt-5">
     <div class="card">
       <div class="card-header">
-        Chat Dokterr
+        Chat Dokter
       </div>
       <div class="card-body">
           <table id="example" class="table table-striped" style="width:100%">
