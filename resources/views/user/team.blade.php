@@ -22,14 +22,14 @@
               <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                   <div class="team-item position-relative rounded overflow-hidden">
                       <div class="overflow-hidden">
-                          <img class="img-fluid" src="{{ asset('asset/img/team-1.jpg') }}" alt="">
+                          <img class="img-fluid" src="{{ asset('asset/img/David.png') }}" alt="">
                       </div>
                       <div class="team-text bg-light text-center p-4">
                           <h5>David Satria Alamsyah</h5>
                           <p class="text-primary">220535610311</p>
                           <div class="team-social text-center">
-                              <a class="btn btn-square" href=""><i class="fab fa-discord" title="discord"></i></a>
-                              <a class="btn btn-square" href=""><i class="fab fa-github" title="github"></i></a>
+                              <a class="btn btn-square" href="https://discordapp.com/users/David%20Alamsyah#2153"><i class="fab fa-discord" title="discord"></i></a>
+                              <a class="btn btn-square" href="https://github.com/DavidSatria29"><i class="fab fa-github" title="github"></i></a>
                               <a class="btn btn-square" href="https://instagram.com/david_alamsyahh/"><i class="fab fa-instagram" title="instagram"></i></a>
                           </div>
                       </div>

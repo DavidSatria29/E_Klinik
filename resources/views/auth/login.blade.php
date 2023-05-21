@@ -1,15 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="{{ asset('asset/css/bootstrap/bootstrap.min.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('asset/css/login.css') }}">
-    <link href="{{ asset('asset/img/logo6.png') }}" rel="icon">
-    <title>Login</title>
-</head>
-<body>
+@extends('layouts.authMaster')
+
+@section('title', 'Login')
+@section('content')
+    
     <!----------------------- Main Container -------------------------->
     
     <div class="container d-flex justify-content-center align-items-center min-vh-100 mt-2">
@@ -77,28 +70,26 @@
                         <div class="col-7">
                             <small>{{ __('Belum Punya Akun ?') }} <a href="{{ route('register') }}">{{ __('Daftar') }}</a></small>
                         </div>
-                        {{-- <div class="col-5">
+                        <div class="col-5">
                             @if (Route::has('password.request'))
                             <small>
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
+                                <a class="btn btn-link" href="{{ route('view.password') }}">
                                     <small>
                                     {{ __('Lupa Pasword?') }}
                                     </small>
                                 </a>
                             </small>
                             @endif
-                        </div> --}}
+                        </div>
                     </div>
               </div>
             </div>
           </div>
         </div>
-        
-        <script src="asset/js/Query.js"></script>
-        <script src="asset/js/login.js"></script>
+        <script src="{{ asset('asset/js/Query.js') }}"></script>
+        <script src="{{ asset('asset/js/login.js') }}"></script>
     
-</body>
-</html>
+@endsection
 
 
 

@@ -109,7 +109,9 @@ Route::get('/info', [HomeController::class, 'infoAlgoCf'])->name('aboutCF');
 
 // Article
 Route::get('/artikel/{article}', [HomeController::class, 'show'])->name('article.show');
-//chat user
+
+Route::get('/change-password', [HomeController::class, 'changePassword'])->name('view.password');
+Route::post('/change-password', [HomeController::class, 'updatePassword'])->name('change.password');
 
 
 Route::get('/penyakit/{deskripsi}', [HomeController::class, 'showDeskripsi'])->name('penyakit.show');

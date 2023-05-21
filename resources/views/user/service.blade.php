@@ -22,6 +22,9 @@
                     </div>
                 </div>
                 @endforeach
+            </div>
+        </div>
+    </div>
         <!-- Service End -->
 
 @endsection

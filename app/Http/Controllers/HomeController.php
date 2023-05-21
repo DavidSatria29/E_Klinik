@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\Models\Article;
 use App\Models\Contact;
 use App\Models\Deskrisi_Penyakit;
+use App\Models\User;
 
 // semua yang ada disini untuk tampilan user yang berada di dalam halaman hoem
 
@@ -23,15 +25,62 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
 
+    public function changePassword()
+    {
+        return view('auth.changePassword');
+    }
+
+    public function updatePassword(Request $request)
+    {
+        # Validation
+        $request->validate(
+            [
+                'oldEmail' => 'required|email',
+                'newPassword' => 'required|min:8|different:oldPassword',
+                'passwordConfirmation' => 'required|same:newPassword',
+            ],
+            [
+                'oldEmail.required' => 'Masukkan email lamamu',
+                'oldEmail.email' => 'masukkan email dengan format standar email',
+                'newPassword.required' => 'Masukkan password baru',
+                'newPassword.min' => 'Password harus minimal 8 karakter',
+                'newPassword.different' => 'Password baru tidak boleh sama dengan password lama',
+                'passwordConfirmation.required' => 'Masukkan konfirmasi password baru',
+                'passwordConfirmation.same' => 'Konfirmasi password tidak sesuai',
+            ]
+        );
+
+        # Match The Old Email Address and Password
+        $email = $request->oldEmail;
+        $user = User::where('email', $email)->first();
+        if (!$user) {
+            return back()->with("errors", "Emailmu salah");
+        }
+
+        if (Hash::check($request->newPassword, $user->password)) {
+            return back()->with("errors", "Password baru tidak boleh sama dengan password lama");
+        }
+
+        # Update the New Password
+        User::where('email', $email)->update([
+            'password' => Hash::make($request->newPassword)
+        ]);
+
+        return back()->with("success", "Password berhasil diubah");
+    }
+
     // View untuk Home
     public function index()
     {
         // Mengambil semua deskripsi penyakit dan artikel yang tersedia pada database
         $deskripsiPenyakit = Deskrisi_Penyakit::all();
         $article = Article::all();
+        $countPenyakit = Deskrisi_Penyakit::count();
+        $countUser = User::where('role', 'user')->count();
+        $countDokter = User::where('role', 'doctor')->count();
 
         // Mengembalikan view home.blade.php dengan membawa variabel $article dan $deskripsiPenyakit
-        return view('user.home', ['article' => $article, 'deskripsiPenyakit' => $deskripsiPenyakit]);
+        return view('user.home', ['article' => $article, 'deskripsiPenyakit' => $deskripsiPenyakit, 'penyakit' => $countPenyakit, 'user' => $countUser, 'dokter' => $countDokter]);
     }
 
     // View untuk About Us

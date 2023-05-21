@@ -13,20 +13,20 @@
                     <div class="row g-4">
                     <div class="col-sm-4">
                         <div class="border-start border-light ps-4">
-                            <h2 class="text-white mb-1" data-toggle="counter-up">123</h2>
-                            <p class="text-light mb-0">Expert Doctors</p>
+                            <h2 class="text-white mb-1" data-toggle="counter-up">{{ $penyakit }}</h2>
+                            <p class="text-light mb-0">penyakit diprediksi</p>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="border-start border-light ps-4">
-                            <h2 class="text-white mb-1" data-toggle="counter-up">1234</h2>
-                            <p class="text-light mb-0">Medical Stuff</p>
+                            <h2 class="text-white mb-1" data-toggle="counter-up">{{ $dokter }}</h2>
+                            <p class="text-light mb-0">Total dokter</p>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="border-start border-light ps-4">
-                            <h2 class="text-white mb-1" data-toggle="counter-up">12345</h2>
-                            <p class="text-light mb-0">Total Patients</p>
+                            <h2 class="text-white mb-1" data-toggle="counter-up">{{ $user }}</h2>
+                            <p class="text-light mb-0">Total pengguna</p>
                         </div>
                     </div>
                 </div>
@@ -34,9 +34,9 @@
             <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
                 <div class="owl-carousel header-carousel">
                     <div class="owl-carousel-item position-relative">
-                        <img class="img-fluid" src="{{ asset('asset/img/carousel-1.jpg') }}" alt="">
+                        <img class="img-fluid" src="{{ asset('asset/img/carousel-1.jpg') }}" alt="tidak ada">
                         <div class="owl-carousel-text">
-                            <img class="img-fluid" src="{{ asset('asset/img/logo6.png') }}" alt="">
+                            <img class="img-fluid" src="{{ asset('asset/img/logo6.png') }}" alt="tidak ada ">
                         </div>
                     </div>
                     <div class="owl-carousel-item position-relative">
@@ -211,14 +211,14 @@
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="team-item position-relative rounded overflow-hidden">
                         <div class="overflow-hidden">
-                            <img class="img-fluid" src="{{ asset('asset/img/team-1.jpg') }}" alt="">
+                            <img class="img-fluid" src="{{ asset('asset/img/David.png') }}" alt="">
                         </div>
                         <div class="team-text bg-light text-center p-4">
                             <h5>David Satria Alamsyah</h5>
                             <p class="text-primary">220535610311</p>
                             <div class="team-social text-center">
-                                <a class="btn btn-square" href=""><i class="fab fa-discord" title="discord"></i></a>
-                                <a class="btn btn-square" href=""><i class="fab fa-github" title="github"></i></a>
+                                <a class="btn btn-square" href="https://discordapp.com/users/David%20Alamsyah#2153"><i class="fab fa-discord" title="discord"></i></a>
+                                <a class="btn btn-square" href="https://github.com/DavidSatria29"><i class="fab fa-github" title="github"></i></a>
                                 <a class="btn btn-square" href="https://instagram.com/david_alamsyahh/"><i class="fab fa-instagram" title="instagram"></i></a>
                             </div>
                         </div>
@@ -243,7 +243,7 @@
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="team-item position-relative rounded overflow-hidden">
                         <div class="overflow-hidden">
-                            <img class="img-fluid" src="{{ asset('asset/img/Bima.jpg') }}" alt="">
+                            <img class="img-fluid" src="{{ asset('asset/img/bima.png') }}" alt="">
                         </div>
                         <div class="team-text bg-light text-center p-4">
                             <h5>Bima Ahmadani D H</h5>

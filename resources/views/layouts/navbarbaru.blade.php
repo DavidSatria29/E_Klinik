@@ -137,9 +137,9 @@
                         <p class="">Copyright&copy; E-Klinik, All Right Reserved.</p>
                     </div>
                     <div class="col-md-4 text-center text-md-center mb-2 mb-md-0">
-                        <a class="btn btn-square d-inline" href=""><i class="fab fa-whatsapp"></i></a>
-                        <a class="btn btn-square d-inline px-2" href=""><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-square d-inline" href=""><i class="fab fa-instagram"></i></a>
+                        <a class="btn btn-square d-inline" href=""><i class="fab fa-at"></i></a>
+                        <a class="btn btn-square d-inline px-2" href=""><i class="fa fa-map-location-dot"></i></a>
+                        <a class="btn btn-square d-inline" href="https://instagram.com/ekli.nik?igshid=ZGUzMzM3NWJiOQ=="><i class="fab fa-instagram"></i></a>
                     </div>
                     <div class="col-md-4 text-center text-md-end">
                         <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->

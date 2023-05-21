@@ -1,15 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="{{ asset('asset/css/bootstrap/bootstrap.min.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('asset/css/login.css') }}">
-    <link href="{{ asset('asset/img/logo6.png') }}" rel="icon">
-    <title>Register</title>
-</head>
-<body>
+@extends('layouts.authMaster')
+
+@section('title', 'register')
+@section('content')
     <!----------------------- Main Container -------------------------->
     
     <div class="container d-flex justify-content-center align-items-center min-vh-100 mt-2">
@@ -109,7 +101,6 @@
             </div>
           </div>
         </div>
-        <script src="asset/js/Query.js"></script>
-        <script src="asset/js/register.js"></script>
-</body>
-</html>
+    <script src="{{ asset('asset/js/Query.js') }}"></script>
+    <script src="{{ asset('asset/js/register.js') }}"></script>
+@endsection

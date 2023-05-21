@@ -2,7 +2,7 @@
 @section('title', 'Info Artikel')
 @section('chatShow', 'active')
 <style>
-.footerr{
+.footer{
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -43,5 +43,6 @@
         </div>
     @endif
     </div>
+</div>
 </div>
 @endsection
