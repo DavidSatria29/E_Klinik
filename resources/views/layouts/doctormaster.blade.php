@@ -78,10 +78,32 @@
     </aside>
     <main class="main-content position-relative max-height-vh-100 h-100 mt-1 border-radius-lg ">
       <!-- Navbar -->
+      <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true">
+        <div class="container-fluid py-1 px-3">
+          <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
+            <ul class="navbar-nav  justify-content-end">
+              <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
+                <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
+                  <div class="sidenav-toggler-inner">
+                    <i class="sidenav-toggler-line"></i>
+                    <i class="sidenav-toggler-line"></i>
+                    <i class="sidenav-toggler-line"></i>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- End Navbar -->
 @yield('content')
-
-      <script src="{{ asset('asset/js/Query.js') }}"></script>
-      <script src="{{ asset('asset/js/bootsrap/bootstrap.js') }}"></script>
-      @include('sweetalert::alert')
+    <script src="{{ asset('asset/js/Query.js') }}"></script>
+    <script src="{{ asset('asset/js/bootstrap/bootstrap.js') }}"></script>
+    <script src="{{ asset('asset/js/bootstrap/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('asset/js/admin/popper.min.js') }}"></script>
+    <script src="{{ asset('asset/js/admin/perfect-scrollbar.min.js') }}"></script>
+    <script src="{{ asset('asset/js/admin/smooth-scrollbar.min.js') }}"></script>
+    <script src="{{ asset('asset/js/admin/soft-ui-dashboard.min.js') }}"></script>
+    @include('sweetalert::alert')
     </body>
 </html>

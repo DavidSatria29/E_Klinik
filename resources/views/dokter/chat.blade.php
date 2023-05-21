@@ -27,7 +27,7 @@
         Chat Dokter
       </div>
       <div class="card-body">
-          <table id="example" class="table table-striped" style="width:100%">
+          <table id="example" class="table-responsive table-striped" style="width:100%">
               <thead>
                   <tr>
                       <th>Name</th>
@@ -59,6 +59,7 @@
   </div>
 </div>
 </div>
+
 </section>
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
