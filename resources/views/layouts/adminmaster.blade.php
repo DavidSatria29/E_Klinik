@@ -117,6 +117,37 @@
   <div class="container-fluid py-1 px-3">
     <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
       <ul class="navbar-nav  justify-content-end">
+        <li class="nav-item d-flex align-items-center">
+                    @guest
+                      @if (Route::has('login'))
+                        <a href="{{ route('login') }}" class="nav-link text-body font-weight-bold px-0">
+                          <i class="fa fa-user me-sm-1"></i>
+                          <span class="d-sm-inline d-none">Login</span>
+                        </a>
+                      @endif
+
+                      @if (Route::has('register'))
+                        <a href="{{ route('register') }}" class="nav-link text-body font-weight-bold px-0">
+                          <i class="fa fa-user me-sm-1"></i>
+                          <span class="d-sm-inline d-none">Register</span>
+                        </a>
+                      @endif
+                  @else
+                    <a href="" class="nav-link text-body font-weight-bold px-0">
+                      <i class="fa fa-user me-sm-1"></i>
+                      <span class="d-sm-inline d-none">Selamat Datang, {{ Auth::user()->name }}</span>
+                    </a>
+                    <a href="{{ route('logout') }}" class="nav-link text-danger font-weight-bold px-0 ms-2"
+                        onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();">
+                      <span class="d-sm-inline d-none">Logout</span>
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                      @csrf
+                    </form>
+                  @endguest
+              </div>
+            </li>
         <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
           <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
             <div class="sidenav-toggler-inner">
