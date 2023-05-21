@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&family=Raleway:wght@700&display=swap" rel="stylesheet">
 
     <!-- Icon -->
-    <link href="{{ asset('asset/img/logo6.png') }}" rel="icon">
+    <link href="{{ asset('asset/img/logoadmin.png') }}" rel="icon">
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
   <!-- Nucleo Icons -->

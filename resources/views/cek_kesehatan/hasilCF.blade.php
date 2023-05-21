@@ -1,4 +1,4 @@
-@extends('layouts.navbarbaru')
+@extends('layouts.master')
 @section('title', 'Hasil')
 @section('cek', 'active')
 <style>
@@ -49,7 +49,7 @@
         </div>
       </div>
       @empty
-      <p class="text-center">Anda Tidak Bergejala, Silahkan periksakan diri anda segera</p>
+      <p class="text-center">Gejala kurang 30 %, Selalu tetap waspada dan jaga kesehatan</p>
       @endforelse
     </div>
   </div>

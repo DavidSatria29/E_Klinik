@@ -1,4 +1,4 @@
-@extends('layouts.navbarbaru')
+@extends('layouts.master')
 
 @section('title', 'Pelayanan')
 @section('pelayanan', 'active')
@@ -22,6 +22,9 @@
                     </div>
                 </div>
                 @endforeach
+            </div>
+        </div>
+    </div>
         <!-- Service End -->
 
 @endsection
