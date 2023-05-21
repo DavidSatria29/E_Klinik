@@ -3,15 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
     <title>@yield ('title')</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&family=Raleway:wght@700&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-      <!--     Fonts and icons     -->
+
+    <!-- Icon -->
+    <link href="{{ asset('asset/img/logo6.png') }}" rel="icon">
+  <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
   <!-- Nucleo Icons -->
   <link href="{{ asset('asset/css/admin/nucleo-icons.css" rel="stylesheet') }}" />
@@ -21,6 +24,7 @@
   <link href="{{ asset('asset/css/admin/nucleo-svg.css" rel="stylesheet') }}" />
   <!-- CSS Files -->
   <link id="pagestyle" href="{{ asset('asset/css/admin/soft-ui-dashboard.css?v=1.0.3') }}" rel="stylesheet" />
+  <link href="{{ asset('asset/css/bootstrap/bootstrap.min.css') }}" rel="stylesheet">
 
 </head>
 <body class="g-sidenav-show  bg-gray-100">
@@ -106,15 +110,48 @@
         <div class="card card-background shadow-none card-background-mask-secondary" id="sidenavCard">
           <div class="full-background" style="background-image: url('../assets/img/curved-images/white-curved.jpeg')"></div>
         </div>
-        <a class="btn bg-gradient-danger mt-4 w-100" href="/home" type="button">kembali ke home</a>
+        <a class="btn bg-gradient-danger mt-4 w-100" href="{{ route('home') }}" type="button">kembali ke home</a>
+        <ul class="navbar-nav ms-auto">
+          <!-- Authentication Links -->
+          @guest
+              @if (Route::has('login'))
+                  <li class="nav-item">
+                      <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                  </li>
+              @endif
+
+              @if (Route::has('register'))
+                  <li class="nav-item">
+                      <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                  </li>
+              @endif
+          @else
+              <li class="nav-item dropdown">
+                  <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                      Selamat Datang, {{ Auth::user()->name }}
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">
+                          {{ __('Logout') }}
+                      </a>
+                      <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                          @csrf
+                      </form>
+                  </div>
+              </li>
+          @endguest
+      </ul>
       </div>
     </aside>
     <main class="main-content position-relative max-height-vh-100 h-100 mt-1 border-radius-lg ">
       <!-- Navbar -->
-@yield('content')
+    @yield('content')
 
       <script src="{{ asset('asset/js/Query.js') }}"></script>
-      <script src="{{ asset('asset/js/bootsrap/bootstrap.js') }}"></script>
+      <script src="{{ asset('asset/js/bootstrap/bootstrap.js') }}"></script>
+      <script src="{{ asset('asset/js/bootstrap/bootstrap.min.js') }}"></script>
       @include('sweetalert::alert')
     </body>
 </html>

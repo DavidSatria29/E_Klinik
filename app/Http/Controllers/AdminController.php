@@ -10,9 +10,11 @@ use App\Models\Contact;
 use App\Models\Deskrisi_Penyakit;
 
 
+// Semua yang ada disini hanya khusus untuk admin saja
 
 class AdminController extends Controller
 {
+    // method untuk mengambil semua data  user,chat,article,contact, deskripsi penyakit dari tabel dalam database dan dikirimkan ke viewe admin
     public function admin()
     {
         $users = User::all();
@@ -24,36 +26,42 @@ class AdminController extends Controller
         return view('admin.admin', compact('users', 'chats', 'articles', 'contacts', 'penyakits'));
     }
 
+    //Method untuk mengambil semua data chat dan dikrimkan ke view doctor
     public function doctor()
     {
         $chats = Chat::all();
         return view('dokter.doctor', compact('chats'));
     }
 
+    // method mengembalikan view admin khusus untuk mengolah data user
     public function adminuser()
     {
         $users = User::all();
         return view('admin.adminuser', compact('users'));
     }
 
+    // method mengembalikan view admin khusus untuk mengolah data chat
     public function adminchat()
     {
         $chats = Chat::all();
         return view('admin.adminchat', compact('chats'));
     }
 
+    // method mengembalikan view admin khusus untuk mengolah data article
     public function adminarticle()
     {
         $articles = Article::all();
         return view('admin.adminarticle', compact('articles'));
     }
 
+    // method mengembalikan view admin khusus untuk mengolah data kontak
     public function admincontact()
     {
         $contacts = Contact::all();
         return view('admin.admincontact', compact('contacts'));
     }
 
+    // method mengembalikan view admin khusus untuk mengolah data deskripsi penyakit
     public function adminpenyakit()
     {
         $penyakits = Deskrisi_Penyakit::all();
@@ -92,11 +100,14 @@ class AdminController extends Controller
 
 
     // CHAT
+    // method mengembalikan view khusus untuk mengambil data berdsarkan nama dalam tabel chat
     public function editchat($chat)
     {
         $chat = Chat::where('name', $chat)->first();
         return view('edit_create.chat_dokter.chatedit', compact('chat'));
     }
+
+    // method untuk mengupdate chat berdasarkan nama dari table chat dalam parameter $chat
     public function updatechat(Request $request, $chat)
     {
         $validatedData = $request->validate([
@@ -118,6 +129,8 @@ class AdminController extends Controller
         ]);
         return redirect()->route('admin')->with('success', "Chat $chat berhasil di ubah");
     }
+
+    //mengahpus chat
     public function deletechat($chat)
     {
         $chat = chat::where('name', $chat)->first();
@@ -128,16 +141,15 @@ class AdminController extends Controller
         $chat->delete();
         return redirect()->route('admin')->with('success', "Data {$chat->name} berhasil di hapus");
     }
-
-
-
-
     // ARTICLE
+
+    //mengembalikan view untuk membuat sebuah artikel baru
     public function createarticle()
     {
         return view('edit_create.artikel.articlecreate');
     }
 
+    // mennginputkan data sesuai request admin ke dalam tebel artikel dalam database
     public function store(Request $request)
     {
         $request->validate([
@@ -157,12 +169,15 @@ class AdminController extends Controller
         Article::create($input);
         return redirect()->route('admin')->with('success', "Data {$request->title} berhasil di buat");
     }
+
+    // mengembalikan view untuk mengupdate artikel berdasarkan request parameter id dari artikel
     public function editarticle($article)
     {
         $article = Article::where('id', $article)->first();
         return view('edit_create.artikel.articleedit', compact('article'));
     }
 
+    // mengupdate artikel berdasarkan id pada tabel article
     public function updatearticle(Request $request, $article)
     {
         $request->validate([
@@ -183,6 +198,7 @@ class AdminController extends Controller
         return redirect()->route('admin')->with('success', "Data {$request->title} berhasil di ubah");
     }
 
+    // menghapus artikel
     public function deletearticle($article)
     {
         $article = Article::where('id', $article)->first();
@@ -194,17 +210,16 @@ class AdminController extends Controller
         return redirect()->route('admin')->with('success', "Data {$article->title} berhasil di hapus");
     }
 
-
-
-
-
-
     // CONTACT
+
+    // mengembalikan view khusus untuk mengupdate/edit data kontak berdasarkan nama pada parameter $contact
     public function editcontact($contact)
     {
         $contact = contact::where('name', $contact)->first();
         return view('edit_create.contactus.contactedit', compact('contact'));
     }
+
+    // mengupdate data kontak dengan request admin berdasarkan nama pada parameter $contact
     public function updatecontact(Request $request, $contact)
     {
         contact::where('name', $contact)->firstOrFail()->update($request->validate([
@@ -215,6 +230,8 @@ class AdminController extends Controller
 
         return redirect()->route('admin')->with('success', "Data $contact berhasil di ubah");
     }
+
+    //menghapus contact berdasarkan nama pada parameter $contact
     public function deletecontact($contact)
     {
         $contact = contact::where('name', $contact)->first();
@@ -222,39 +239,41 @@ class AdminController extends Controller
     }
     public function destroycontact(contact $contact)
     {
-
         $contact->delete();
         return redirect()->route('admin')->with('success', "Data {$contact->name} berhasil di hapus");
     }
 
+    // Penyakit
 
+    // mengembalikan view untuk membuat data deskripsi penyakit
+    public function createpenyakit()
+    {
+        return view('edit_create.penyakit.penyakitcreate');
+    }
 
-    
-        // Penyakit
-        public function createpenyakit()
-        {
-            return view('edit_create.penyakit.penyakitcreate');
-        }
-    
-        public function storepenyakit(Request $request)
-        {
-            $validateData = $request->validate([
-                'nama_penyakit' => 'required',
-                'icon' => 'required',
-                'deskripsi' => 'required',
-                'jurnal_referensi' => 'required',
+    // mengirim data request ke dalam tabel deskripsi penyakit
+    public function storepenyakit(Request $request)
+    {
+        $validateData = $request->validate([
+            'nama_penyakit' => 'required',
+            'icon' => 'required',
+            'deskripsi' => 'required',
+            'jurnal_referensi' => 'required',
 
-            ]);
-            Deskrisi_Penyakit::create($validateData);
-            return redirect()->route('admin')->with('success', "Data {$request->nama_penyakit} berhasil di buat");
-        }
-        public function editpenyakit($penyakit)
-        {
-            $penyakit = Deskrisi_Penyakit::where('nama_penyakit', $penyakit)->first();
-            return view('edit_create.penyakit.penyakitedit', compact('penyakit'));
-        }
-    
-        public function updatepenyakit(Request $request, $penyakits)
+        ]);
+        Deskrisi_Penyakit::create($validateData);
+        return redirect()->route('admin')->with('success', "Data {$request->nama_penyakit} berhasil di buat");
+    }
+
+    //mengembalikan view khusus mengupdate berdsarkan nama penyakit paramater $penyakit
+    public function editpenyakit($penyakit)
+    {
+        $penyakit = Deskrisi_Penyakit::where('nama_penyakit', $penyakit)->first();
+        return view('edit_create.penyakit.penyakitedit', compact('penyakit'));
+    }
+
+    // mengupdate data dalam tabel deskripsi penyakit
+    public function updatepenyakit(Request $request, $penyakits)
     {
         $validatedData = $request->validate([
             'nama_penyakit' => 'required',
@@ -273,16 +292,16 @@ class AdminController extends Controller
         ]);
         return redirect()->route('admin')->with('success', "{$penyakits->nama_penyakit} berhasil di ubah");
     }
-    
-        public function deletepenyakit($penyakit)
-        {
-            $penyakit = Deskrisi_Penyakit::where('nama_penyakit', $penyakit)->first();
-            return view('edit_create.penyakit.penyakitdelete', compact('penyakit'));
-        }
-        public function destroypenyakit(Deskrisi_Penyakit $penyakit)
-        {
-            $penyakit->delete();
-            return redirect()->route('admin')->with('success', "Data {$penyakit->nama_penyakit} berhasil di hapus");
-        }
-    
+
+    // menghapus data dalam tabel deskripsi penyakit
+    public function deletepenyakit($penyakit)
+    {
+        $penyakit = Deskrisi_Penyakit::where('nama_penyakit', $penyakit)->first();
+        return view('edit_create.penyakit.penyakitdelete', compact('penyakit'));
+    }
+    public function destroypenyakit(Deskrisi_Penyakit $penyakit)
+    {
+        $penyakit->delete();
+        return redirect()->route('admin')->with('success', "Data {$penyakit->nama_penyakit} berhasil di hapus");
+    }
 }

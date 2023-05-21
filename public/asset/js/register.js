@@ -2,11 +2,13 @@ $(document).ready(function () {
     $("#RegNama").keyup(function () {
         if (cekUsername()) {
             $("#RegNama").css("border", "2px solid green");
-            $("#pesannama").html("<p class='text-success'>Username Benar</p>");
+            $("#pesannama").html(
+                "<small class='text-success'>Username Benar</small>"
+            );
         } else {
             $("#RegNama").css("border", "2px solid red");
             $("#pesannama").html(
-                "<p class='text-danger'>Harus Menggunakan huruf dan kurang dari 25 karakter</p>"
+                "<small class='text-danger'>Harus Menggunakan huruf dan kurang dari 25 karakter</small>"
             );
         }
         tampilkanTombol();
@@ -14,11 +16,13 @@ $(document).ready(function () {
     $("#RegEmail").keyup(function () {
         if (cekEmail()) {
             $("#RegEmail").css("border", "2px solid green");
-            $("#PesanEmail").html("<p class='text-success'>Email Benar</p>");
+            $("#PesanEmail").html(
+                "<small class='text-success'>Email Benar</small>"
+            );
         } else {
             $("#RegEmail").css("border", "2px solid red");
             $("#PesanEmail").html(
-                "<p class='text-danger'>Menggunakan standar Email</p>"
+                "<small class='text-danger'>Menggunakan standar Email</small>"
             );
         }
         tampilkanTombol();
@@ -27,11 +31,13 @@ $(document).ready(function () {
     $("#RegPass").keyup(function () {
         if (cekPassword()) {
             $("#RegPass").css("border", "2px solid green");
-            $("#PesanPass").html("<p class='text-success'>Password Benar</p>");
+            $("#PesanPass").html(
+                "<small class='text-success'>Password Benar</small>"
+            );
         } else {
             $("#RegPass").css("border", "2px solid red");
             $("#PesanPass").html(
-                "<p class='text-danger'>Password harus terdiri dari 8-12 karakter</p>"
+                "<small class='text-danger'>Password harus terdiri dari 8-12 karakter</small>"
             );
         }
         tampilkanTombol();
@@ -39,11 +45,13 @@ $(document).ready(function () {
     $("#RegTelepon").keyup(function () {
         if (cekTelepon()) {
             $("#RegTelepon").css("border", "2px solid green");
-            $("#PesanTelepon").html("<p class='text-success'>Nomer Valid</p>");
+            $("#PesanTelepon").html(
+                "<small class='text-success'>Nomer Valid</small>"
+            );
         } else {
             $("#RegTelepon").css("border", "2px solid red");
             $("#PesanTelepon").html(
-                "<p class='text-danger'>Minimal Nomor harus 12 angka</p>"
+                "<small class='text-danger'>Minimal Nomor harus 12 angka</small>"
             );
         }
         tampilkanTombol();
@@ -51,11 +59,13 @@ $(document).ready(function () {
     $("#RegPass").keyup(function () {
         if (cekPassword()) {
             $("#RegPass").css("border", "2px solid green");
-            $("#PesanPass").html("<p class='text-success'>Password Benar</p>");
+            $("#PesanPass").html(
+                "<small class='text-success'>Password Benar</small>"
+            );
         } else {
             $("#RegPass").css("border", "2px solid red");
             $("#PesanPass").html(
-                "<p class='text-danger'>Password harus terdiri dari 8-12 karakter</p>"
+                "<small class='text-danger'>Password harus terdiri dari 8-12 karakter</small>"
             );
         }
         tampilkanTombol();
@@ -64,11 +74,13 @@ $(document).ready(function () {
         if (confirmPassword()) {
             $("#RegPass2").css("border", "2px solid green");
             $("#PesanPass2").html(
-                "<p class='text-success'>Password Sesuai</p>"
+                "<small class='text-success'>Password Sesuai</small>"
             );
         } else {
             $("#RegPass2").css("border", "2px solid red");
-            $("#PesanPass2").html("<p class='text-danger'>Password Salah</p>");
+            $("#PesanPass2").html(
+                "<small class='text-danger'>Password Salah</small>"
+            );
         }
         tampilkanTombol();
     });

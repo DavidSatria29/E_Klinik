@@ -1,89 +1,108 @@
-@extends('layouts.app')
-
-@section('content')
-<link rel="stylesheet" href="{{ asset('asset/css/login.css') }}">
-<!----------------------- Main Container -------------------------->
-
-<div class="container d-flex justify-content-center align-items-center min-vh-100">
-
-    <!----------------------- Login Container -------------------------->
-
-       <div class="row border rounded-5 p-3 bg-white shadow box-area">
-    <!--------------------------- Left Box ----------------------------->
-
-       <div class="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column left-box" style="background: #103cbe;">
-           <div class="featured-image mb-3">
-            <img src="{{ asset('asset/img/1.png') }}" class="img-fluid" style="width: 250px;">
-           </div>
-           <p class="text-white fs-2" style="font-family: 'Courier New', Courier, monospace; font-weight: 600;">Be Verified</p>
-           <small class="text-white text-wrap text-center" style="width: 17rem;font-family: 'Courier New', Courier, monospace;">Join experienced Designers on this platform.</small>
-       </div> 
-
-    <!-------------------- ------ Right Box ---------------------------->
-        
-       <div class="col-md-6 right-box">
-          <div class="row align-items-center">
-                <div class="header-text mb-4">
-                    <h2>Hello,Again</h2>
-                    <p>We are happy to have you back.</p>
-                </div>
-                <form method="POST" action="{{ route('login') }}">
-                    @csrf 
-                    <div class="input-group mb-1">
-                        <input type="text" class="form-control form-control-lg bg-light fs-6 @error('email') is-invalid @enderror" value="{{ old('email') }}" id="LoginEmail" placeholder="Email address" name="email" required autocomplete="email" autofocus>
-                        @error('email')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="{{ asset('asset/css/bootstrap/bootstrap.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('asset/css/login.css') }}">
+    <link href="{{ asset('asset/img/logo6.png') }}" rel="icon">
+    <title>Login</title>
+</head>
+<body>
+    <!----------------------- Main Container -------------------------->
+    
+    <div class="container d-flex justify-content-center align-items-center min-vh-100 mt-2">
+    
+        <!----------------------- Login Container -------------------------->
+    
+           <div class="row border rounded-5 p-3 bg-white shadow box-area">
+        <!--------------------------- Left Box ----------------------------->
+    
+           <div class="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column left-box" style="background: #D1E6EF;">
+               <div class="featured-image mb-3">
+                <img src="{{ asset('asset/img/logo6.png') }}" class="img-fluid" style="width: 250px;">
+               </div>
+               <p class="text-white fs-2 text-center" style="font-family: 'Courier New', Courier, monospace; font-weight: 600;">Selamat Datang di Website e-Klinik</p>
+               <small class="text-white text-wrap text-center" style="width: 17rem;font-family: 'Courier New', Courier, monospace;">Silahkan Masuk Terlebih Dahulu.</small>
+           </div> 
+    
+        <!-------------------- ------ Right Box ---------------------------->
+            
+           <div class="col-md-6 right-box">
+              <div class="row align-items-center">
+                    <div class="header-text mb-4">
+                        <h2 class="text-center">Masuk</h2>
                     </div>
-                        <div class="d-inline-block mt-0">
-                            <small id="pesanEmail"></small>
+                    <form method="POST" action="{{ route('login') }}">
+                        @csrf 
+                        <div class="input-group mb-1">
+                            <input type="text" class="form-control form-control-lg bg-light fs-6 @error('email') is-invalid @enderror" value="{{ old('email') }}" id="LoginEmail" placeholder="Email address" name="email" required autocomplete="email" autofocus>
+                            @error('email')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
-                    <div class="input-group mb-1">
-                        <input type="password" class="form-control form-control-lg bg-light fs-6 @error('password') is-invalid @enderror" placeholder="Password" id="LogPass" name="password" required autocomplete="current-password" >
-                        @error('password')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
-                    </div>
-                        <div>
-                            <small id="PesanPassword" class="d-inline-block mt-0"></small>
+                            <div class="d-inline-block mt-0">
+                                <small id="pesanEmail"></small>
+                            </div>
+                        <div class="input-group mb-1">
+                            <input type="password" class="form-control form-control-lg bg-light fs-6 @error('password') is-invalid @enderror" placeholder="Password" id="LogPass" name="password" required autocomplete="current-password" >
+                            @error('password')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
-                    <div class="input-group mb-2 d-flex justify-content-between ms-1">
-                        <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="remember" name="remember" {{ old('remember') ? 'checked' : '' }}>
-                            <label for="remember" class="form-check-label text-secondary"><small>{{ __('Remember Me') }}</small></label>
+                            <div>
+                                <small id="PesanPassword" class="d-inline-block mt-0"></small>
+                            </div>
+                        <div class="input-group mb-2 d-flex justify-content-between ms-1">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="remember" name="remember" {{ old('remember') ? 'checked' : '' }}>
+                                <label for="remember" class="form-check-label text-secondary"><small>{{ __('Remember Me') }}</small></label>
+                            </div>
                         </div>
-                    </div>
-                    <div class=" input-group mb-3 d-flex justify-content-between">
-                        <div class="justify-content-between">
-                            <button type="submit" class="btn btn-primary" id="tombol">
-                                {{ __('Login') }}
-                            </button>
+                        <div class=" input-group mb-3 d-flex justify-content-center">
+                            <div class="justify-content-center text-center">
+                                <button type="submit" class="btn btn-primary" id="tombol">
+                                    {{ __('Login') }}
+                                </button>
+                            </div>
+                        </div>
 
+                    </form>
+                    <div class="row">
+                        <div class="col-7">
+                            <small>{{ __('Belum Punya Akun ?') }} <a href="{{ route('register') }}">{{ __('Daftar') }}</a></small>
+                        </div>
+                        {{-- <div class="col-5">
                             @if (Route::has('password.request'))
+                            <small>
                                 <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    {{ __('Forgot Your Password?') }}
+                                    <small>
+                                    {{ __('Lupa Pasword?') }}
+                                    </small>
                                 </a>
+                            </small>
                             @endif
-                        </div>
+                        </div> --}}
                     </div>
-                    <div class="input-group mb-2">
-                        <button class="btn btn-lg btn-light w-100 fs-6"><img src="{{ asset('asset/img/google.png') }}" style="width:20px" class="me-2"><small>Sign In with Google</small></button>
-                    </div>
-                </form>
-                <div class="row">
-                    <small>{{ __('Dont have Account ?') }}<a href="{{ route('register') }}">{{ __('Sign Up') }}</a></small>
-                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-    <script src="asset/js/Query.js"></script>
-    <script src="asset/js/login.js"></script>
-@endsection
+        
+        <script src="asset/js/Query.js"></script>
+        <script src="asset/js/login.js"></script>
+    
+</body>
+</html>
+
+
+
+
 
 {{-- <div class="container">
 //     <div class="row justify-content-center">

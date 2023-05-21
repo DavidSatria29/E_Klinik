@@ -16,7 +16,7 @@
       <div class="container">
         <div class="row g-5">
           <div class="col-lg-12 wow fadeInUp" data-wow-delay="0.5s">
-            <center><p class="d-inline-block border rounded-pill py-1 px-4 text-light bg-dark">Contact Us</p></center>
+            <center><p class="d-inline-block border rounded-pill py-1 px-4 text-light bg-dark">Hubungi Kami</p></center>
               <div class="bg-light rounded h-100 d-flex align-items-center p-5 mb-3">
                   <form action="{{ route('contact.store') }}" method="POST" style="width: 100%;">
                     @csrf

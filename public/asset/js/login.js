@@ -2,11 +2,13 @@ $(document).ready(function () {
     $("#LoginEmail").keyup(function () {
         if (cekEmail()) {
             $("#LoginEmail").css("border", "2px solid green");
-            $("#pesanEmail").html("<p class='text-success'>Email Sesuai</p>");
+            $("#pesanEmail").html(
+                "<small class='text-success'>Email Sesuai</small>"
+            );
         } else {
             $("#LoginEmail").css("border", "2px solid red");
             $("#pesanEmail").html(
-                "<p class='text-danger'>Gunakan standar Email!!</p>"
+                "<small class='text-danger'>Gunakan standar Email!!</small>"
             );
         }
         tampilkanTombol();
@@ -16,12 +18,12 @@ $(document).ready(function () {
         if (cekPassword()) {
             $("#LogPass").css("border", "2px solid green");
             $("#PesanPassword").html(
-                "<p class='text-success'>Password Sesuai</p>"
+                "<small class='text-success'>Password Sesuai</small>"
             );
         } else {
             $("#LogPass").css("border", "2px solid red");
             $("#PesanPassword").html(
-                "<p class='text-danger'>Password harus 8-12 karakter</p>"
+                "<small class='text-danger'>Password harus 8-12 karakter</small>"
             );
         }
         tampilkanTombol();

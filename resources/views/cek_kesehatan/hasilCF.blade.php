@@ -1,4 +1,6 @@
 @extends('layouts.navbarbaru')
+@section('title', 'Hasil')
+@section('cek', 'active')
 <style>
   .container-hasil{
     margin-top: 1cm;

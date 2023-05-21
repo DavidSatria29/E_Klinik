@@ -52,7 +52,7 @@ Route::middleware(['auth', 'multiple-login:admin'])->group(function () {
     Route::get('/admin/{article}/deletearticle', [AdminController::class, 'deletearticle'])->name('article.delete');
     Route::delete('/admin/{article}/deletearticle', [AdminController::class, 'destroyarticle'])->name('article.destroy');
     Route::post('/admin/create', [AdminController::class, 'store'])->name('article.store');
-    
+
 
     // penyakit
     Route::get('/admin/penyakit', [AdminController::class, 'adminpenyakit'])->name('adminpenyakit');
@@ -66,10 +66,15 @@ Route::middleware(['auth', 'multiple-login:admin'])->group(function () {
 
 // -- USER --
 Route::middleware(['auth', 'multiple-login:user;admin'])->group(function () {
-    //penyakit
+    //Cek Penyakit
     Route::get('/cek', [CertaintyFactorController::class, 'index'])->name('check');
     Route::post('/cf-user', [CertaintyFactorController::class, 'cfUser'])->name('CF.user');
     Route::post('/hasil', [CertaintyFactorController::class, 'hasilCF'])->name('CF.hasil');
+
+    //Chat
+    Route::get('/chat', [ChatController::class, 'index'])->name('chat');
+    Route::post('/chat', [ChatController::class, 'store'])->name('chat.store');
+    Route::get('/chat/{chat}', [ChatController::class, 'showChat'])->name('chat.show');
 });
 
 // -- DOCTOR
@@ -98,13 +103,13 @@ Route::get('/team', [HomeController::class, 'team'])->name('team');
 Route::get('/service', [HomeController::class, 'service'])->name('service');
 Route::get('/hubungi', [HomeController::class, 'hubungi'])->name('hubungi');
 Route::get('/artikel', [HomeController::class, 'artikel'])->name('artikel');
+Route::get('/info', [HomeController::class, 'infoAlgoCf'])->name('aboutCF');
 
 
 // Article
 Route::get('/artikel/{article}', [HomeController::class, 'show'])->name('article.show');
 //chat user
-Route::get('/chat', [ChatController::class, 'index'])->name('chat');
-Route::post('/chat', [ChatController::class, 'store'])->name('chat.store');
+
 
 Route::get('/penyakit/{deskripsi}', [HomeController::class, 'showDeskripsi'])->name('penyakit.show');
 // AUTH route
