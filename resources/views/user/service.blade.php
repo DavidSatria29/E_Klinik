@@ -1,4 +1,4 @@
-@extends('layouts.navbarbaru')
+@extends('layouts.master')
 
 @section('title', 'Pelayanan')
 @section('pelayanan', 'active')

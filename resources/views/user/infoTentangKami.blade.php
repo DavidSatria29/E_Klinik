@@ -1,4 +1,4 @@
-@extends('layouts.navbarbaru')
+@extends('layouts.master')
 @section('title', 'Artikel')
 @section('content')
 <div class="container mt-3">

@@ -1,4 +1,4 @@
-@extends('layouts.navbarbaru')
+@extends('layouts.master')
 <style>
   .container-doctor{
   margin-top: 3cm;

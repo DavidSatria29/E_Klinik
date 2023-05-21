@@ -1,4 +1,4 @@
-@extends('layouts.navbarbaru')
+@extends('layouts.master')
 @section('title', 'Nilai gejala')
 @section('cek', 'active')
 <style>
