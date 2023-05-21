@@ -8,8 +8,8 @@
     <meta content="" name="keywords">
     <meta content="" name="description">
 
-    <!-- Favicon -->
-    <link href="{{ asset('asset/img/logo4.png') }}" rel="icon">
+    <!-- icon -->
+    <link href="{{ asset('asset/img/logo6.png') }}" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -65,8 +65,9 @@
                   <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link @yield('home')" aria-current="page" href="{{ route('home') }}">Home</a></li>
                     <li class="nav-item dropdown">
-                      <a href="{{ route('about') }}" class="nav-link dropdown-toggle @yield('tentang kami')" data-bs-toggle="dropdown">About Us</a>
-                        <div class="dropdown-menu rounded-0 rounded-bottom m-0">
+                      <a href="{{ route('home') }}" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Halaman Lain</a>
+                      <div class="dropdown-menu rounded-0 rounded-bottom m-0">
+                            <a href="{{ route('about') }}" class="dropdown-item @yield('tentang kami')">Tentang Kami</a>
                             <a href="{{ route('service') }}" class="dropdown-item @yield('pelayanan')">Pelayanan</a>
                             <a href="{{ route('artikel') }}" class="dropdown-item @yield('artikel')">Artikel</a>
                             <a href="{{ route('hubungi') }}" class="dropdown-item @yield('hubungi')">Hubungi Kami</a>
@@ -74,8 +75,16 @@
                         </div>
                     </li>
                 {{-- </div> --}}
-                    <li class="nav-item"><a class="nav-link @yield('chat')" aria-current="page" href="{{ route('chat') }}">Chat Dokter</a></li>
-                    <li class="nav-item"><a class="nav-link @yield('cek')" aria-current="page" href="{{ route('check') }}">Periksa Kesehatan</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="{{ route('home') }} " data-bs-toggle="dropdown">Chat Dokter</a>
+                        <div class="dropdown-menu rounded-0 rounded-bottom m-0">
+                            <a href="{{ route('chat') }}" class="dropdown-item @yield('chat')">Chat Baru</a>
+                            @if (Auth::check())
+                                <a href="{{ route('chat.show', ['chat'=> Auth::user()->email]) }}" class="dropdown-item @yield('chatShow')">Lihat Chat</a>                                
+                            @endif
+                        </div>
+                    </li>
+                    <li class="nav-item"><a class="nav-link @yield('cek')" aria-current="page" href="{{ route('check') }}">Periksa Penyakit</a></li>
                   </ul>
                 {{-- <a href="/chat" class="nav-item nav-link @yield('chat')">Chat Dokter</a> --}}
                 <ul class="navbar-nav ms-auto">
@@ -101,7 +110,7 @@
                           <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                               <a class="dropdown-item" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
-                                              document.getElementById('logout-form').submit();">
+                                            document.getElementById('logout-form').submit();">
                                   {{ __('Logout') }}
                               </a>
 
@@ -120,18 +129,22 @@
 @yield('content')
 
     <!-- Footer Start -->
-    <div class="container-fluid bg-primary text-light footer mt-5 pt-5 wow fadeIn footer" data-wow-delay="0.1s">
+    <div class="container-fluid bg-primary text-light footer mt-5 pt-5 wow fadeIn footerr" data-wow-delay="0.1s">
         <div class="container d-flex flex-column">
             <div class="copyright">
                 <div class="row">
-                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                        Copyright&copy; <a class="border-bottom" href="#">E-Klinik</a>, All Right Reserved.
+                    <div class="col-md-4 text-center text-md-start mb-2 mb-md-0">
+                        <p class="">Copyright&copy; E-Klinik, All Right Reserved.</p>
                     </div>
-                    <div class="col-md-6 text-center text-md-end">
+                    <div class="col-md-4 text-center text-md-center mb-2 mb-md-0">
+                        <a class="btn btn-square d-inline" href=""><i class="fab fa-whatsapp"></i></a>
+                        <a class="btn btn-square d-inline px-2" href=""><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-square d-inline" href=""><i class="fab fa-instagram"></i></a>
+                    </div>
+                    <div class="col-md-4 text-center text-md-end">
                         <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                        Designed By <a class="border-bottom" href="">Kelompok 3</a>
-                        <br>
-                        <a class="border-bottom">{{ date("l, d M Y") }}</a>
+                        <p class="">Designed By E-Klinik Team</p>
+                        <p class="">{{ date("l, d M Y") }}</p>
                     </div>
                 </div>
             </div>

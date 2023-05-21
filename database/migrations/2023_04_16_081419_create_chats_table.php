@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string('name');
             $table->string('email');
             $table->text('question');
-            $table->text('answer')->nullable();
-            $table->string('name_doctor')->nullable();
+            $table->text('answer')->default('belum dijawab');
+            $table->string('name_doctor')->default('belum dijawab');
             $table->timestamps();
         });
     }

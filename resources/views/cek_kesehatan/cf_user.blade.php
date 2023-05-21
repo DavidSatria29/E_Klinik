@@ -1,4 +1,6 @@
 @extends('layouts.navbarbaru')
+@section('title', 'Nilai gejala')
+@section('cek', 'active')
 <style>
   .container-user{
     margin-top: 1cm;

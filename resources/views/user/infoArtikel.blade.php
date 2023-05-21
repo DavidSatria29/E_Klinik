@@ -1,11 +1,5 @@
 @extends('layouts.navbarbaru')
-<style>
-  footer{
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-  }
-</style>
+@section('title', 'Artikel')
 @section('content')
 <div class="container container-user mt-3">
     <div class="card">
