@@ -15,7 +15,7 @@
 
 <div class="container" id="container-artikel">
 <div class="row">
-  <div class="col-md-5 mt-4">
+  <div class="col-md-12 col-lg-5 mt-4">
     <div class="card">
       <div class="card-header">
         <h6 class="mb-0">User</h6>
@@ -44,7 +44,7 @@
     </div>
   </div>
 
-  <div class="col-md-7 mt-4">
+  <div class="col-md-12 col-lg-7 mt-4">
     <div class="card">
       <div class="card-header">
         <h6 class="mb-0">Pertanyaan</h6>
