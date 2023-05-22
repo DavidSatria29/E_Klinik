@@ -16,7 +16,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700;900&display=swap" rel="stylesheet"> 
 
-    <!-- ssszxasssssssIcon Font Stylesheet -->
+    <!-- Icon Font Stylesheet -->
     <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
@@ -36,9 +36,6 @@
     <link href="{{ asset('asset/css/user/slide.css') }}" rel="stylesheet">
     <link href="{{ asset('asset/css/master.css') }}" rel="stylesheet" >
 
-
-
-    
 </head>
 <body>
     <!-- Spinner Start -->
@@ -50,71 +47,78 @@
     <!-- Spinner End -->
 
     <!-- Navbar Start -->
-<nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0 wow fadeIn" data-wow-delay="0.1s">
-    <div class="container-fluid">
-    <a href="{{ route('home') }}" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-        <img class="img-fluid me-2" src="{{ asset('asset/img/logo4.png') }}" alt="logo E_klinik" style="width: 1.8cm">
-        <h1 class="m-0 text-primary">E-Klinik</h1>
-    </a>
-    <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    
-    <div class="collapse navbar-collapse" id="navbarCollapse">
-    <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link @yield('home')" aria-current="page" href="{{ route('home') }}">Home</a></li>
-        <li class="nav-item dropdown">
-            <a href="{{ route('home') }}" class="nav-link dropdown-toggle" id="halamanLainDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Halaman Lain</a>
-            <div class="dropdown-menu rounded-0 rounded-bottom m-0" aria-labelledby="halamanLainDropdown">
-                <a href="{{ route('about') }}" class="dropdown-item @yield('tentang kami')">Tentang Kami</a>
-                <a href="{{ route('service') }}" class="dropdown-item @yield('pelayanan')">Pelayanan</a>
-                <a href="{{ route('artikel') }}" class="dropdown-item @yield('artikel')">Artikel</a>
-                <a href="{{ route('hubungi') }}" class="dropdown-item @yield('hubungi')">Hubungi Kami</a>
-                <a href="{{ route('team') }}" class="dropdown-item @yield('team')">Teams</a>
-            </div>
-        </li>
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" id="chatDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">Chat Dokter</a>
-            <div class="dropdown-menu rounded-0 rounded-bottom m-0" aria-labelledby="chatDropdown">
-                <a href="{{ route('chat') }}" class="dropdown-item @yield('chat')">Chat Baru</a>
-                @if (Auth::check())
-                    <a href="{{ route('chat.show', ['chat'=> Auth::user()->email]) }}" class="dropdown-item @yield('chatShow')">Lihat Chat</a>                                
-                @endif
-            </div>
-        </li>
-        <li class="nav-item"><a class="nav-link @yield('cek')" aria-current="page" href="{{ route('check') }}">Periksa Penyakit</a></li>
-    </ul>
-    <ul class="navbar-nav">
-        @guest
-            @if (Route::has('login'))
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                </li>
-            @endif
-            @if (Route::has('register'))
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                </li>
-            @endif
-        @else
-            <li class="nav-item dropdown">
-                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                    Selamat Datang, {{ Auth::user()->name }}
-                </a>
-                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                        @csrf
-                    </form>
-                </div>
-            </li>
-        @endguest
-    </ul>
-</div>
-</div>
+    <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0 wow fadeIn" data-wow-delay="0.1s">
+        <a href="{{ route('home') }}" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+            <img class="img-fluid me-2" src="{{ asset('asset/img/logo4.png') }}" alt="logo E_klinik" style="width: 1.8cm"><h1 class="m-0 text-primary">E-Klinik</h1>
+        </a>
+        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            {{-- <div class="navbar-nav ms-auto p-4 p-lg-0">
+                <div class="nav-item dropdown"> --}}
+                  <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link @yield('home')" aria-current="page" href="{{ route('home') }}">Home</a></li>
+                    <li class="nav-item dropdown">
+                      <a href="{{ route('home') }}" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Halaman Lain</a>
+                      <div class="dropdown-menu rounded-0 rounded-bottom m-0">
+                            <a href="{{ route('about') }}" class="dropdown-item @yield('tentang kami')">Tentang Kami</a>
+                            <a href="{{ route('service') }}" class="dropdown-item @yield('pelayanan')">Pelayanan</a>
+                            <a href="{{ route('artikel') }}" class="dropdown-item @yield('artikel')">Artikel</a>
+                            <a href="{{ route('hubungi') }}" class="dropdown-item @yield('hubungi')">Hubungi Kami</a>
+                            <a href="{{ route('team') }}" class="dropdown-item @yield('team')">Teams</a>
+                        </div>
+                    </li>
+                {{-- </div> --}}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="{{ route('home') }} " data-bs-toggle="dropdown">Chat Dokter</a>
+                        <div class="dropdown-menu rounded-0 rounded-bottom m-0">
+                            <a href="{{ route('chat') }}" class="dropdown-item @yield('chat')">Chat Baru</a>
+                            @if (Auth::check())
+                                <a href="{{ route('chat.show', ['chat'=> Auth::user()->email]) }}" class="dropdown-item @yield('chatShow')">Lihat Chat</a>                                
+                            @endif
+                        </div>
+                    </li>
+                    <li class="nav-item"><a class="nav-link @yield('cek')" aria-current="page" href="{{ route('check') }}">Periksa Penyakit</a></li>
+                  </ul>
+                {{-- <a href="/chat" class="nav-item nav-link @yield('chat')">Chat Dokter</a> --}}
+                <ul class="navbar-nav ms-auto">
+                  <!-- Authentication Links -->
+                  @guest
+                      @if (Route::has('login'))
+                          <li class="nav-item">
+                              <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                          </li>
+                      @endif
 
-</nav>
+                      @if (Route::has('register'))
+                          <li class="nav-item">
+                              <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                          </li>
+                      @endif
+                  @else
+                      <li class="nav-item dropdown">
+                          <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                              Selamat Datang, {{ Auth::user()->name }}
+                          </a>
 
+                          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                              <a class="dropdown-item" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();">
+                                  {{ __('Logout') }}
+                              </a>
+
+                              <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                  @csrf
+                              </form>
+                          </div>
+                      </li>
+                  @endguest
+              </ul>
+          </div>
+              </div>
+    </nav>
     <!-- Navbar End -->
 
 @yield('content')
@@ -128,8 +132,8 @@
                         <p class="">Copyright&copy; E-Klinik, All Right Reserved.</p>
                     </div>
                     <div class="col-md-4 text-center text-md-center mb-2 mb-md-0">
-                        <p class="btn btn-square d-inline" style="color: white"><i class="fa-regular fa-envelope"> eklinik.03@gmail.com</i></p><br>
-                        <a class="btn btn-square d-inline px-2" href="https://goo.gl/maps/y95mTE8pCT3q6iVCA"><i class="fa fa-map-location-dot"></i></a>
+                        <a class="btn btn-square d-inline" href=""><i class="fab fa-at"></i></a>
+                        <a class="btn btn-square d-inline px-2" href=""><i class="fa fa-map-location-dot"></i></a>
                         <a class="btn btn-square d-inline" href="https://instagram.com/ekli.nik?igshid=ZGUzMzM3NWJiOQ=="><i class="fab fa-instagram"></i></a>
                     </div>
                     <div class="col-md-4 text-center text-md-end">
@@ -148,7 +152,7 @@
 
 
     <!-- JavaScript Libraries -->
-    <script src="{{ asset('asset/js/bootstrap/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('asset/js/user/JqueryV4_1.min.js') }}"></script>
     <script src="{{ asset('asset/lib/wow/wow.min.js') }}"></script>
     <script src="{{ asset('asset/lib/easing/easing.min.js') }}"></script>
     <script src="{{ asset('asset/lib/waypoints/waypoints.min.js') }}"></script>
@@ -157,7 +161,6 @@
     <script src="{{ asset('asset/lib/tempusdominus/js/moment.min.js') }}"></script>
     <script src="{{ asset('asset/lib/tempusdominus/js/moment-timezone.min.js') }}"></script>
     <script src="{{ asset('asset/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js') }}"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Template Javascript -->
     <script src="{{ asset('asset/js/user/main.js') }}"></script>
