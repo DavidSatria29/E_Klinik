@@ -54,7 +54,7 @@
               <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
                   <div class="team-item position-relative rounded overflow-hidden">
                       <div class="overflow-hidden">
-                          <img class="img-fluid" src="{{ asset('asset/img/Bima.jpg') }}" alt="">
+                          <img class="img-fluid" src="{{ asset('asset/img/bima.png') }}" alt="">
                       </div>
                       <div class="team-text bg-light text-center p-4">
                           <h5>Bima Ahmadani D H</h5>

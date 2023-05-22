@@ -120,7 +120,8 @@
         <div>
             <p>
                 Untuk mendapatkan CF Pakar,  kami melakukan penelitian pada jurnal-jurnal yang relevan dengan penyakit yang tercantum di bagian pelayanan pada halaman utama. CF User didapatkan dari inputan user yang 
-                berada di bagian Cek Penyakit. Setelah itu kami menghitung algoritma <i>Certainty Factor</i> yang diperoleh dengan menggunakan rumus yang tertera diatas.
+                berada di bagian Periksa Penyakit. Setelah itu kami menghitung algoritma <i>Certainty Factor</i> yang diperoleh dengan menggunakan rumus yang tertera diatas. Hasil dari perhitungan tersebut akan ditampilkan pada halaman periksa penyakit setelah user 
+                memilih gejala dan memberikan tingkat keyakinan. Hasil yang didapatkan berupa nilai <i>Certainty Factor</i>, saran pencegahan, dan juga saran obat.
             </p>
         </div>
     </div>

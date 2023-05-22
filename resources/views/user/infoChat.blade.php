@@ -2,14 +2,14 @@
 @section('title', 'Info Artikel')
 @section('chatShow', 'active')
 <style>
-.footer{
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+  .container-deskripsi{
+    margin-top: 1cm;
+    padding: 0;
+    min-height: 100vh;
   }
 </style>
 @section('content')
-<div class="container mt-3">
+<div class="container container-deskripsi mt-3">
     <div class="card">
         <div class="card-header text-center">
             Chat Dokter

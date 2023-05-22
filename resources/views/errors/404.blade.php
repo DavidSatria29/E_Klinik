@@ -1,4 +1,4 @@
-@extends('layouts.navbarbaru')
+@extends('layouts.master')
 <style>
     .container-xxl{
     margin-top: 3cm;
