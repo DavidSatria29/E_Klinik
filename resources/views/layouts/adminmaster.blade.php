@@ -132,7 +132,7 @@
                       @endif
                   @else
                     <a href="" class="nav-link text-body font-weight-bold px-0">
-                      <i class="fa fa-user me-sm-1"></i>
+                      <i class="fa fa-user me-sm-1" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"></i>
                       <span class="d-sm-inline d-none">Selamat Datang, {{ Auth::user()->name }}</span>
                     </a>
                     <a href="{{ route('logout') }}" class="nav-link text-danger font-weight-bold px-0 ms-2"
@@ -144,7 +144,6 @@
                       @csrf
                     </form>
                   @endguest
-              </div>
             </li>
         <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
           <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
