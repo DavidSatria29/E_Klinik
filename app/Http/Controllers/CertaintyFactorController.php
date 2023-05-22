@@ -367,6 +367,72 @@ class CertaintyFactorController extends Controller
                 return $value;
             }
         }
+        function tuberkolosis($cf_values, $gejala)
+        {
+            // Inisiasi variabel dalam bentuk null
+            $hasil = null;
+
+            // Menghitung jumlah elemen pada array $cf_values
+            $count = count($cf_values);
+
+            // Deklarasikan array kosong untuk perhitungan
+            $calculate = [];
+
+            // Jika jumlah elemen pada array $cf_value lebih dari 0, maka hitung nilai CF
+            if ($count > 0) {
+
+                // Hitung nilai CF untuk gejala pertama
+                $calculate[0] = $cf_values[0] * $gejala[0];
+
+                // Loooping sebanyak (jumlah elemen - 1), dan kalkulasikan nilai CF secara berurutan dan simpan dalam array $calculate
+                for ($i = 1; $i < $count; ++$i) {
+                    $result = $cf_values[$i] * $gejala[$i];
+                    $calculate[$i] = $calculate[$i - 1] + $result * (1 - $calculate[$i - 1]);
+                }
+
+                // Jika jumlah elemen pada array $cf_values sesuai, ambil dan simpan nilai tersebut dalam variabel hasil
+                $hasil = ($count == 1) ? $calculate[0] : (($count == 2) ? $calculate[1] : end($calculate));
+            }
+
+            //Jika nilai $hasil tidak sama dengan NULL dan $hasil lebih besar atau sama dengan 0.30, maka format angka dan persentase dan kembalikan nilai tersebut
+            if ($hasil !== null && $hasil >= 0.30) {
+                $value = number_format($hasil * 100, 2) . "%";
+                return $value;
+            }
+        }
+        function fluBurung($cf_values, $gejala)
+        {
+            // Inisiasi variabel dalam bentuk null
+            $hasil = null;
+
+            // Menghitung jumlah elemen pada array $cf_values
+            $count = count($cf_values);
+
+            // Deklarasikan array kosong untuk perhitungan
+            $calculate = [];
+
+            // Jika jumlah elemen pada array $cf_value lebih dari 0, maka hitung nilai CF
+            if ($count > 0) {
+
+                // Hitung nilai CF untuk gejala pertama
+                $calculate[0] = $cf_values[0] * $gejala[0];
+
+                // Loooping sebanyak (jumlah elemen - 1), dan kalkulasikan nilai CF secara berurutan dan simpan dalam array $calculate
+                for ($i = 1; $i < $count; ++$i) {
+                    $result = $cf_values[$i] * $gejala[$i];
+                    $calculate[$i] = $calculate[$i - 1] + $result * (1 - $calculate[$i - 1]);
+                }
+
+                // Jika jumlah elemen pada array $cf_values sesuai, ambil dan simpan nilai tersebut dalam variabel hasil
+                $hasil = ($count == 1) ? $calculate[0] : (($count == 2) ? $calculate[1] : end($calculate));
+            }
+
+            //Jika nilai $hasil tidak sama dengan NULL dan $hasil lebih besar atau sama dengan 0.30, maka format angka dan persentase dan kembalikan nilai tersebut
+            if ($hasil !== null && $hasil >= 0.30) {
+                $value = number_format($hasil * 100, 2) . "%";
+                return $value;
+            }
+        }
 
         $test = $request->except('_token');
         $count = count($test);
@@ -381,7 +447,7 @@ class CertaintyFactorController extends Controller
             $kode_gejala = array_keys($test);
 
             // Mendeklarasikan array yang menyimpan tabel nama penyakit
-            $tableNames = ['demam_berdarah', 'malaria', 'tipes', 'gastritis', 'diare', 'kolesterol', 'asam_urat', 'campak_rubella', 'pneumonia', 'bronchitis'];
+            $tableNames = ['demam_berdarah', 'malaria', 'tipes', 'gastritis', 'diare', 'kolesterol', 'asam_urat', 'campak_rubella', 'pneumonia', 'bronchitis', 'tuberkolosis', 'flu_burung'];
             $cfValues = [];
 
             // Iterasi ke semua tabel penyakit untuk mengambil nilai CF_pakar dari masing-masing penyakit berdasarkan kunci kode gejala
@@ -403,7 +469,9 @@ class CertaintyFactorController extends Controller
                 "asamUrat" => malaria($cfValues['asam_urat'], $gejala),
                 "campakRubella" => tipes($cfValues['campak_rubella'], $gejala),
                 "pneumonia" => gastritis($cfValues['pneumonia'], $gejala),
-                "bronkitis" => diare($cfValues['bronchitis'], $gejala)
+                "bronkitis" => diare($cfValues['bronchitis'], $gejala),
+                "tuberkolosis" => diare($cfValues['tuberkolosis'], $gejala),
+                "fluBurung" => diare($cfValues['flu_burung'], $gejala)
             ]);
 
             // Filter hasil diagnose sehingga menghasilkan nilai yang tidak null
@@ -425,7 +493,9 @@ class CertaintyFactorController extends Controller
                 'asamUrat' => 'P007',
                 'campakRubella' => 'P008',
                 'pneumonia' => 'P009',
-                'bronkitis' => 'P010'
+                'bronkitis' => 'P010',
+                'tuberkolosis' => 'P011',
+                'fluBurung' => 'P012'
             ];
 
             // Mencocokkan kode-kode penyakit yang didapatkan dari $keys dengan daftar penyakit untuk memperoleh nama penyakit

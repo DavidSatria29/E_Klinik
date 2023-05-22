@@ -114,7 +114,7 @@
                   <div class="col-lg-6 feature-text py-5 wow fadeIn" data-wow-delay="0.1s">
                       <div class="p-lg-5 ps-lg-0">
                           <p class="d-inline-block border rounded-pill text-light py-1 px-4">Fitur</p>
-                          <h1 class="text-white mb-4">Mengapa memilihn kami?</h1>
+                          <h1 class="text-white mb-4">Mengapa memilih kami?</h1>
                           <p class="text-white mb-4 pb-2">Website E-klinik sangat mudah digunakan dan dilengkapi dengan berbagai fitur, sehingga pengguna akan mendapatkan pelayanan kesehatan
                               yang mudah dan cepat serta praktis hanya melalui genggaman tangan mereka. Fitur tersebut diantaranya :</p>
                           <div class="row g-4">

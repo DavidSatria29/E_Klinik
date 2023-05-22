@@ -137,8 +137,8 @@
                         <p class="">Copyright&copy; E-Klinik, All Right Reserved.</p>
                     </div>
                     <div class="col-md-4 text-center text-md-center mb-2 mb-md-0">
-                        <a class="btn btn-square d-inline" href=""><i class="fab fa-at"></i></a>
-                        <a class="btn btn-square d-inline px-2" href=""><i class="fa fa-map-location-dot"></i></a>
+                        <p class="btn btn-square d-inline" style="color: white"><i class="fa-regular fa-envelope"> eklinik.03@gmail.com</i></p><br>
+                        <a class="btn btn-square d-inline px-2" href="https://goo.gl/maps/y95mTE8pCT3q6iVCA"><i class="fa fa-map-location-dot"></i></a>
                         <a class="btn btn-square d-inline" href="https://instagram.com/ekli.nik?igshid=ZGUzMzM3NWJiOQ=="><i class="fab fa-instagram"></i></a>
                     </div>
                     <div class="col-md-4 text-center text-md-end">
@@ -168,7 +168,6 @@
     <script src="{{ asset('asset/lib/tempusdominus/js/moment.min.js') }}"></script>
     <script src="{{ asset('asset/lib/tempusdominus/js/moment-timezone.min.js') }}"></script>
     <script src="{{ asset('asset/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js') }}"></script>
-
 
     <!-- Template Javascript -->
     <script src="{{ asset('asset/js/user/main.js') }}"></script>

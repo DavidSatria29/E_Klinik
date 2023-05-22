@@ -1,11 +1,4 @@
 @extends('layouts.master')
-<style>
-  .footer{
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-  }
-</style>
 @section('content')
 <div class="container container-user mt-3">
     <div class="card">
