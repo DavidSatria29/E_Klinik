@@ -153,6 +153,8 @@
 
     <!-- JavaScript Libraries -->
     <script src="{{ asset('asset/js/user/JqueryV4_1.min.js') }}"></script>
+    <script src="{{ asset('asset/js/bootstrap/bootstrap.V5_0.min.js') }}"></script>
+    <script src="{{ asset('asset/js/bootstrap/bootstrap.min.js') }}"></script>
     <script src="{{ asset('asset/lib/wow/wow.min.js') }}"></script>
     <script src="{{ asset('asset/lib/easing/easing.min.js') }}"></script>
     <script src="{{ asset('asset/lib/waypoints/waypoints.min.js') }}"></script>
