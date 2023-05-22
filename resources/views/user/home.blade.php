@@ -11,19 +11,25 @@
                 <h1 class="display-4 text-white mb-5">Welcome to E-Klinik</h1>
                 <h4 class="display-8 text-white mb-5">Website Pelayanan Kesehatan yang terkini dengan berbagai fitur menarik dan tenaga kesehatan yang terpercaya</h4>
                     <div class="row g-4">
-                    <div class="col-sm-4">
+                    <div class="col-sm-3">
                         <div class="border-start border-light ps-4">
                             <h2 class="text-white mb-1" data-toggle="counter-up">{{ $penyakit }}</h2>
-                            <p class="text-light mb-0">penyakit diprediksi</p>
+                            <p class="text-light mb-0">Total penyakit</p>
                         </div>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-3">
+                        <div class="border-start border-light ps-4">
+                            <h2 class="text-white mb-1" data-toggle="counter-up">{{ $gejala }}</h2>
+                            <p class="text-light mb-0">Total gejala</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
                         <div class="border-start border-light ps-4">
                             <h2 class="text-white mb-1" data-toggle="counter-up">{{ $dokter }}</h2>
                             <p class="text-light mb-0">Total dokter</p>
                         </div>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-3">
                         <div class="border-start border-light ps-4">
                             <h2 class="text-white mb-1" data-toggle="counter-up">{{ $user }}</h2>
                             <p class="text-light mb-0">Total pengguna</p>
@@ -183,7 +189,7 @@
                 <h1>Daftar Penyakit Yang Diperiksa</h1>
             </div>
             <div class="row g-4">
-                @foreach ($deskripsiPenyakit as $deskripsi)
+                @forelse ($deskripsiPenyakit as $deskripsi)
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="service-item bg-light rounded h-100 p-5">
                         <div class="d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4" style="width: 65px; height: 65px;">
@@ -193,7 +199,13 @@
                         <a class="btn" href="{{ route('penyakit.show', ['deskripsi'=>$deskripsi->id]) }}"><i class="fa fa-plus text-primary me-3"></i>Read More</a>
                     </div>
                 </div>
-                @endforeach
+                @empty
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="service-item bg-light rounded h-100 p-5">
+                        <div class="text-center"><p>Tidak ada Data</p></div>
+                    </div>
+                </div>
+                @endforelse
             </div>
         </div>
     </div>
@@ -290,7 +302,7 @@
                     <img class="img-fluid bg-lighte p-2 mx-auto mb-4" src="{{ asset('asset/img/artikel/'.$value->image_path) }}" style="width: 200px; height: 200px;">
                     <div class="testimonial-text rounded text-center p-4">
                         <h5 class="mb-1">{{ $value->title }}</h5>
-                        <a href="{{ route('article.show', ['article'=>$value->id]) }}" class="btn btn-success btn-sm">Read More</a>
+                        <a href="{{ route('article.show', ['article'=>$value->id]) }}" class="btn btn-success btn-sm mt-1">Read More</a>
                     </div>
                     </div>
                 @empty

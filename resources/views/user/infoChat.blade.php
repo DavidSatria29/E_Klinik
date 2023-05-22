@@ -5,7 +5,7 @@
   .container-deskripsi{
     margin-top: 1cm;
     padding: 0;
-    min-height: 100vh;
+    min-height: 70vh;
   }
 </style>
 @section('content')

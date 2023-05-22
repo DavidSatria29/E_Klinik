@@ -8,6 +8,7 @@ use App\Models\Article;
 use App\Models\Contact;
 use App\Models\Deskrisi_Penyakit;
 use App\Models\User;
+use App\Models\Gejala_Penyakit;
 
 // semua yang ada disini untuk tampilan user yang berada di dalam halaman hoem
 
@@ -78,9 +79,10 @@ class HomeController extends Controller
         $countPenyakit = Deskrisi_Penyakit::count();
         $countUser = User::where('role', 'user')->count();
         $countDokter = User::where('role', 'doctor')->count();
+        $countGejala = Gejala_Penyakit::count();
 
         // Mengembalikan view home.blade.php dengan membawa variabel $article dan $deskripsiPenyakit
-        return view('user.home', ['article' => $article, 'deskripsiPenyakit' => $deskripsiPenyakit, 'penyakit' => $countPenyakit, 'user' => $countUser, 'dokter' => $countDokter]);
+        return view('user.home', ['article' => $article, 'deskripsiPenyakit' => $deskripsiPenyakit, 'penyakit' => $countPenyakit, 'user' => $countUser, 'dokter' => $countDokter, 'gejala' => $countGejala]);
     }
 
     // View untuk About Us

@@ -5,11 +5,9 @@
     <meta charset="utf-8">
     <title>@yield ('title')</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
 
     <!-- icon -->
-    <link href="{{ asset('asset/img/logo6.png') }}" rel="icon">
+    <link href="{{ asset('asset/img/logo4.png') }}" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -124,21 +122,22 @@
 @yield('content')
 
     <!-- Footer Start -->
-    <div class="container-fluid bg-primary text-light footer mt-5 pt-5 wow fadeIn footerr" data-wow-delay="0.1s">
+    <div class="container-fluid bg-primary text-light footer mt-5 pt-2 wow fadeIn footerr" data-wow-delay="0.1s">
         <div class="container d-flex flex-column">
             <div class="copyright">
                 <div class="row">
                     <div class="col-md-4 text-center text-md-start mb-2 mb-md-0">
-                        <p class="">Copyright&copy; E-Klinik, All Right Reserved.</p>
+                        <p class="">Copyright&copy; E-Klinik, All Right Reserved.</p><br>
+                        Template By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
                     </div>
                     <div class="col-md-4 text-center text-md-center mb-2 mb-md-0">
-                        <p class="btn btn-square d-inline" style="color: white"><i class="fa-regular fa-envelope"> eklinik.03@gmail.com</i></p><br>
-                        <a class="btn btn-square d-inline px-2" href="https://goo.gl/maps/y95mTE8pCT3q6iVCA"><i class="fa fa-map-location-dot"></i></a>
-                        <a class="btn btn-square d-inline" href="https://instagram.com/ekli.nik?igshid=ZGUzMzM3NWJiOQ=="><i class="fab fa-instagram"></i></a>
+                        <p class="btn btn-square d-inline" style="color: white"><i class="fa-regular fa-envelope"> eklinik.03@gmail.com</i></p><br> <br>
+                        <a class="btn btn-square d-inline px-2" href="https://goo.gl/maps/y95mTE8pCT3q6iVCA"><i class="fa fa-map-location-dot" title="Lokasi"></i></a>
+                        <a class="btn btn-square d-inline" href="https://instagram.com/ekli.nik?igshid=ZGUzMzM3NWJiOQ=="><i class="fab fa-instagram" title="instagram"></i></a>
                     </div>
                     <div class="col-md-4 text-center text-md-end">
                         <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                        <p class="">Designed By E-Klinik Team</p>
+                        <p class="">Designed By E-Klinik Team</p><br>
                         <p class="">{{ date("l, d M Y") }}</p>
                     </div>
                 </div>
