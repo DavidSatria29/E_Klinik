@@ -41,7 +41,7 @@ class ChatController extends Controller
     public function showChat($chat)
     {
         // Mencari artikel dengan id yang sesuai pada database melalui model Article
-        $value = Chat::where('email', $chat)->first();
+        $value = Chat::where('email', $chat)->get();
 
         // Mengembalikan view infoArtikel.blade.php dengan membawa variabel $value
         return view('user.infoChat', ['chat' => $value]);
