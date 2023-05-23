@@ -1,4 +1,11 @@
 @extends('layouts.master')
+<style>
+  .container-user{
+    margin-top: 1cm;
+    padding: 0;
+    min-height: 70vh;
+  }
+</style>
 @section('content')
 <div class="container container-user mt-3">
     <div class="card">

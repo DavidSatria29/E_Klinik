@@ -14,25 +14,25 @@
                     <div class="col-sm-3">
                         <div class="border-start border-light ps-4">
                             <h2 class="text-white mb-1" data-toggle="counter-up">{{ $penyakit }}</h2>
-                            <p class="text-light mb-0">Total penyakit</p>
+                            <p class="text-light mb-0">Penyakit</p>
                         </div>
                     </div>
                     <div class="col-sm-3">
                         <div class="border-start border-light ps-4">
                             <h2 class="text-white mb-1" data-toggle="counter-up">{{ $gejala }}</h2>
-                            <p class="text-light mb-0">Total gejala</p>
+                            <p class="text-light mb-0">Gejala</p>
                         </div>
                     </div>
                     <div class="col-sm-3">
                         <div class="border-start border-light ps-4">
                             <h2 class="text-white mb-1" data-toggle="counter-up">{{ $dokter }}</h2>
-                            <p class="text-light mb-0">Total dokter</p>
+                            <p class="text-light mb-0">Dokter</p>
                         </div>
                     </div>
                     <div class="col-sm-3">
                         <div class="border-start border-light ps-4">
                             <h2 class="text-white mb-1" data-toggle="counter-up">{{ $user }}</h2>
-                            <p class="text-light mb-0">Total pengguna</p>
+                            <p class="text-light mb-0">Pengguna</p>
                         </div>
                     </div>
                 </div>
