@@ -11,43 +11,46 @@
       {{ session()->get('pesan') }}
     </div>
   @endif
-  <div class="container container-dokter mt-5">
-    <div class="card">
-      <div class="card-header">
-        Chat Dokter
+<div class="container container-dokter mt-5">
+  <div class="card">
+    <div class="card-header">
+      Chat Dokter
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table id="example" class="table-responsive table-striped" style="width:100%">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>pertanyaan</th>
+              <th>Jawaban</th>
+              <th>Nama Dokter</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+          <tbody>
+            @forelse ($chats as $chat)
+            <tr>
+              <td>{{$chat->name}}</td>
+              <td style="word-break: break-word; ">{{$chat->question}}</td>
+              <td style="word-break: break-word; ">{{$chat->answer}}</td>
+              <td>{{$chat->name_doctor}}</td>
+              <td>
+                <div class="justify-content-between">
+                  <a href="{{ route('edit_create.chateditdoctor',['chat' => $chat->name]) }}" class="btn btn-warning">Update</a>
+                </div>
+              </td>
+            </tr>
+            @empty
+            <td colspan="6" class="text-center">Tidak ada data...</td>
+            @endforelse
+          </tbody>
+        </table>
       </div>
-      <div class="card-body">
-          <table id="example" class="table-responsive table-striped" style="width:100%">
-              <thead>
-                  <tr>
-                      <th>Name</th>
-                      <th>pertanyaan</th>
-                      <th>Jawaban</th>
-                      <th>Nama Dokter</th>
-                      <th>Aksi</th>
-                  </tr>
-              </thead>
-              <tbody>
-                @forelse ($chats as $chat)
-                  <tr>
-                      <td>{{$chat->name}}</td>
-                      <td>{{$chat->question}}</td>
-                      <td>{{$chat->answer}}</td>
-                      <td>{{$chat->name_doctor}}</td>
-                      <td>
-                        <div class="justify-content-between">
-                        <a href="{{ route('edit_create.chateditdoctor',['chat' => $chat->name]) }}" class="btn btn-warning">Update</a>
-                      </div>
-                    </td>
-                  </tr>
-                  @empty
-          <td colspan="6" class="text-center">Tidak ada data...</td>
-        @endforelse
-              </tbody>
-          </table>
-      </div>
+    </div>
   </div>
 </div>
+
 </div>
 <div class="container">
   <div class="row">

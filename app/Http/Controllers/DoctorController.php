@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Chat;
-use App\Models\Deskrisi_penyakit;
+use App\Models\Deskrisi_Penyakit;
 
 // khusus untuk dokter
 
@@ -76,26 +76,23 @@ class DoctorController extends Controller
         ]);
 
         // Redirect kembali ke view 'doctor' dengan pesan sukses
-        return redirect()->route('doctor')->with('success', "Data $chat berhasil di ubah");
+        return redirect()->route('doctor')->with('success', "Data $chat->name berhasil di ubah");
     }
 
+    // Penyakit
+    // Method ini mengembalikan view penambahan penyakit baru
+    public function createpenyakitdokter()
+    {
+        return view('edit_create.penyakitdokter.penyakitcreate');
+    }
 
-
-
-        // Penyakit
-            // Method ini mengembalikan view penambahan penyakit baru
-        public function createpenyakitdokter()
-        {
-            return view('edit_create.penyakitdokter.penyakitcreate');
-        }
-
-        public function storepenyakitdokter(Request $request)
-        {
-            $validateData = $request->validate([
-                'nama_penyakit' => 'required',
-                'icon' => 'required',
-                'deskripsi' => 'required',
-                'jurnal_referensi' => 'required',
+    public function storepenyakitdokter(Request $request)
+    {
+        $validateData = $request->validate([
+            'nama_penyakit' => 'required',
+            'icon' => 'required',
+            'deskripsi' => 'required',
+            'jurnal_referensi' => 'required',
 
         ]);
         Deskrisi_Penyakit::create($validateData);
@@ -103,11 +100,11 @@ class DoctorController extends Controller
     }
 
     // Method ini melakukan validasi input dan membuat penyakit baru berdasarkan data yang divalidasi
-        public function editpenyakit($penyakit)
-        {
-            $penyakit = Deskrisi_Penyakit::where('nama_penyakit', $penyakit)->first();
-            return view('edit_create.penyakitdokter.penyakitedit', compact('penyakit'));
-        }
+    public function editpenyakit($penyakit)
+    {
+        $penyakit = Deskrisi_Penyakit::where('nama_penyakit', $penyakit)->first();
+        return view('edit_create.penyakitdokter.penyakitedit', compact('penyakit'));
+    }
 
     // Method ini melakukan validasi input, mengambil data penyakit berdasarkan nama penyakit, dan mengupdate data tersebut dengan data yang telah divalidasi
     public function updatepenyakit(Request $request, $penyakits)
@@ -138,19 +135,18 @@ class DoctorController extends Controller
         return redirect()->route('doctor')->with('success', "{$penyakits->nama_penyakit} berhasil di ubah");
     }
 
-        
-        // Method ini mengambil data penyakit berdasarkan nama penyakit dan merender view untuk konfirmasi penghapusan data tersebut
-        public function deletepenyakit($penyakit)
-        {
-            $penyakit = Deskrisi_Penyakit::where('nama_penyakit', $penyakit)->first();
-            return view('edit_create.penyakitdokter.penyakitdelete', compact('penyakit'));
-        }
-        
-        // Method ini menghapus data penyakit yang telah ditentukan dan mengarahkan user kembali ke view 'doctor' dengan pesan sukses
-        public function destroypenyakit(Deskrisi_Penyakit $penyakit)
-        {
-            $penyakit->delete();
-            return redirect()->route('doctor')->with('success', "Data {$penyakit->nama_penyakit} berhasil di hapus");
-        }
 
+    // Method ini mengambil data penyakit berdasarkan nama penyakit dan merender view untuk konfirmasi penghapusan data tersebut
+    public function deletepenyakit($penyakit)
+    {
+        $penyakit = Deskrisi_Penyakit::where('nama_penyakit', $penyakit)->first();
+        return view('edit_create.penyakitdokter.penyakitdelete', compact('penyakit'));
+    }
+
+    // Method ini menghapus data penyakit yang telah ditentukan dan mengarahkan user kembali ke view 'doctor' dengan pesan sukses
+    public function destroypenyakit(Deskrisi_Penyakit $penyakit)
+    {
+        $penyakit->delete();
+        return redirect()->route('doctor')->with('success', "Data {$penyakit->nama_penyakit} berhasil di hapus");
+    }
 }

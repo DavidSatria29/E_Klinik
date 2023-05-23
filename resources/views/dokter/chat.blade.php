@@ -41,8 +41,8 @@
                 @forelse ($chats as $chat)
                   <tr>
                       <td>{{$chat->name}}</td>
-                      <td>{{$chat->question}}</td>
-                      <td>{{$chat->answer}}</td>
+                      <td style="word-break: break-word; ">{{$chat->question}}</td>
+                      <td style="word-break: break-word; ">{{$chat->answer}}</td>
                       <td>{{$chat->name_doctor}}</td>
                       <td>
                         <div class="justify-content-between">

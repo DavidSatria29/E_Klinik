@@ -127,7 +127,7 @@ class AdminController extends Controller
             'answer' => $validatedData['answer'],
             'name_doctor' => $validatedData['name_doctor'],
         ]);
-        return redirect()->route('admin')->with('success', "Chat $chat berhasil di ubah");
+        return redirect()->route('admin')->with('success', "Data $chat->name berhasil di ubah");
     }
 
     //mengahpus chat
@@ -139,7 +139,7 @@ class AdminController extends Controller
     public function destroychat(chat $chat)
     {
         $chat->delete();
-        return redirect()->route('admin')->with('success', "Data {$chat->name} berhasil di hapus");
+        return redirect()->route('admin')->with('success', "Data chat {$chat->name} berhasil di hapus");
     }
     // ARTICLE
 
